@@ -1,0 +1,31 @@
+= SHIP messages
+
+SHIP defines a small number of JSON-based messages to be used for hospitality interchange. The available message types are described in the following sections.
+
+NOTE: The *Usage* column of the object descriptions below contain one of these values: `REQUIRED`, `RECOMMENDED`,`SUGGESTED`, `OPTIONAL`, `INTERNAL`, or `DEPRECATED`. The meaning of these values are given in the following table.
+
+.*Usage* column definitions
+[cols="1,3"]
+|===
+|Value |Description
+
+|`REQUIRED`
+|The message is considered invalid if field is omitted
+
+|`RECOMMENDED`
+|Significant functionality may be unavailable if field is omitted
+
+|`SUGGESTED`
+|Additional functionality may be available if field is included
+
+|`OPTIONAL`
+|Field is accepted but have minimal to no impact on functionality
+
+|`INTERNAL`
+|Field should only be used by specific systems for which the field has meaning
+
+|`DEPRECATED`
+|Field should not be used
+|===
+
+NOTE: The *Types* of some of the fields below are listed as `string enum`. This indicates that these fields are strings whose value can only be one of the values listed after the colon. Supplying a value not in the list will produce an invalid message.

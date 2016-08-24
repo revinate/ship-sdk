@@ -1,0 +1,19 @@
+[
+  {
+    "accountName": "AVERTINE",
+    "confirmationNumber": "10002",
+    "checkInDate": "2015-06-28",
+    "checkOutDate": "2015-07-01",
+    "roomType": "SK",
+    "channel": "SALE",
+    "rate": 144.0,
+    "firstName": "Eve",
+    "lastName": "Jones",
+    "email": "eve@mailinator.com",
+    "addressLine1": "1234 Jones St",
+    "city": "San Francisco",
+    "state": "CA",
+    "country": "US",
+    "postalCode": "94108"
+  }
+]

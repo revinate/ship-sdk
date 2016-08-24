@@ -1,0 +1,120 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "simpleGuestStay",
+  "description": "A simpleGuestStay object is a simplified version of the guestStay object. It contains information about the location, duration and other details of the stay, as well as information about the primary guest. It is intended to be used by applications that do not require the full set of fields in the guestStay object.",
+  "type": "object",
+  "required": [
+    "accountName",
+    "confirmationNumber",
+    "checkInDate",
+    "checkOutDate",
+    "firstName",
+    "lastName",
+    "email"
+  ],
+  "properties": {
+    "accountName": {
+      "description": "Property code that the stay belongs to",
+      "type": "string"
+    },
+    "interfaceType": {
+      "type": "string"
+    },
+    "confirmationNumber": {
+      "description": "Confirmation code of the reservation associated with the stay",
+      "type": "string"
+    },
+    "checkInDate": {
+      "description": "Check-in date of the reservation associated with the stay",
+      "type": "string",
+      "format": "date"
+    },
+    "checkedInBy": {
+      "description": "Name, username, or initials of the user who checked the guest in",
+      "type": "string"
+    },
+    "checkOutDate": {
+      "description": "Check-out date of the reservation associated with the stay",
+      "type": "string",
+      "format": "date"
+    },
+    "checkedOutBy": {
+      "description": "Name, username, or initials of the user who checked the guest out",
+      "type": "string"
+    },
+    "roomNumber": {
+      "description": "Room number or room identifier of the stay",
+      "type": "string"
+    },
+    "roomType": {
+      "description": "Room type of the stay, preferably in code/short form",
+      "type": "string"
+    },
+    "channel": {
+      "description": "Channel or source of the reservation associated with the stay",
+      "type": "string"
+    },
+    "ratePlanCode": {
+      "description": "Rate plan name or rate code of the stay",
+      "type": "string"
+    },
+    "rate": {
+      "description": "Nightly rate of the stay",
+      "type": "number"
+    },
+    "title": {
+      "description": "Title of the guest",
+      "type": "string"
+    },
+    "firstName": {
+      "description": "First name of the guest",
+      "type": "string"
+    },
+    "lastName": {
+      "description": "Last name of the guest",
+      "type": "string"
+    },
+    "email": {
+      "description": "Primary email address of the guest",
+      "type": "string",
+      "format": "email"
+    },
+    "phone": {
+      "description": "Primary phone number of the guest",
+      "type": "string"
+    },
+    "addressLine1": {
+      "description": "Primary address of the guest: line 1",
+      "type": "string"
+    },
+    "addressLine2": {
+      "description": "Primary address of the guest: line 2",
+      "type": "string"
+    },
+    "city": {
+      "description": "Primary address of the guest: city",
+      "type": "string"
+    },
+    "state": {
+      "description": "Primary address of the guest: state or province, preferably short code",
+      "type": "string"
+    },
+    "country": {
+      "description": "Primary address of the guest: country, preferably ISO3166 2-character code",
+      "type": "string"
+    },
+    "postalCode": {
+      "description": "Primary address of the guest: zip or postal code",
+      "type": "string"
+    },
+    "loyaltyNumber": {
+      "description": "Loyalty program number of the guest",
+      "type": "string"
+    },
+    "groupName": {
+      "description": "Name on primary group profile associated with the stay",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

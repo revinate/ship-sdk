@@ -1,0 +1,162 @@
+= Simple guest-stay message
+
+A simple guest-stay message contains a single <<simpleGuestStay object>>.
+
+== simpleGuestStay object
+
+A simpleGuestStay object is a simplified version of the guestStay object. It contains information about the location, duration and other details of the stay, as well as information about the primary guest. It is intended to be used by applications that do not require the full set of fields in the guestStay object.
+
+.Fields of the `simpleGuestStay` object
+|===
+|Name |Type |Usage |Description |Example
+
+|accountName
+|string
+|`REQUIRED`
+|Property code that the stay belongs to
+|`"AVERTINE"`
+
+|interfaceType
+|string
+|`INTERNAL`
+|
+|
+
+|confirmationNumber
+|string
+|`REQUIRED`
+|Confirmation code of the reservation associated with the stay
+|`"30001"`
+
+|checkInDate
+|ISO8601 date string
+|`REQUIRED`
+|Check-in date of the reservation associated with the stay
+|`"2015-12-25"`
+
+|checkedInBy
+|string
+|`OPTIONAL`
+|Name, username, or initials of the user who checked the guest in
+|`"AB"`
+
+|checkOutDate
+|ISO8601 date string
+|`REQUIRED`
+|Check-out date of the reservation associated with the stay
+|`"2015-12-31"`
+
+|checkedOutBy
+|string
+|`OPTIONAL`
+|Name, username, or initials of the user who checked the guest out
+|`"CD"`
+
+|roomNumber
+|string
+|`RECOMMENDED`
+|Room number or room identifier of the stay
+|`"F102"`
+
+|roomType
+|string
+|`SUGGESTED`
+|Room type of the stay, preferably in code/short form
+|`"KINGSTE"`
+
+|channel
+|string
+|`SUGGESTED`
+|Channel or source of the reservation associated with the stay
+|`"WALK_IN"`
+
+|ratePlanCode
+|string
+|`RECOMMENDED`
+|Rate plan name or rate code of the stay
+|`"BAR"`
+
+|rate
+|decimal number
+|`RECOMMENDED`
+|Nightly rate of the stay
+|`109.23`
+
+|title
+|string
+|`SUGGESTED`
+|Title of the guest
+|`"Ms"`
+
+|firstName
+|string
+|`REQUIRED`
+|First name of the guest
+|`"Alice"`
+
+|lastName
+|string
+|`REQUIRED`
+|Last name of the guest
+|`"Smith"`
+
+|email
+|string
+|`REQUIRED`
+|Primary email address of the guest
+|`"alice@mailinator.com"`
+
+|phone
+|string
+|`RECOMMENDED`
+|Primary phone number of the guest
+|`"555-1234"`
+
+|addressLine1
+|string
+|`RECOMMENDED`
+|Primary address of the guest: line 1
+|`1234 Jones St`
+
+|addressLine2
+|string
+|`RECOMMENDED`
+|Primary address of the guest: line 2
+|`"Apt 3C"`
+
+|city
+|string
+|`RECOMMENDED`
+|Primary address of the guest: city
+|`"San Francisco"`
+
+|state
+|string
+|`RECOMMENDED`
+|Primary address of the guest: state or province, preferably short code
+|`"CA"`
+
+|country
+|string
+|`RECOMMENDED`
+|Primary address of the guest: country, preferably ISO3166 2-character code
+|`"US"`
+
+|postalCode
+|string
+|`RECOMMENDED`
+|Primary address of the guest: zip or postal code
+|`"94108"`
+
+|loyaltyNumber
+|string
+|`SUGGESTED`
+|Loyalty program number of the guest
+|`"12345"`
+
+|groupName
+|string
+|`OPTIONAL`
+|Name on primary group profile associated with the stay
+|`"Winter Ski"`
+|===

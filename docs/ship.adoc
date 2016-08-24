@@ -1,0 +1,55 @@
+= Simple Hospitality Interchange Protocol
+v1.0, 2016-08-22
+:source-highlighter: coderay
+:sectnums:
+:toc: left
+:toclevels: 5
+:icons: font
+:title-logo-image: image:_pdf/img/revinate-logo.jpg[pdfwidth=4.25in,align=center]
+:pdf-stylesdir: docs/_pdf/themes
+:pdf-fontsdir: docs/_pdf/fonts
+:pdf-style: default
+
+[abstract]
+The Simple Hospitality Interchange Protocol, or SHIP, is a JSON-based message format, combined with a simple HTTP-based API, that aims to make it easy for hospitality-related systems and applications to exchange messages. This document contains specifications of the JSON messages, as well as a number of sample messages. For details on the HTTP-based API, please contact your SHIP integration partner.
+
+:leveloffset: 1
+include::ship-messages.adoc[]
+
+:leveloffset: 2
+include::simple-guest-stay.adoc[]
+
+include::simple-guest-stay-list.adoc[]
+
+:leveloffset: 0
+== Sample messages
+
+=== Simple guest-stay message with commonly used fields
+
+.Simple guest-stay message with commonly used fields
+[source,json]
+----
+include::../samples/simple-guest-stays/simple-guest-stay-typical.json[]
+----
+
+=== Simple guest-stay message with all possible fields
+
+.Simple guest-stay message with all possible fields
+[source,json]
+----
+include::../samples/simple-guest-stays/simple-guest-stay-full.json[]
+----
+
+=== Simple guest-stay list message with multiple simple guest-stays
+
+.Simple guest-stay list message with multiple simple guest-stays
+[source,json]
+----
+include::../samples/simple-guest-stay-lists/simple-guest-stay-list-multiple.json[]
+----
+
+[appendix]
+:leveloffset: 1
+include::changelog.adoc[]
+
+:leveloffset: 0

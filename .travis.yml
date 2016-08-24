@@ -1,0 +1,9 @@
+language: ruby
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: 3znzxO2siGhlpWAA+utLlM928amd5xpwD7vOPq5Gum3n4OCamg+QJrq2xSyxjkTuS3QBe4fRJa0FMjmWCprftzeCB16ApjMwg0z8jLxBzxISg2xEppyfCkIx1vXYivtchFyK5GF1BSPOuVfp/Vcmd3xBir0bJfMQT677MBoi1Z8SM+jC2NzTod05NPMzSH7OI0gufY3WjVZT0SkBZi3NlPnP/xINxGqSK/7TN6HE9SiiTj59XMIcd4OOVNOIP1NgFt5pH99/hMZtzBUH5vtm9m4tlMe91NTgtoIFSnvPqk6ck7ff14crzkP0imDiBStEu6jDFeVpJMe740WM5HyOXzj+ZhQLfeD95k+kD+Biq4cxYjQsnHX/EKjTpYjOrVO/jnatz2T7f5SI4E4tH6wp4QnI19oq7xQBPEmKGW6Vys3NvSKcu+s2O1AIIhpqCc4wsv3zpxL/5eL16eXq1udMhHVqDOpJGp5XySLftCZVDBLcmOD2XGm7ws5ZrO0wlIFOJFEZ1oYtVXydfJISLBeBUUmbBAFxWfWlnFV48oSZKYp109fo40/8g11q+8k7h7Sj7ctAnxNYPLkBPvr4583eE/EHnl0mOSTOIm7i3hfvU2nxKlIlqeW5VZlyprqN70Fy7AdDWuZky+ud5FvggxanMzgZQRUR4afte7OzHumHCxc=
+  file: build/ship-sdk-1.0.zip
+  on:
+    tags: true
