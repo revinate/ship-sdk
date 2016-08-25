@@ -16,7 +16,7 @@
     "action": {
       "description": "Action that triggered the guest-stay message",
       "type": "string",
-      "enum": ["BOOK", "ADD", "WAITLIST", "CONFIRM", "DENY", "CANCEL", "CHECKIN", "NOSHOW", "CHECKOUT", "EDIT"]
+      "enum": ["BOOK", "ADD", "WAITLIST", "CONFIRM", "DENY", "CANCEL", "CHECKIN", "NOSHOW", "CHECKOUT", "EDIT", "NA"]
     },
     "property": {
       "description": "Property code that the stay belongs to",

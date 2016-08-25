@@ -11,7 +11,7 @@ A guestStay object represents a past, current, or upcoming stay by a guest or gu
 |Name |Type |Usage |Description |Example
 
 |action
-|string enum: `BOOK`, `ADD`, `WAITLIST`, `CONFIRM`, `DENY`, `CANCEL`, `CHECKIN`, `NOSHOW`, `CHECKOUT`, `EDIT`
+|string enum: `BOOK`, `ADD`, `WAITLIST`, `CONFIRM`, `DENY`, `CANCEL`, `CHECKIN`, `NOSHOW`, `CHECKOUT`, `EDIT`, `NA`
 |`REQUIRED`
 |Action that triggered the guest-stay message, see <<guestStay action string>>
 |`"ADD"`
@@ -520,4 +520,14 @@ NOTE: The *statusCode* after the action should be transmitted in the guest-stay 
 |`EDIT`
 |Any
 |Same as before
+
+|System resent an existing stay
+|`NA`
+|Any
+|Same as before
 |===
+
+The following diagram illustrates how *actions* interact with *statusCodes*.
+
+.guestStay actions
+image::guest-stay-actions.png[guestStay actions, 600]

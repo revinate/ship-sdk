@@ -1,0 +1,30 @@
+digraph guest_stay_actions {
+
+  rankdir=TB;
+  node [fontname = "Droid Sans Mono"];
+  edge [fontname = "Droid Sans Mono"];
+
+  node [shape = circle]; 
+    "";
+
+  node [shape = box]; 
+    "" -> "REQUESTED" [ label = "BOOK" ];
+    "" -> "RESERVED" [ label = "ADD" ];
+    "REQUESTED" -> "RESERVED" [ label = "CONFIRM" ];
+    "WAITLISTED" -> "RESERVED" [ label = "CONFIRM" ];
+    "REQUESTED" -> "WAITLISTED" [ label = " WAITLIST" ];
+    "RESERVED" -> "INHOUSE" [ label = "CHECKIN" ];
+
+  node [shape = box3d]; 
+    "REQUESTED" -> "REQUESTDENIED" [ label = "DENY" ];
+    "WAITLISTED" -> "REQUESTDENIED" [ label = "DENY" ];
+    "REQUESTED" -> "CANCELED" [ label = " CANCEL" ];
+    "WAITLISTED" -> "CANCELED" [ label = " CANCEL" ];
+    "RESERVED" -> "CANCELED" [ label = "CANCEL" ];
+    "RESERVED" -> "NOSHOW" [ label = " NOSHOW" ];
+    "INHOUSE" -> "CHECKEDOUT" [ label = " CHECKOUT" ];
+
+  node [shape = diamond]; 
+    "Any" -> "Any" [ label = " EDIT     " ];
+    "Any" -> "Any" [ label = " NA" ];
+}

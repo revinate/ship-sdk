@@ -50,7 +50,7 @@ task default: %w[package]
 
 desc 'Generate docs'
 task generate_docs: %w[docs/ship.html docs/ship.pdf] do
-  package_task.package_files.include('docs/*.html', 'docs/*.pdf')
+  package_task.package_files.include('docs/*.html', 'docs/*.pdf', 'docs/*.png')
 end
 
 desc 'Validate common definitions'
