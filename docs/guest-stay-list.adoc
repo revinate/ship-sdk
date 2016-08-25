@@ -1,0 +1,5 @@
+= Guest-stay list message
+
+A list of guestStay objects, providing a convenient way for a system to send a number of guestStays to another system in a single message.
+
+A guest-stay list message contains an array of <<guestStay object,guestStay objects>>.

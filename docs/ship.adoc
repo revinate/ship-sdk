@@ -18,6 +18,10 @@ The Simple Hospitality Interchange Protocol, or SHIP, is a JSON-based message fo
 include::ship-messages.adoc[]
 
 :leveloffset: 2
+include::guest-stay.adoc[]
+
+include::guest-stay-list.adoc[]
+
 include::profile.adoc[]
 
 include::simple-guest-stay.adoc[]
@@ -28,6 +32,34 @@ include::common-objects.adoc[]
 
 :leveloffset: 0
 == Sample messages
+
+=== Sample guest-stay messages
+
+==== Guest-stay message with commonly used fields
+
+.Guest-stay message with commonly used fields
+[source,json]
+----
+include::../samples/guest-stays/guest-stay-typical.json[]
+----
+
+==== Guest-stay message with all possible fields
+
+.Guest-stay message with all possible fields
+[source,json]
+----
+include::../samples/guest-stays/guest-stay-full.json[]
+----
+
+=== Sample guest-stay list messages
+
+==== Guest-stay list message with multiple guest-stays
+
+.Guest-stay list message with multiple guest-stays
+[source,json]
+----
+include::../samples/guest-stay-lists/guest-stay-list-multiple.json[]
+----
 
 === Sample profile messages
 

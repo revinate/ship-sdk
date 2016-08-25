@@ -1,0 +1,146 @@
+[
+  {
+    "action": "ADD",
+    "property": "AVERTINE",
+    "confirmationCode": "38001",
+    "statusCode": "RESERVED",
+    "reservationSource": "COD",
+    "checkinDate": "2007-07-19",
+    "checkoutDate": "2007-07-22",
+    "roomNumber": "123",
+    "roomType": "KING",
+    "totalRoomRevenue": {
+      "amountBeforeTax": {
+        "value": 300,
+        "currency": "USD"
+      }
+    },
+    "ratePlans": [
+      {
+        "rateCode": "BASE_RATE",
+        "rates": [
+          {
+            "amount": {
+              "value": 100,
+              "currency": "USD"
+            }
+          }
+        ]
+      }
+    ],
+    "profiles": [
+      {
+        "action": "ADD",
+        "property": "AVERTINE",
+        "profileId": "abc10001",
+        "profileType": "GUEST",
+        "title": "Dr",
+        "firstName": "Contact",
+        "middleName": "J",
+        "lastName": "Sample",
+        "emailAddresses": [
+          {
+            "emailAddress": "sample@mailinator.com",
+            "primary": true
+          }
+        ],
+        "postalAddresses": [
+          {
+            "address1": "56574 Sample Street",
+            "address2": "Unit 1234",
+            "city": "Ft Myers",
+            "state": "FL",
+            "country": "US",
+            "zipCode": "33967",
+            "addressType": "HOME",
+            "primary": true
+          }
+        ],
+        "phoneNumbers": [
+          {
+            "phoneNumber": "1-239-555-5555",
+            "phoneNumberType": "HOME",
+            "primary": true
+          }
+        ],
+        "memberships": [
+          {
+            "loyaltyNumber": "213213213213213213"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "action": "CHECKOUT",
+    "property": "AVERTINE",
+    "confirmationCode": "38002",
+    "statusCode": "CHECKEDOUT",
+    "reservationSource": "WALK_IN",
+    "checkinDate": "2015-07-11",
+    "checkoutDate": "2015-07-13",
+    "roomNumber": "FLT2-A",
+    "roomType": "KING",
+    "totalRoomRevenue": {
+      "amountBeforeTax": {
+        "value": 295.5,
+        "currency": "USD"
+      }
+    },
+    "ratePlans": [
+      {
+        "rateCode": "BAR",
+        "rates": [
+          {
+            "amount": {
+              "value": 147.75,
+              "currency": "USD"
+            }
+          }
+        ]
+      }
+    ],
+    "profiles": [
+      {
+        "action": "ADD",
+        "property": "AVERTINE",
+        "profileId": "28002",
+        "profileType": "GUEST",
+        "title": "Ms",
+        "firstName": "Amy",
+        "middleName": "T",
+        "lastName": "Smith",
+        "emailAddresses": [
+          {
+            "emailAddress": "amy@mailinator.com",
+            "primary": true
+          }
+        ],
+        "postalAddresses": [
+          {
+            "address1": "1234 Jones St",
+            "address2": "Unit 1234",
+            "city": "San Francisco",
+            "state": "CA",
+            "country": "US",
+            "zipCode": "94108",
+            "addressType": "HOME",
+            "primary": true
+          }
+        ],
+        "phoneNumbers": [
+          {
+            "phoneNumber": "1-415-555-5555",
+            "phoneNumberType": "HOME",
+            "primary": true
+          }
+        ],
+        "memberships": [
+          {
+            "loyaltyNumber": "ABC123"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,314 @@
+{
+  "action": "ADD",
+  "property": "AVERTINE",
+  "interfaceType": "SHIP",
+  "remoteSystemName": "avertine_ship",
+  "confirmationCode": "38001",
+  "statusCode": "RESERVED",
+  "guaranteeCode": "CC",
+  "lastUpdatedAt": "2009-08-15T16:52:36.000-07:00",
+  "lastUpdatedBy": "System Agent",
+  "bookingNumber": "CRO-123A",
+  "bookingDate": "2009-08-15T16:52:36.000-07:00",
+  "bookedBy": "Sample User",
+  "reservationSource": "COD",
+  "cancellationNumber": "12345",
+  "cancellationDate": "2009-08-15T16:52:37.000-07:00",
+  "canceledBy": "Sample User 2",
+  "checkinDate": "2007-07-19",
+  "actualCheckinDate": "2007-07-19T15:23:00.000-07:00",
+  "checkedInBy": "Ms. Green",
+  "checkoutDate": "2007-07-22",
+  "actualCheckoutDate": "2007-07-22T08:10:40.000-07:00",
+  "checkedOutBy": "AJP",
+  "stayLength": {
+    "stayLength": 3,
+    "stayLengthUnits": "DAY"
+  },
+  "numberOfAdults": 1,
+  "numberOfChildren": 0,
+  "roomNumber": "123",
+  "roomType": "KING",
+  "roomTypeChargeCode": "KING",
+  "blockCode": "KING-Block",
+  "numberOfRooms": 1,
+  "market": "ALL",
+  "tripType": "BUSINESS",
+  "totalRoomRevenue": {
+    "amountBeforeTax": {
+      "value": 404.5,
+      "currency": "USD"
+    },
+    "taxAmount": {
+      "value": 35.39,
+      "currency": "USD"
+    }
+  },
+  "totalFoodAndBeverageRevenue": {
+    "amountBeforeTax": {
+      "value": 4.99,
+      "currency": "USD"
+    },
+    "taxAmount": {
+      "value": 0.43,
+      "currency": "USD"
+    }
+  },
+  "totalLuggageRevenue": {
+    "amountBeforeTax": {
+      "value": 49.99,
+      "currency": "USD"
+    },
+    "taxAmount": {
+      "value": 4.37,
+      "currency": "USD"
+    }
+  },
+  "totalOtherRevenue": {
+    "amountBeforeTax": {
+      "value": 11.25,
+      "currency": "USD"
+    },
+    "taxAmount": {
+      "value": 0.98,
+      "currency": "USD"
+    }
+  },
+  "totalRemainingBalance": {
+    "value": 24.55,
+    "currency": "USD"
+  },
+  "totalDepositRequired": {
+    "value": 24.55,
+    "currency": "USD"
+  },
+  "depositRequiredDate": "2009-08-15",
+  "ratePlans": [
+    {
+      "rateCode": "BASE_RATE",
+      "rates": [
+        {
+          "amount": {
+            "value": 100,
+            "currency": "USD"
+          },
+          "startTime": "2007-07-19T00:00:00.000-07:00",
+          "timeUnits": 1,
+          "timeUnitType": "DAY"
+        },
+        {
+          "amount": {
+            "value": 100,
+            "currency": "USD"
+          },
+          "startTime": "2007-07-20T00:00:00.000-07:00",
+          "timeUnits": 1,
+          "timeUnitType": "DAY"
+        },
+        {
+          "amount": {
+            "value": 99.5,
+            "currency": "USD"
+          },
+          "startTime": "2007-07-20T00:00:00.000-07:00",
+          "timeUnits": 1,
+          "timeUnitType": "DAY"
+        },
+        {
+          "amount": {
+            "value": 105,
+            "currency": "USD"
+          },
+          "startTime": "2007-07-21T00:00:00.000-07:00",
+          "timeUnits": 1,
+          "timeUnitType": "DAY"
+        }
+      ]
+    }
+  ],
+  "services": [
+    {
+      "inventoryCode": "SPA",
+      "ratePlanCode": "STD_SPA",
+      "totalPrice": {
+        "amountBeforeTax": {
+          "value": 25.9,
+          "currency": "USD"
+        },
+        "taxAmount": {
+          "value": 2.27,
+          "currency": "USD"
+        }
+      },
+      "quantity": 2,
+      "servicePrices": [
+        {
+          "amount": {
+            "value": 12.95,
+            "currency": "USD"
+          },
+          "startTime": "2007-07-19T23:00:00.000-07:00",
+          "timeUnits": 1,
+          "timeUnitType": "HOUR"
+        },
+        {
+          "amount": {
+            "value": 12.95,
+            "currency": "USD"
+          },
+          "startTime": "2007-07-20T22:00:00.000-07:00",
+          "timeUnits": 1,
+          "timeUnitType": "HOUR"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "action": "ADD",
+      "property": "AVERTINE",
+      "interfaceType": "SHIP",
+      "remoteSystemName": "avertine_ship",
+      "profileId": "28002",
+      "profileType": "GUEST",
+      "title": "Dr",
+      "firstName": "Contact",
+      "middleName": "J",
+      "lastName": "Sample",
+      "gender": "FEMALE",
+      "dateOfBirth": "1975-07-18",
+      "vipStatus": "2",
+      "primaryLanguage": "EN",
+      "companyInfo": {
+        "name": "Avertine"
+      },
+      "emailOptOut": false,
+      "mailOptOut": true,
+      "emailAddresses": [
+        {
+          "emailAddress": "sample@mailinator.com",
+          "primary": true
+        },
+        {
+          "emailAddress": "inactive@mailinator.com",
+          "primary": false,
+          "inactiveDate": "2007-07-19T00:00:00.000-07:00"
+        }
+      ],
+      "postalAddresses": [
+        {
+          "address1": "56574 Sample Street",
+          "address2": "Unit 1234",
+          "city": "Ft Myers",
+          "state": "FL",
+          "country": "US",
+          "zipCode": "33967",
+          "addressType": "HOME",
+          "primary": true
+        },
+        {
+          "address1": "1500 Example Hwy",
+          "city": "Naples",
+          "country": "AG",
+          "zipCode": "32781",
+          "addressType": "BUSINESS",
+          "primary": false,
+          "inactiveDate": "2007-07-19T00:00:00.000-07:00"
+        }
+      ],
+      "phoneNumbers": [
+        {
+          "phoneNumber": "412-555-1234",
+          "phoneNumberType": "BUSINESS",
+          "primary": true
+        },
+        {
+          "phoneNumber": "1-239-555-1111",
+          "phoneNumberType": "MOBILE",
+          "primary": false,
+          "inactiveDate": "2007-07-19T00:00:00.000-07:00"
+        }
+      ],
+      "memberships": [
+        {
+          "loyaltyNumber": "213213213213213213",
+          "programCode": "PC",
+          "levelCode": "GOLD",
+          "expireDate": "2010-12-31"
+        }
+      ],
+      "creditCards": [
+        {
+          "creditCardLast4": "1234",
+          "creditCardExpirationDate": "2015-06-30",
+          "creditCardType": "AX",
+          "primary": true
+        },
+        {
+          "creditCardLast4": "8888",
+          "creditCardExpirationDate": "2016-01-31",
+          "creditCardType": "VA",
+          "primary": false
+        },
+        {
+          "creditCardLast4": "5555",
+          "creditCardExpirationDate": "2018-10-31",
+          "creditCardType": "MC",
+          "primary": false
+        }
+      ],
+      "guestNotes": [
+        {
+          "title": "Profile Background Note",
+          "text": "Profile Background Note Text",
+          "type": "Profile Background Notes",
+          "time": "2014-01-16T11:30:38.000-08:00"
+        },
+        {
+          "title": "General Note",
+          "text": "General Note Text",
+          "type": "General Notes",
+          "time": "2014-01-16T11:30:38.000-08:00"
+        }
+      ]
+    }
+  ],
+  "guestNotes": [
+    {
+      "title": "Background Note",
+      "text": "Global Background Note",
+      "type": "Background Notes",
+      "time": "2014-01-16T11:30:38.000-08:00"
+    },
+    {
+      "text": "RATE_FIXED=YES",
+      "type": "SYSTEM",
+      "time": "2009-08-15T16:52:40.000-07:00"
+    },
+    {
+      "text": "DISCOUNT_PERCENTAGE=0",
+      "type": "SYSTEM",
+      "time": "2009-08-15T16:52:40.000-07:00"
+    }
+  ],
+  "pmsDefinedFields": [
+    {
+      "name": "UDF01",
+      "value": "A"
+    },
+    {
+      "name": "UDF02",
+      "value": "1"
+    }
+  ],
+  "propertyDefinedFields": [
+    {
+      "name": "PUDF01",
+      "value": "A1"
+    },
+    {
+      "name": "PUDF02",
+      "value": "1.3"
+    }
+  ]
+}

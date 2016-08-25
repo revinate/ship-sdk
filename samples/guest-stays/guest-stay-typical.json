@@ -1,0 +1,72 @@
+{
+  "action": "CHECKOUT",
+  "property": "AVERTINE",
+  "confirmationCode": "38000",
+  "statusCode": "CHECKEDOUT",
+  "reservationSource": "GDS",
+  "checkinDate": "2007-07-19",
+  "checkoutDate": "2007-07-22",
+  "roomNumber": "123",
+  "roomType": "KING",
+  "totalRoomRevenue": {
+    "amountBeforeTax": {
+      "value": 300,
+      "currency": "USD"
+    }
+  },
+  "ratePlans": [
+    {
+      "rateCode": "BASE_RATE",
+      "rates": [
+        {
+          "amount": {
+            "value": 100,
+            "currency": "USD"
+          }
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "action": "ADD",
+      "property": "AVERTINE",
+      "profileId": "28002",
+      "profileType": "GUEST",
+      "title": "Dr",
+      "firstName": "Contact",
+      "middleName": "J",
+      "lastName": "Sample",
+      "emailAddresses": [
+        {
+          "emailAddress": "sample@mailinator.com",
+          "primary": true
+        }
+      ],
+      "postalAddresses": [
+        {
+          "address1": "56574 Sample Street",
+          "address2": "Unit 1234",
+          "city": "Ft Myers",
+          "state": "FL",
+          "country": "US",
+          "zipCode": "33967",
+          "addressType": "HOME",
+          "primary": true
+        }
+      ],
+      "phoneNumbers": [
+        {
+          "phoneNumber": "1-239-555-5555",
+          "phoneNumberType": "HOME",
+          "primary": true
+        }
+      ],
+      "memberships": [
+        {
+          "loyaltyNumber": "213213213213213213"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,378 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "guestStay",
+  "description": "A guestStay object represents a past, current, or upcoming stay by a guest or guests at a property. It contains information about the location, duration and other details of the stay, as well as profile information about the guests and other associated entities.",
+  "type": "object",
+  "required": [
+    "action",
+    "property",
+    "confirmationCode",
+    "statusCode",
+    "checkinDate",
+    "checkoutDate",
+    "profiles"
+  ],
+  "properties": {
+    "action": {
+      "description": "Action that triggered the guest-stay message",
+      "type": "string",
+      "enum": ["BOOK", "ADD", "WAITLIST", "CONFIRM", "DENY", "CANCEL", "CHECKIN", "NOSHOW", "CHECKOUT", "EDIT"]
+    },
+    "property": {
+      "description": "Property code that the stay belongs to",
+      "type": "string"
+    },
+    "interfaceType": {
+      "type": "string"
+    },
+    "remoteSystemName": {
+      "type": "string"
+    },
+    "confirmationCode": {
+      "description": "ID of the stay",
+      "type": "string"
+    },
+    "statusCode": {
+      "description": "Current status of the stay",
+      "type": "string",
+      "enum": ["REQUESTED", "RESERVED", "WAITLISTED", "REQUESTDENIED", "INHOUSE", "CANCELED", "NOSHOW", "CHECKEDOUT"]
+    },
+    "guaranteeCode": {
+      "description": "Code representing the type of guarantee for the stay",
+      "type": "string"
+    },
+    "lastUpdatedAt": {
+      "description": "Time at which the stay was last updated",
+      "type": "string",
+      "format": "date-time"
+    },
+    "lastUpdatedBy": {
+      "description": "Name, username, or initials of the user or system that last updated the stay",
+      "type": "string"
+    },
+    "bookingNumber": {
+      "description": "ID assigned to the stay by the booking engine or central reservation system",
+      "type": "string"
+    },
+    "bookingDate": {
+      "description": "Time at which the stay was booked",
+      "type": "string",
+      "format": "date-time"
+    },
+    "bookedBy": {
+      "description": "Name, username, or initials of the user or system that booked the stay",
+      "type": "string"
+    },
+    "reservationSource": {
+      "description": "Channel by which the stay was booked",
+      "type": "string"
+    },
+    "cancellationNumber": {
+      "description": "ID assigned to the cancellation of the stay",
+      "type": "string"
+    },
+    "cancellationDate": {
+      "description": "Time at which the stay was canceled",
+      "type": "string",
+      "format": "date-time"
+    },
+    "canceledBy": {
+      "description": "Name, username, or initials of the user or system that canceled the stay",
+      "type": "string"
+    },
+    "checkinDate": {
+      "description": "Scheduled check-in date of the stay",
+      "type": "string",
+      "format": "date"
+    },
+    "actualCheckinDate": {
+      "description": "Actual check-in time of the stay",
+      "type": "string",
+      "format": "date-time"
+    },
+    "checkedInBy": {
+      "description": "Name, username, or initials of the user or system that checked the guest in",
+      "type": "string"
+    },
+    "checkoutDate": {
+      "description": "Scheduled check-out date of the stay",
+      "type": "string",
+      "format": "date"
+    },
+    "actualCheckoutDate": {
+      "description": "Actual check-out time of the stay",
+      "type": "string",
+      "format": "date-time"
+    },
+    "checkedOutBy": {
+      "description": "Name, username, or initials of the user or system that checked the guest out",
+      "type": "string"
+    },
+    "stayLength": {
+      "description": "Length of the stay",
+      "$ref": "#/definitions/stayLength"
+    },
+    "numberOfAdults": {
+      "description": "Number of adults in the stay",
+      "type": "integer"
+    },
+    "numberOfChildren": {
+      "description": "Number of children in the stay",
+      "type": "integer"
+    },
+    "roomNumber": {
+      "description": "Room number or room identifier",
+      "type": "string"
+    },
+    "roomType": {
+      "description": "Room type, preferably in code/short form",
+      "type": "string"
+    },
+    "roomTypeChargeCode": {
+      "description": "Charge code of the room type or room identifier",
+      "type": "string"
+    },
+    "blockCode": {
+      "description": "Block code of the stay",
+      "type": "string"
+    },
+    "numberOfRooms": {
+      "description": "Number of rooms of the stay",
+      "type": "integer"
+    },
+    "market": {
+      "description": "Market name or code of the guest or stay",
+      "type": "string"
+    },
+    "tripType": {
+      "description": "Trip type of the stay",
+      "type": "string",
+      "enum": ["BUSINESS"]
+    },
+    "travelAgency": {
+      "description": "Travel agency associated with the stay",
+      "$ref": "common-definitions.json#/definitions/companyInfo"
+    },
+    "totalRoomRevenue": {
+      "description": "Room revenue amount of the stay",
+      "$ref": "#/definitions/monetaryAmount"
+    },
+    "totalFoodAndBeverageRevenue": {
+      "description": "Food and beverage revenue amount of the stay",
+      "$ref": "#/definitions/monetaryAmount"
+    },
+    "totalLuggageRevenue": {
+      "description": "Luggage revenue amount of the stay",
+      "$ref": "#/definitions/monetaryAmount"
+    },
+    "totalOtherRevenue": {
+      "description": "Total of all revenue amounts excluding room, food, beverage, and luggage, of the stay",
+      "$ref": "#/definitions/monetaryAmount"
+    },
+    "totalTaxes": {
+      "description": "Total of all taxes",
+      "$ref": "#/definitions/monetaryValue"
+    },
+    "totalRemainingBalance": {
+      "description": "Balance remaining on the stay",
+      "$ref": "#/definitions/monetaryValue"
+    },
+    "totalDepositRequired": {
+      "description": "Deposit amount required for the stay",
+      "$ref": "#/definitions/monetaryValue"
+    },
+    "depositRequiredDate": {
+      "description": "Date on which deposit is due",
+      "type": "string",
+      "format": "date"
+    },
+    "ratePlans": {
+      "description": "Rate plans attached to the stay",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ratePlan"
+      }
+    },
+    "services": {
+      "description": "Services rendered during the stay",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/service"
+      }
+    },
+    "profiles": {
+      "description": "Profiles associated with the stay. A minimum of 1 profile with profileType GUEST is required.",
+      "type": "array",
+      "items": {
+        "$ref": "profile-schema.json#"
+      }
+    },
+    "guestNotes": {
+      "description": "Notes attached to the stay",
+      "type": "array",
+      "items": {
+        "$ref": "common-definitions.json#/definitions/guestNote"
+      }
+    },
+    "pmsDefinedFields": {
+      "description": "PMS-defined fields",
+      "type": "array",
+      "items": {
+        "$ref": "common-definitions.json#/definitions/userDefinedField"
+      }
+    },
+    "propertyDefinedFields": {
+      "description": "Property-defined fields",
+      "type": "array",
+      "items": {
+        "$ref": "common-definitions.json#/definitions/userDefinedField"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "stayLength": {
+      "description": "A description of the length of stay",
+      "type": "object",
+      "required": [
+        "stayLength",
+        "stayLengthUnits"
+      ],
+      "properties": {
+        "stayLength": {
+          "description": "Number of time units of the stay",
+          "type": "integer"
+        },
+        "stayLengthUnits": {
+          "description": "Type of the time units of the stay length",
+          "type": "string",
+          "enum": ["DAY"]
+        }
+      },
+      "additionalProperties": false
+    },
+    "monetaryValue": {
+      "description": "A monetary value consisting of a number and a currency",
+      "type": "object",
+      "required": [
+        "value"
+      ],
+      "properties": {
+        "value": {
+          "description": "Number of units of the currency",
+          "type": "number"
+        },
+        "currency": {
+          "description": "ISO4217 3-character currency code",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "monetaryAmount": {
+      "description": "An amount of money with associated tax",
+      "type": "object",
+      "properties": {
+        "amountBeforeTax": {
+          "description": "Amount before tax",
+          "$ref": "#/definitions/monetaryValue"
+        },
+        "taxAmount": {
+          "description": "Tax amount",
+          "$ref": "#/definitions/monetaryValue"
+        },
+        "value": {
+          "description": "Number of units of the currency of the pre-tax amount",
+          "type": "number"
+        },
+        "currency": {
+          "description": "ISO4217 3-character currency code of the pre-tax amount",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "rate": {
+      "description": "A rate during a specific time period",
+      "type": "object",
+      "properties": {
+        "amount": {
+          "description": "Rate per time unit",
+          "$ref": "#/definitions/monetaryValue"
+        },
+        "startTime": {
+          "description": "Start time of the rate",
+          "type": "string",
+          "format": "date-time"
+        },
+        "timeUnits": {
+          "description": "Number of time units of the rate",
+          "type": "integer"
+        },
+        "timeUnitType": {
+          "description": "Type of the time units",
+          "type": "string",
+          "enum": ["DAY", "HOUR"]
+        }
+      },
+      "additionalProperties": false
+    },
+    "ratePlan": {
+      "description": "A rate plan",
+      "type": "object",
+      "required": [
+        "rateCode"
+      ],
+      "properties": {
+        "rateCode": {
+          "description": "Rate plan name or rate code",
+          "type": "string"
+        },
+        "rates": {
+          "description": "Breakdown of the rates under the rate plan",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/rate"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "service": {
+      "description": "A service rendered during a stay",
+      "type": "object",
+      "required": [
+        "inventoryCode",
+        "ratePlanCode",
+        "totalPrice",
+        "quantity"
+      ],
+      "properties": {
+        "inventoryCode": {
+          "description": "Inventory code of the service",
+          "type": "string"
+        },
+        "ratePlanCode": {
+          "description": "Rate plan name or rate code of the service",
+          "type": "string"
+        },
+        "totalPrice": {
+          "description": "Total price of the service",
+          "$ref": "#/definitions/monetaryAmount"
+        },
+        "quantity": {
+          "description": "Quantity of this service rendered during the stay",
+          "type": "integer"
+        },
+        "servicePrices": {
+          "description": "Breakdown of the rates for the service",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/rate"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

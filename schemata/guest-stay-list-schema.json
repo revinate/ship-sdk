@@ -1,0 +1,8 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "A list of guestStay objects, providing a convenient way for a system to send a number of guestStays to another system in a single message.",
+  "type": "array",
+  "items": {
+    "$ref": "guest-stay-schema.json#"
+  }
+}
