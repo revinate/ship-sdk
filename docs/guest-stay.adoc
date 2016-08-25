@@ -197,7 +197,7 @@ A guestStay object represents a past, current, or upcoming stay by a guest or gu
 |`"Bay Area"`
 
 |tripType
-|string enum: `BUSINESS`
+|string
 |`OPTIONAL`
 |Trip type of the stay
 |`"BUSINESS"`

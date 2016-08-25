@@ -146,8 +146,7 @@
     },
     "tripType": {
       "description": "Trip type of the stay",
-      "type": "string",
-      "enum": ["BUSINESS"]
+      "type": "string"
     },
     "travelAgency": {
       "description": "Travel agency associated with the stay",
