@@ -22,8 +22,7 @@
   "actualCheckoutDate": "2007-07-22T08:10:40.000-07:00",
   "checkedOutBy": "AJP",
   "stayLength": {
-    "stayLength": 3,
-    "stayLengthUnits": "DAY"
+    "stayLength": 3
   },
   "numberOfAdults": 1,
   "numberOfChildren": 0,

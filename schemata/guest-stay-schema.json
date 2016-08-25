@@ -234,12 +234,11 @@
       "description": "A description of the length of stay",
       "type": "object",
       "required": [
-        "stayLength",
-        "stayLengthUnits"
+        "stayLength"
       ],
       "properties": {
         "stayLength": {
-          "description": "Number of time units of the stay",
+          "description": "Number of days of the stay",
           "type": "integer"
         },
         "stayLengthUnits": {
