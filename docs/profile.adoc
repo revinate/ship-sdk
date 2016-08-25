@@ -36,7 +36,7 @@ A profile object represents a person or organization that may be associated with
 
 |profileId
 |string
-|`REQUIRED`
+|`RECOMMENDED`
 |ID of the profile
 |`"10001"`
 
@@ -97,7 +97,7 @@ A profile object represents a person or organization that may be associated with
 |companyInfo
 |<<companyInfo object>>
 |`DEPRECATED`
-|Company of the guest. Attach a `CORPORATE` profile to the guest-stay instead of using this field.
+|Company of the guest. Attach a <<profile object>> with *profileType* of `"CORPORATE"` to the <<guestStay object>> instead of using this field.
 |
 
 |emailOptOut

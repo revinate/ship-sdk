@@ -6,7 +6,6 @@
   "required": [
     "action",
     "property",
-    "profileId",
     "profileType",
     "lastName"
   ],
