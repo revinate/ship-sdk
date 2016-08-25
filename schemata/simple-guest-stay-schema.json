@@ -21,25 +21,25 @@
       "type": "string"
     },
     "confirmationNumber": {
-      "description": "Confirmation code of the reservation associated with the stay",
+      "description": "ID of the stay",
       "type": "string"
     },
     "checkInDate": {
-      "description": "Check-in date of the reservation associated with the stay",
+      "description": "Scheduled check-in date of the stay",
       "type": "string",
       "format": "date"
     },
     "checkedInBy": {
-      "description": "Name, username, or initials of the user who checked the guest in",
+      "description": "Name, username, or initials of the user or system that checked the guest in",
       "type": "string"
     },
     "checkOutDate": {
-      "description": "Check-out date of the reservation associated with the stay",
+      "description": "Scheduled check-out date of the stay",
       "type": "string",
       "format": "date"
     },
     "checkedOutBy": {
-      "description": "Name, username, or initials of the user who checked the guest out",
+      "description": "Name, username, or initials of the user or system that checked the guest out",
       "type": "string"
     },
     "roomNumber": {
@@ -51,7 +51,7 @@
       "type": "string"
     },
     "channel": {
-      "description": "Channel or source of the reservation associated with the stay",
+      "description": "Channel by which the stay was booked",
       "type": "string"
     },
     "ratePlanCode": {

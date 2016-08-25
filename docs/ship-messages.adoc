@@ -10,22 +10,22 @@ NOTE: The *Usage* column of the object descriptions below contain one of these v
 |Value |Description
 
 |`REQUIRED`
-|The message is considered invalid if field is omitted
+|Field must be included for the message to be considered valid
 
 |`RECOMMENDED`
-|Significant functionality may be unavailable if field is omitted
+|Field should be included to enable major functionality
 
 |`SUGGESTED`
-|Additional functionality may be available if field is included
+|Field may be included to enable additional functionality
 
 |`OPTIONAL`
-|Field is accepted but have minimal to no impact on functionality
+|Field may be included but have minimal to no impact on functionality
 
 |`INTERNAL`
-|Field should only be used by specific systems for which the field has meaning
+|Field should only be included by systems that have previously agreed on its meaning
 
 |`DEPRECATED`
-|Field should not be used
+|Field should not be included
 |===
 
 NOTE: The *Types* of some of the fields below are listed as `string enum`. This indicates that these fields are strings whose value can only be one of the values listed after the colon. Supplying a value not in the list will produce an invalid message.

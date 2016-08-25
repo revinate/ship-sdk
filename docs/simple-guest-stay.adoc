@@ -31,25 +31,25 @@ A simpleGuestStay object is a simplified version of the guestStay object. It con
 |checkInDate
 |ISO8601 date string
 |`REQUIRED`
-|Check-in date of the stay
+|Scheduled check-in date of the stay
 |`"2015-12-25"`
 
 |checkedInBy
 |string
 |`OPTIONAL`
-|Name, username, or initials of the user who checked the guest in
+|Name, username, or initials of the user or system that checked the guest in
 |`"AB"`
 
 |checkOutDate
 |ISO8601 date string
 |`REQUIRED`
-|Check-out date of the stay
+|Scheduled check-out date of the stay
 |`"2015-12-31"`
 
 |checkedOutBy
 |string
 |`OPTIONAL`
-|Name, username, or initials of the user who checked the guest out
+|Name, username, or initials of the user or system that checked the guest out
 |`"CD"`
 
 |roomNumber
@@ -67,7 +67,7 @@ A simpleGuestStay object is a simplified version of the guestStay object. It con
 |channel
 |string
 |`SUGGESTED`
-|Channel or source of the stay
+|Channel by which the stay was booked
 |`"WALK_IN"`
 
 |ratePlanCode
