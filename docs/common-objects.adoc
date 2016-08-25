@@ -1,0 +1,72 @@
+= Common objects
+
+Definitions for objects used in multiple SHIP message types.
+
+== companyInfo object
+
+A minimal set of information about a company
+
+.Fields of the `companyInfo` object
+|===
+|Name |Type |Usage |Description |Example
+
+|name
+|string
+|`REQUIRED`
+|Name of the company
+|`"AVERTINE"`
+|===
+
+== guestNote object
+
+A note
+
+.Fields of the `guestNote` object
+|===
+|Name |Type |Usage |Description |Example
+
+|title
+|string
+|`OPTIONAL`
+|Note title
+|`"Background note"`
+
+|text
+|string
+|`REQUIRED`
+|Note text
+|`"Background note text"`
+
+|type
+|string
+|`OPTIONAL`
+|Note type
+|`"Background notes"`
+
+|time
+|ISO8601 date-time string
+|`OPTIONAL`
+|Time the note was created/updated
+|`"2016-07-14T20:52:01.132Z"`
+|===
+
+== userDefinedField object
+
+A name-value pair defined by a specific system or application
+
+.Fields of the `userDefinedField` object
+|===
+|Name |Type |Usage |Description |Example
+
+|name
+|string
+|`REQUIRED`
+|Field name. If two fields have the same name, their values form an unordered list.
+|`"UDF01"`
+
+|value
+|string
+|`REQUIRED`
+|Field value
+|`"Opaque value"`
+|===

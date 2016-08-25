@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Definitions for objects used in multiple SHIP message types.",
+  "definitions": {
+    "companyInfo": {
+      "description": "A minimal set of information about a company",
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "description": "Name of the company",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "guestNote": {
+      "description": "A note",
+      "type": "object",
+      "required": [
+        "text"
+      ],
+      "properties": {
+        "title": {
+          "description": "Note title",
+          "type": "string"
+        },
+        "text": {
+          "description": "Note text",
+          "type": "string"
+        },
+        "type": {
+          "description": "Note type",
+          "type": "string"
+        },
+        "time": {
+          "description": "Time the note was created/updated",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": false
+    },
+    "userDefinedField": {
+      "description": "A name-value pair defined by a specific system or application",
+      "type": "object",
+      "required": [
+        "name",
+        "value"
+      ],
+      "properties": {
+        "name": {
+          "description": "Field name. If two fields have the same name, their values form an unordered list.",
+          "type": "string"
+        },
+        "value": {
+          "description": "Field value",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

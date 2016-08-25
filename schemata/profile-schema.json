@@ -1,0 +1,288 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "profile",
+  "description": "A profile object represents a person or organization that may be associated with a guest-stay, for example the primary guest, an accompanying guest, a corporate entity, or a travel agency.",
+  "type": "object",
+  "required": [
+    "action",
+    "property",
+    "profileId",
+    "profileType",
+    "lastName"
+  ],
+  "properties": {
+    "action": {
+      "description": "Action that triggered the profile message",
+      "type": "string",
+      "enum": ["ADD", "DELETE"]
+    },
+    "property": {
+      "description": "Property code that the profile belongs to",
+      "type": "string"
+    },
+    "interfaceType": {
+      "type": "string"
+    },
+    "remoteSystemName": {
+      "type": "string"
+    },
+    "profileId": {
+      "description": "ID of the profile",
+      "type": "string"
+    },
+    "profileType": {
+      "description": "Profile type",
+      "type": "string",
+      "enum": ["NA", "GUEST", "CORPORATE", "TRAVEL", "WHOLESALER", "GROUP", "TOUR", "CRO", "CONTACT", "AIRLINE", "REPCOMPANY", "INTERNET"]
+    },
+    "title": {
+      "description": "Title of the guest",
+      "type": "string"
+    },
+    "firstName": {
+      "description": "First name of the guest",
+      "type": "string"
+    },
+    "middleName": {
+      "description": "Middle name of the guest",
+      "type": "string"
+    },
+    "lastName": {
+      "description": "Last name of the guest, or name of a non-guest entity",
+      "type": "string"
+    },
+    "gender": {
+      "description": "Gender of the guest",
+      "type": "string",
+      "enum": ["MALE", "FEMALE", "UNKNOWN"]
+    },
+    "dateOfBirth": {
+      "description": "Date-of-birth of the guest",
+      "type": "string",
+      "format": "date"
+    },
+    "vipStatus": {
+      "description": "VIP status code of the guest",
+      "type": "string"
+    },
+    "primaryLanguage": {
+      "description": "Primary language of the guest, preferably ISO639-1 2-character code",
+      "type": "string"
+    },
+    "companyInfo": {
+      "description": "Company of the guest",
+      "$ref": "common-definitions.json#/definitions/companyInfo"
+    },
+    "emailOptOut": {
+      "description": "Whether the entity in the profile has opted out of email marketing",
+      "type": "boolean"
+    },
+    "mailOptOut": {
+      "description": "Whether the entity in the profile has opted out of mail marketing",
+      "type": "boolean"
+    },
+    "emailAddresses": {
+      "description": "Email addresses associated with the profile",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/emailAddress"
+      }
+    },
+    "postalAddresses": {
+      "description": "Postal addresses associated with the profile",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/postalAddress"
+      }
+    },
+    "phoneNumbers": {
+      "description": "Phone numbers associated with the profile",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/phoneNumber"
+      }
+    },
+    "memberships": {
+      "description": "Loyalty program memberships associated with the profile",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/membership"
+      }
+    },
+    "creditCards": {
+      "description": "Credit cards associated with the profile",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/creditCard"
+      }
+    },
+    "guestNotes": {
+      "description": "Notes attached to the profile",
+      "type": "array",
+      "items": {
+        "$ref": "common-definitions.json#/definitions/guestNote"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "emailAddress": {
+      "description": "An email address",
+      "type": "object",
+      "required": [
+        "emailAddress",
+        "primary"
+      ],
+      "properties": {
+        "emailAddress": {
+          "description": "Email address",
+          "type": "string",
+          "format": "email"
+        },
+        "primary": {
+          "description": "Whether this is the primary email address on the profile. Only one email address can be primary per profile.",
+          "type": "boolean"
+        },
+        "inactiveDate": {
+          "description": "Time after which the email address should not be used",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": false
+    },
+    "postalAddress": {
+      "description": "A postal address",
+      "type": "object",
+      "required": [
+        "addressType",
+        "primary"
+      ],
+      "properties": {
+        "address1": {
+          "description": "Street address line 1",
+          "type": "string"
+        },
+        "address2": {
+          "description": "Street address line 2",
+          "type": "string"
+        },
+        "city": {
+          "description": "City",
+          "type": "string"
+        },
+        "state": {
+          "description": "State or province, preferably short code",
+          "type": "string"
+        },
+        "country": {
+          "description": "Country, preferably ISO3166 2-character code",
+          "type": "string"
+        },
+        "zipCode": {
+          "description": "Zip or postal code",
+          "type": "string"
+        },
+        "addressType": {
+          "description": "Address type",
+          "type": "string",
+          "enum": ["HOME", "BUSINESS", "MAILING", "SHIPPING", "BILLING", "OTHER"]
+        },
+        "primary": {
+          "description": "Whether this is the primary postal address on the profile. Only one postal address can be primary per profile.",
+          "type": "boolean"
+        },
+        "inactiveDate": {
+          "description": "Time after which the postal address should not be used",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": false
+    },
+    "phoneNumber": {
+      "description": "A phone number",
+      "type": "object",
+      "required": [
+        "phoneNumber",
+        "phoneNumberType",
+        "primary"
+      ],
+      "properties": {
+        "phoneNumber": {
+          "description": "Phone number",
+          "type": "string"
+        },
+        "phoneNumberType": {
+          "description": "Phone number type",
+          "type": "string",
+          "enum": ["HOME", "BUSINESS", "MOBILE", "HOMEFAX", "BUSINESSFAX", "PAGER", "TELEX", "TTY", "OTHER"]
+        },
+        "primary": {
+          "description": "Whether this is the primary phone number on the profile. Only one phone number can be primary per profile.",
+          "type": "boolean"
+        },
+        "inactiveDate": {
+          "description": "Time after which the phone number should not be used",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": false
+    },
+    "membership": {
+      "description": "A loyalty program or other program membership",
+      "type": "object",
+      "required": [
+        "loyaltyNumber"
+      ],
+      "properties": {
+        "loyaltyNumber": {
+          "description": "Membership ID",
+          "type": "string"
+        },
+        "programCode": {
+          "description": "Code of the membership program",
+          "type": "string"
+        },
+        "levelCode": {
+          "description": "Membership level code",
+          "type": "string"
+        },
+        "expireDate": {
+          "description": "Membership expiration date",
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "additionalProperties": false
+    },
+    "creditCard": {
+      "description": "A credit card",
+      "type": "object",
+      "required": [
+        "primary"
+      ],
+      "properties": {
+        "creditCardLast4": {
+          "description": "Last 4 digits of the credit card number",
+          "type": "string"
+        },
+        "creditCardExpirationDate": {
+          "description": "Credit card expiration date",
+          "type": "string",
+          "format": "date"
+        },
+        "creditCardType": {
+          "description": "Credit card type",
+          "type": "string"
+        },
+        "primary": {
+          "description": "Whether this is the primary credit card on the profile. Only one credit card can be primary per profile.",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

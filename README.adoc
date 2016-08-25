@@ -12,9 +12,13 @@ In addition to the JSON schemata, the SHIP messages are described in more human-
 
 link:docs/ship-messages.adoc[SHIP messages overview]
 
+link:docs/profile.adoc[Profile message]
+
 link:docs/simple-guest-stay.adoc[Simple guest-stay message]
 
 link:docs/simple-guest-stay-list.adoc[Simple guest-stay list message]
+
+link:docs/common-objects.adoc[Common objects]
 
 link:docs/changelog.adoc[Revision history]
 

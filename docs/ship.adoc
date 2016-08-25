@@ -4,6 +4,7 @@ v1.0, 2016-08-24
 :sectnums:
 :toc: left
 :toclevels: 5
+:listing-caption: Listing
 :icons: font
 :title-logo-image: image:_pdf/img/revinate-logo.jpg[pdfwidth=4.25in,align=center]
 :pdf-stylesdir: docs/_pdf/themes
@@ -17,14 +18,38 @@ The Simple Hospitality Interchange Protocol, or SHIP, is a JSON-based message fo
 include::ship-messages.adoc[]
 
 :leveloffset: 2
+include::profile.adoc[]
+
 include::simple-guest-stay.adoc[]
 
 include::simple-guest-stay-list.adoc[]
 
+include::common-objects.adoc[]
+
 :leveloffset: 0
 == Sample messages
 
-=== Simple guest-stay message with commonly used fields
+=== Sample profile messages
+
+==== Profile message with commonly used fields
+
+.Profile message with commonly used fields
+[source,json]
+----
+include::../samples/profiles/profile-typical.json[]
+----
+
+==== Profile message with all possible fields
+
+.Profile message with all possible fields
+[source,json]
+----
+include::../samples/profiles/profile-full.json[]
+----
+
+=== Sample simple guest-stay messages
+
+==== Simple guest-stay message with commonly used fields
 
 .Simple guest-stay message with commonly used fields
 [source,json]
@@ -32,7 +57,7 @@ include::simple-guest-stay-list.adoc[]
 include::../samples/simple-guest-stays/simple-guest-stay-typical.json[]
 ----
 
-=== Simple guest-stay message with all possible fields
+==== Simple guest-stay message with all possible fields
 
 .Simple guest-stay message with all possible fields
 [source,json]
@@ -40,7 +65,9 @@ include::../samples/simple-guest-stays/simple-guest-stay-typical.json[]
 include::../samples/simple-guest-stays/simple-guest-stay-full.json[]
 ----
 
-=== Simple guest-stay list message with multiple simple guest-stays
+=== Sample simple guest-stay list messages
+
+==== Simple guest-stay list message with multiple simple guest-stays
 
 .Simple guest-stay list message with multiple simple guest-stays
 [source,json]

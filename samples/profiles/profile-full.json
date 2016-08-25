@@ -1,0 +1,111 @@
+{
+  "action": "ADD",
+  "property": "AVERTINE",
+  "interfaceType": "SHIP",
+  "remoteSystemName": "avertine_ship",
+  "profileId": "28001",
+  "profileType": "GUEST",
+  "title": "Mr.",
+  "firstName": "John",
+  "middleName": "Clancy",
+  "lastName": "Smith",
+  "gender": "MALE",
+  "dateOfBirth": "1989-02-01",
+  "vipStatus": "2",
+  "primaryLanguage": "EN",
+  "companyInfo": {
+    "name": "Avertine"
+  },
+  "emailOptOut": false,
+  "mailOptOut": true,
+  "emailAddresses": [
+    {
+      "emailAddress": "info@mailinator.com",
+      "primary": true
+    },
+    {
+      "emailAddress": "inactive@mailinator.com",
+      "primary": false,
+      "inactiveDate": "2007-07-19T00:00:00.000-07:00"
+    }
+  ],
+  "postalAddresses": [
+    {
+      "address1": "1234 Jones St",
+      "address2": "2nd Floor",
+      "city": "San Francisco",
+      "state": "CA",
+      "country": "US",
+      "zipCode": "94108",
+      "addressType": "HOME",
+      "primary": true
+    },
+    {
+      "address1": "2640 Parkway De la Puerta De oro",
+      "address2": "Habitación 315",
+      "city": "Nápoles",
+      "state": "FL",
+      "country": "US",
+      "zipCode": "34105",
+      "addressType": "BUSINESS",
+      "primary": false
+    }
+  ],
+  "phoneNumbers": [
+    {
+      "phoneNumber": "555-123-4567",
+      "phoneNumberType": "BUSINESS",
+      "primary": true
+    },
+    {
+      "phoneNumber": "415-555-1234",
+      "phoneNumberType": "HOME",
+      "primary": false,
+      "inactiveDate": "2007-07-19T00:00:00.000-07:00"
+    }
+  ],
+  "memberships": [
+    {
+      "loyaltyNumber": "4800123",
+      "programCode": "ENCORE"
+    },
+    {
+      "loyaltyNumber": "66760000",
+      "programCode": "OCIS",
+      "levelCode": "GOLD",
+      "expireDate": "2010-12-31"
+    }
+  ],
+  "creditCards": [
+    {
+      "creditCardLast4": "1234",
+      "creditCardExpirationDate": "2015-12-31",
+      "creditCardType": "AX",
+      "primary": true
+    },
+    {
+      "creditCardExpirationDate": "2012-12-31",
+      "creditCardType": "MC",
+      "primary": false
+    },
+    {
+      "creditCardExpirationDate": "2013-04-30",
+      "creditCardType": "VA",
+      "primary": false
+    }
+  ],
+  "guestNotes": [
+    {
+      "title": "Profile Background Note",
+      "text": "Profile Background Note Text",
+      "type": "Profile Background Notes",
+      "time": "2013-05-02T16:55:48.000-07:00"
+    },
+    {
+      "title": "General Note",
+      "text": "General Note Text",
+      "type": "General Notes",
+      "time": "2013-05-02T16:55:57.000-07:00"
+    }
+  ]
+}

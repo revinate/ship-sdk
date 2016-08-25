@@ -53,6 +53,21 @@ task generate_docs: %w[docs/ship.html docs/ship.pdf] do
   package_task.package_files.include('docs/*.html', 'docs/*.pdf')
 end
 
+desc 'Validate common definitions'
+task :validate_common_definitions do
+  schema = 'schemata/common-definitions.json'
+  validate_schema(schema)
+end
+
+desc 'Validate all profile JSON samples against schema'
+task :validate_profiles do
+  schema = 'schemata/profile-schema.json'
+  validate_schema(schema)
+  FileList['samples/profiles/*.json'].each do |file|
+    validate_json(schema, file)
+  end
+end
+
 desc 'Validate all simple guest-stay JSON samples against schema'
 task :validate_simple_guest_stays do
   schema = 'schemata/simple-guest-stay-schema.json'
@@ -72,6 +87,6 @@ task :validate_simple_guest_stay_lists do
 end
 
 desc 'Perform tests'
-task test: %w[validate_simple_guest_stays validate_simple_guest_stay_lists]
+task test: %w[validate_common_definitions validate_profiles validate_simple_guest_stays validate_simple_guest_stay_lists]
 
 file package_task.package_dir_path => %w[generate_docs test]

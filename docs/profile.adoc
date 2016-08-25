@@ -1,0 +1,360 @@
+= Profile message
+
+A profile message contains a single <<profile object>>.
+
+== profile object
+
+A profile object represents a person or organization that may be associated with a guest-stay, for example the primary guest, an accompanying guest, a corporate entity, or a travel agency.
+
+.Fields of the `profile` object
+|===
+|Name |Type |Usage |Description |Example
+
+|action
+|string enum: `ADD`, `DELETE`
+|`REQUIRED`
+|Action that triggered the profile message, see <<profile action string>>
+|`"ADD"`
+
+|property
+|string
+|`REQUIRED`
+|Property code that the profile belongs to
+|`"AVERTINE"`
+
+|interfaceType
+|string
+|`INTERNAL`
+|
+|
+
+|remoteSystemName
+|string
+|`INTERNAL`
+|
+|
+
+|profileId
+|string
+|`REQUIRED`
+|ID of the profile
+|`"10001"`
+
+|profileType
+|string enum: `NA`, `GUEST`, `CORPORATE`, `TRAVEL`, `WHOLESALER`, `GROUP`, `TOUR`, `CRO`, `CONTACT`, `AIRLINE`, `REPCOMPANY`, `INTERNET`, `HOTEL`
+|`REQUIRED`
+|Profile type
+|`"GUEST"`
+
+|title
+|string
+|`SUGGESTED`
+|Title of the guest
+|`"Dr"`
+
+|firstName
+|string
+|`RECOMMENDED`
+|First name of the guest
+|`"Alice"`
+
+|middleName
+|string
+|`SUGGESTED`
+|Middle name of the guest
+|`"J"`
+
+|lastName
+|string
+|`REQUIRED`
+|Last name of the guest, or name of a non-guest entity
+|`"Smith"`
+
+|gender
+|string enum: `MALE`, `FEMALE`, `UNKNOWN`
+|`SUGGESTED`
+|Gender of the guest
+|`"MALE"`
+
+|dateOfBirth
+|ISO8601 date string
+|`SUGGESTED`
+|Date-of-birth of the guest
+|`"1988-10-23"`
+
+|vipStatus
+|string
+|`SUGGESTED`
+|VIP status code of the guest
+|`"1"`
+
+|primaryLanguage
+|string
+|`RECOMMENDED`
+|Primary language of the guest, preferably ISO639-1 2-character code
+|`"EN"`
+
+|companyInfo
+|<<companyInfo object>>
+|`DEPRECATED`
+|Company of the guest. Attach a `CORPORATE` profile to the guest-stay instead of using this field.
+|
+
+|emailOptOut
+|boolean
+|`SUGGESTED`
+|Whether the entity in the profile has opted out of email marketing
+|`false`
+
+|mailOptOut
+|boolean
+|`OPTIONAL`
+|Whether the entity in the profile has opted out of mail marketing
+|`true`
+
+|emailAddresses
+|array of <<emailAddress object,emailAddress objects>>
+|`RECOMMENDED`
+|Email addresses associated with the profile
+|
+
+|postalAddresses
+|array of <<postalAddress object,postalAddress objects>>
+|`RECOMMENDED`
+|Postal addresses associated with the profile
+|
+
+|phoneNumbers
+|array of <<phoneNumber object,phoneNumber objects>>
+|`SUGGESTED`
+|Phone numbers associated with the profile
+|
+
+|memberships
+|array of <<membership object,membership objects>>
+|`SUGGESTED`
+|Loyalty program memberships associated with the profile
+|
+
+|creditCards
+|array of <<creditCard object,creditCard objects>>
+|`OPTIONAL`
+|Credit cards associated with the profile
+|
+
+|guestNotes
+|array of <<guestNote object,guestNote objects>>
+|`SUGGESTED`
+|Notes attached to the profile
+|
+|===
+
+== emailAddress object
+
+An email address
+
+.Fields of the `emailAddress` object
+|===
+|Name |Type |Usage |Description |Example
+
+|emailAddress
+|string
+|`REQUIRED`
+|Email address
+|`"\user@mailinator.com"`
+
+|primary
+|boolean
+|`REQUIRED`
+|Whether this is the primary email address on the profile. Only one email address can be primary per profile.
+|`true`
+
+|inactiveDate
+|ISO8601 date-time string
+|`OPTIONAL`
+|Time after which the email address should not be used
+|`"2016-07-14T20:52:01.132Z"`
+|===
+
+== postalAddress object
+
+A postal address
+
+.Fields of the `postalAddress` object
+|===
+|Name |Type |Usage |Description |Example
+
+|address1
+|string
+|`RECOMMENDED`
+|Street address line 1
+|`"1234 Jones St"`
+
+|address2
+|string
+|`RECOMMENDED`
+|Street address line 2
+|`"Apt 3C"`
+
+|city
+|string
+|`RECOMMENDED`
+|City
+|`"San Francisco"`
+
+|state
+|string
+|`RECOMMENDED`
+|State or province, preferably short code
+|`"CA"`
+
+|country
+|string
+|`RECOMMENDED`
+|Country, preferably ISO3166 2-character code
+|`"US"`
+
+|zipCode
+|string
+|`RECOMMENDED`
+|Zip or postal code
+|`"94108"`
+
+|addressType
+|string enum: `HOME`, `BUSINESS`, `MAILING`, `SHIPPING`, `BILLING`, `OTHER`
+|`REQUIRED`
+|Address type
+|`"BUSINESS"`
+
+|primary
+|boolean
+|`REQUIRED`
+|Whether this is the primary postal address on the profile. Only one postal address can be primary per profile.
+|`true`
+
+|inactiveDate
+|ISO8601 date-time string
+|`OPTIONAL`
+|Time after which the postal address should not be used
+|`"2016-07-14T20:52:01.132Z"`
+|===
+
+== phoneNumber object
+
+A phone number
+
+.Fields of the `phoneNumber` object
+|===
+|Name |Type |Usage |Description |Example
+
+|phoneNumber
+|string
+|`REQUIRED`
+|Phone number
+|`"555-1234"`
+
+|phoneNumberType
+|string enum: `HOME`, `BUSINESS`, `MOBILE`, `HOMEFAX`, `BUSINESSFAX`, `PAGER`, `TELEX`, `TTY`, `OTHER`
+|`REQUIRED`
+|Phone number type
+|`"HOME"`
+
+|primary
+|boolean
+|`REQUIRED`
+|Whether this is the primary phone number on the profile. Only one phone number can be primary per profile.
+|`true`
+
+|inactiveDate
+|ISO8601 date-time string
+|`OPTIONAL`
+|Time after which the phone number should not be used
+|`"2016-07-14T20:52:01.132Z"`
+|===
+
+== membership object
+
+A loyalty program or other program membership
+
+.Fields of the `membership` object
+|===
+|Name |Type |Usage |Description |Example
+
+|loyaltyNumber
+|string
+|`REQUIRED`
+|Membership ID
+|`"12345"`
+
+|programCode
+|string
+|`SUGGESTED`
+|Code of the membership program
+|`"APG"`
+
+|levelCode
+|string
+|`OPTIONAL`
+|Membership level code
+|`"PLATINUM"`
+
+|expireDate
+|ISO8601 date string
+|`OPTIONAL`
+|Membership expiration date
+|`"2019-10-31"`
+|===
+
+== creditCard object
+
+A credit card
+
+.Fields of the `creditCard` object
+|===
+|Name |Type |Usage |Description |Example
+
+|creditCardLast4
+|string
+|`OPTIONAL`
+|Last 4 digits of the credit card number
+|`"1234"`
+
+|creditCardExpirationDate
+|ISO8601 date string
+|`OPTIONAL`
+|Credit card expiration date
+|`"2020-12-31"`
+
+|creditCardType
+|string
+|`OPTIONAL`
+|Credit card type
+|`"MC"`
+
+|primary
+|boolean
+|`REQUIRED`
+|Whether this is the primary credit card on the profile. Only one credit card can be primary per profile.
+|`true`
+|===
+
+== profile action string
+
+Typically, transmission of a profile message is triggered by a profile-related action being performed on the sending system. The action being performed by the sending system is mapped to the possible values of the *action* field in the <<profile object>>. The following table lists some actions that should trigger a profile message, and the corresponding *action* field value.
+
+.profile actions
+|===
+|Description |action
+
+|Created a new profile
+|`ADD`
+
+|Updated an existing profile
+|`ADD`
+
+|Profile attached to a guest-stay
+|`ADD`
+
+|Deleted an existing profile
+|`DELETE`
+|===
