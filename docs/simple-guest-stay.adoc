@@ -25,13 +25,13 @@ A simpleGuestStay object is a simplified version of the guestStay object. It con
 |confirmationNumber
 |string
 |`REQUIRED`
-|Confirmation code of the reservation associated with the stay
+|ID of the stay
 |`"30001"`
 
 |checkInDate
 |ISO8601 date string
 |`REQUIRED`
-|Check-in date of the reservation associated with the stay
+|Check-in date of the stay
 |`"2015-12-25"`
 
 |checkedInBy
@@ -43,7 +43,7 @@ A simpleGuestStay object is a simplified version of the guestStay object. It con
 |checkOutDate
 |ISO8601 date string
 |`REQUIRED`
-|Check-out date of the reservation associated with the stay
+|Check-out date of the stay
 |`"2015-12-31"`
 
 |checkedOutBy
@@ -67,7 +67,7 @@ A simpleGuestStay object is a simplified version of the guestStay object. It con
 |channel
 |string
 |`SUGGESTED`
-|Channel or source of the reservation associated with the stay
+|Channel or source of the stay
 |`"WALK_IN"`
 
 |ratePlanCode
@@ -104,7 +104,7 @@ A simpleGuestStay object is a simplified version of the guestStay object. It con
 |string
 |`REQUIRED`
 |Primary email address of the guest
-|`"alice@mailinator.com"`
+|`"\alice@mailinator.com"`
 
 |phone
 |string
@@ -116,7 +116,7 @@ A simpleGuestStay object is a simplified version of the guestStay object. It con
 |string
 |`RECOMMENDED`
 |Primary address of the guest: line 1
-|`1234 Jones St`
+|`"1234 Jones St"`
 
 |addressLine2
 |string
