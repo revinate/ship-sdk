@@ -1,0 +1,29 @@
+[
+  {
+    "accountName": "AVERTINE",
+    "interfaceType": "SHIP",
+    "confirmationNumber": "10003",
+    "checkInDate": "2015-06-28",
+    "checkedInBy": "Test User 1",
+    "checkOutDate": "2015-07-01",
+    "checkedOutBy": "Test User 2",
+    "roomNumber": "C124A",
+    "roomType": "KING",
+    "channel": "SALE",
+    "ratePlanCode": "BAR",
+    "rate": 99.95,
+    "title": "Dr",
+    "firstName": "Mary",
+    "lastName": "Claire",
+    "email": "mary@mailinator.com",
+    "phone": "555-123-4567",
+    "addressLine1": "1234 Jones St",
+    "addressLine2": "Apt 4C",
+    "city": "San Francisco",
+    "state": "CA",
+    "country": "US",
+    "postalCode": "94108",
+    "loyaltyNumber": "12345",
+    "groupName": "Nov Conference"
+  }
+]
