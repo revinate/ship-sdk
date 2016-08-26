@@ -84,12 +84,13 @@
   "depositRequiredDate": "2009-08-15",
   "ratePlans": [
     {
-      "rateCode": "BASE_RATE",
+      "rateCode": "SECRET_RATE",
       "timeSpan": {
         "startTime": "2007-07-19T00:00:00.000-07:00",
         "timeUnits": 3,
         "timeUnitType": "DAY"
       },
+      "confidential": true,
       "rates": [
         {
           "amount": {

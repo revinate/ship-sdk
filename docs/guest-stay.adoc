@@ -367,6 +367,12 @@ A rate plan
 |Time period over which the rate plan applies
 |
 
+|confidential
+|string
+|`OPTIONAL`
+|Whether the rate plan should be hidden from guests
+|`false`
+
 |rates
 |array of <<rate object,rate objects>>
 |`RECOMMENDED`

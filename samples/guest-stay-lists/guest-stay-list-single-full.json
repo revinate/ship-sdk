@@ -91,6 +91,7 @@
           "timeUnits": 3,
           "timeUnitType": "DAY"
         },
+        "confidential": false,
         "rates": [
           {
             "amount": {
