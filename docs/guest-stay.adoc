@@ -368,7 +368,7 @@ A rate plan
 |
 
 |confidential
-|string
+|boolean
 |`OPTIONAL`
 |Whether the rate plan should be hidden from guests
 |`false`
