@@ -361,6 +361,12 @@ A rate plan
 |Rate plan name or rate code
 |`"BAR"`
 
+|timeSpan
+|<<timeSpan object>>
+|`OPTIONAL`
+|Time period over which the rate plan applies
+|
+
 |rates
 |array of <<rate object,rate objects>>
 |`RECOMMENDED`
@@ -382,29 +388,29 @@ A service rendered during a stay
 |Inventory code of the service
 |`"SPA"`
 
-|ratePlanCode
+|rateCode
 |string
 |`REQUIRED`
 |Rate plan name or rate code of the service
 |`"SPA_DLX"`
 
-|totalPrice
+|timeSpan
+|<<timeSpan object>>
+|`OPTIONAL`
+|Time period over which the service was rendered
+|
+
+|pricePerUnit
 |<<monetaryAmount object>>
 |`REQUIRED`
-|Total price of the service
+|Price per unit of the service
 |
 
-|quantity
+|numberOfUnits
 |integral number
 |`REQUIRED`
-|Quantity of this service rendered during the stay
+|Number of units of the service
 |`23`
-
-|servicePrices
-|array of <<rate object,rate objects>>
-|`RECOMMENDED`
-|Breakdown of the rates for the service
-|
 |===
 
 == guestStay action string

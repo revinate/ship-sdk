@@ -2,6 +2,33 @@
 
 Definitions for objects used in multiple SHIP message types.
 
+== timeSpan object
+
+A time period with a start time
+
+.Fields of the `timeSpan` object
+|===
+|Name |Type |Usage |Description |Example
+
+|startTime
+|ISO8601 date-time string
+|`REQUIRED`
+|Start time
+|`"2016-07-22T00:00:00.000-07:00"`
+
+|timeUnits
+|integral number
+|`REQUIRED`
+|Number of time units
+|`2`
+
+|timeUnitType
+|string enum: `DAY`, `HOUR`, `MINUTE`
+|`REQUIRED`
+|Type of the time units
+|`"DAY"`
+|===
+
 == monetaryValue object
 
 A monetary value consisting of a number and a currency

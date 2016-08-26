@@ -85,6 +85,11 @@
   "ratePlans": [
     {
       "rateCode": "BASE_RATE",
+      "timeSpan": {
+        "startTime": "2007-07-19T00:00:00.000-07:00",
+        "timeUnits": 3,
+        "timeUnitType": "DAY"
+      },
       "rates": [
         {
           "amount": {
@@ -128,8 +133,13 @@
   "services": [
     {
       "inventoryCode": "SPA",
-      "ratePlanCode": "STD_SPA",
-      "totalPrice": {
+      "rateCode": "STD_SPA",
+      "timeSpan": {
+        "startTime": "2007-07-19T23:00:00.000-07:00",
+        "timeUnits": 1,
+        "timeUnitType": "HOUR"
+      },
+      "pricePerUnit": {
         "amountBeforeTax": {
           "value": 25.9,
           "currency": "USD"
@@ -139,27 +149,7 @@
           "currency": "USD"
         }
       },
-      "quantity": 2,
-      "servicePrices": [
-        {
-          "amount": {
-            "value": 12.95,
-            "currency": "USD"
-          },
-          "startTime": "2007-07-19T23:00:00.000-07:00",
-          "timeUnits": 1,
-          "timeUnitType": "HOUR"
-        },
-        {
-          "amount": {
-            "value": 12.95,
-            "currency": "USD"
-          },
-          "startTime": "2007-07-20T22:00:00.000-07:00",
-          "timeUnits": 1,
-          "timeUnitType": "HOUR"
-        }
-      ]
+      "numberOfUnits": 2
     }
   ],
   "profiles": [

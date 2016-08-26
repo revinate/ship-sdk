@@ -285,6 +285,10 @@
           "description": "Rate plan name or rate code",
           "type": "string"
         },
+        "timeSpan": {
+          "description": "Time period over which the rate plan applies",
+          "$ref": "common-definitions.json#/definitions/timeSpan"
+        },
         "rates": {
           "description": "Breakdown of the rates under the rate plan",
           "type": "array",
@@ -300,33 +304,30 @@
       "type": "object",
       "required": [
         "inventoryCode",
-        "ratePlanCode",
-        "totalPrice",
-        "quantity"
+        "rateCode",
+        "pricePerUnit",
+        "numberOfUnits"
       ],
       "properties": {
         "inventoryCode": {
           "description": "Inventory code of the service",
           "type": "string"
         },
-        "ratePlanCode": {
+        "rateCode": {
           "description": "Rate plan name or rate code of the service",
           "type": "string"
         },
-        "totalPrice": {
-          "description": "Total price of the service",
+        "timeSpan": {
+          "description": "Time period over which the service was rendered",
+          "$ref": "common-definitions.json#/definitions/timeSpan"
+        },
+        "pricePerUnit": {
+          "description": "Price per unit of the service",
           "$ref": "common-definitions.json#/definitions/monetaryAmount"
         },
-        "quantity": {
-          "description": "Quantity of this service rendered during the stay",
+        "numberOfUnits": {
+          "description": "Number of units of the service",
           "type": "integer"
-        },
-        "servicePrices": {
-          "description": "Breakdown of the rates for the service",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/rate"
-          }
         }
       },
       "additionalProperties": false

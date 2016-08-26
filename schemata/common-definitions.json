@@ -2,6 +2,32 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "Definitions for objects used in multiple SHIP message types.",
   "definitions": {
+    "timeSpan": {
+      "description": "A time period with a start time",
+      "type": "object",
+      "required": [
+        "startTime",
+        "timeUnits",
+        "timeUnitType"
+      ],
+      "properties": {
+        "startTime": {
+          "description": "Start time",
+          "type": "string",
+          "format": "date-time"
+        },
+        "timeUnits": {
+          "description": "Number of time units",
+          "type": "integer"
+        },
+        "timeUnitType": {
+          "description": "Type of the time units",
+          "type": "string",
+          "enum": ["DAY", "HOUR", "MINUTE"]
+        }
+      },
+      "additionalProperties": false
+    },
     "monetaryValue": {
       "description": "A monetary value consisting of a number and a currency",
       "type": "object",
