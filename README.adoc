@@ -4,6 +4,10 @@ image:https://travis-ci.org/revinate/ship-sdk.svg?branch=master["Build Status", 
 
 The Simple Hospitality Interchange Protocol, or SHIP, is a JSON-based message format, combined with a simple HTTP-based API, that aims to make it easy for hospitality-related systems and applications to exchange messages. This SDK contains the specifications for the JSON messages in both human- and machine-readable forms, plus a number of sample messages. For details on the HTTP-based API, please contact your SHIP integration partner.
 
+== Getting the SDK
+
+This SDK can be downloaded from the https://github.com/revinate/ship-sdk/releases[releases] page. There is one release for each version of the SHIP message specifications.
+
 == SHIP messages
 
 SHIP defines a small number of JSON-based messages to be used for hospitality interchange. The JSON schemata for the available message types are located in the link:schemata[] directory. The schema files located in the schemata directory can be used to validate JSON documents for conformance to SHIP. For more details about JSON schema see http://json-schema.org/.
@@ -25,6 +29,8 @@ link:docs/simple-guest-stay-list.adoc[Simple guest-stay list message]
 link:docs/common-objects.adoc[Common objects]
 
 link:docs/changelog.adoc[Revision history]
+
+A single-page version of the documentation can also be found at https://revinate.github.io/ship-sdk/.
 
 == Sample messages
 
