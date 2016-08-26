@@ -154,31 +154,31 @@
     },
     "totalRoomRevenue": {
       "description": "Room revenue amount of the stay",
-      "$ref": "#/definitions/monetaryAmount"
+      "$ref": "common-definitions.json#/definitions/monetaryAmount"
     },
     "totalFoodAndBeverageRevenue": {
       "description": "Food and beverage revenue amount of the stay",
-      "$ref": "#/definitions/monetaryAmount"
+      "$ref": "common-definitions.json#/definitions/monetaryAmount"
     },
     "totalLuggageRevenue": {
       "description": "Luggage revenue amount of the stay",
-      "$ref": "#/definitions/monetaryAmount"
+      "$ref": "common-definitions.json#/definitions/monetaryAmount"
     },
     "totalOtherRevenue": {
       "description": "Total of all revenue amounts excluding room, food, beverage, and luggage, of the stay",
-      "$ref": "#/definitions/monetaryAmount"
+      "$ref": "common-definitions.json#/definitions/monetaryAmount"
     },
     "totalTaxes": {
       "description": "Total of all taxes",
-      "$ref": "#/definitions/monetaryValue"
+      "$ref": "common-definitions.json#/definitions/monetaryValue"
     },
     "totalRemainingBalance": {
       "description": "Balance remaining on the stay",
-      "$ref": "#/definitions/monetaryValue"
+      "$ref": "common-definitions.json#/definitions/monetaryValue"
     },
     "totalDepositRequired": {
       "description": "Deposit amount required for the stay",
-      "$ref": "#/definitions/monetaryValue"
+      "$ref": "common-definitions.json#/definitions/monetaryValue"
     },
     "depositRequiredDate": {
       "description": "Date on which deposit is due",
@@ -249,54 +249,13 @@
       },
       "additionalProperties": false
     },
-    "monetaryValue": {
-      "description": "A monetary value consisting of a number and a currency",
-      "type": "object",
-      "required": [
-        "value"
-      ],
-      "properties": {
-        "value": {
-          "description": "Number of units of the currency",
-          "type": "number"
-        },
-        "currency": {
-          "description": "ISO4217 3-character currency code",
-          "type": "string"
-        }
-      },
-      "additionalProperties": false
-    },
-    "monetaryAmount": {
-      "description": "An amount of money with associated tax",
-      "type": "object",
-      "properties": {
-        "amountBeforeTax": {
-          "description": "Amount before tax",
-          "$ref": "#/definitions/monetaryValue"
-        },
-        "taxAmount": {
-          "description": "Tax amount",
-          "$ref": "#/definitions/monetaryValue"
-        },
-        "value": {
-          "description": "Number of units of the currency of the pre-tax amount",
-          "type": "number"
-        },
-        "currency": {
-          "description": "ISO4217 3-character currency code of the pre-tax amount",
-          "type": "string"
-        }
-      },
-      "additionalProperties": false
-    },
     "rate": {
       "description": "A rate during a specific time period",
       "type": "object",
       "properties": {
         "amount": {
           "description": "Rate per time unit",
-          "$ref": "#/definitions/monetaryValue"
+          "$ref": "common-definitions.json#/definitions/monetaryValue"
         },
         "startTime": {
           "description": "Start time of the rate",
@@ -356,7 +315,7 @@
         },
         "totalPrice": {
           "description": "Total price of the service",
-          "$ref": "#/definitions/monetaryAmount"
+          "$ref": "common-definitions.json#/definitions/monetaryAmount"
         },
         "quantity": {
           "description": "Quantity of this service rendered during the stay",

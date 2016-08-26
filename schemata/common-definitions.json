@@ -2,6 +2,47 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "Definitions for objects used in multiple SHIP message types.",
   "definitions": {
+    "monetaryValue": {
+      "description": "A monetary value consisting of a number and a currency",
+      "type": "object",
+      "required": [
+        "value"
+      ],
+      "properties": {
+        "value": {
+          "description": "Number of units of the currency",
+          "type": "number"
+        },
+        "currency": {
+          "description": "ISO4217 3-character currency code",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "monetaryAmount": {
+      "description": "An amount of money with associated tax",
+      "type": "object",
+      "properties": {
+        "amountBeforeTax": {
+          "description": "Amount before tax",
+          "$ref": "#/definitions/monetaryValue"
+        },
+        "taxAmount": {
+          "description": "Tax amount",
+          "$ref": "#/definitions/monetaryValue"
+        },
+        "value": {
+          "description": "Number of units of the currency of the pre-tax amount",
+          "type": "number"
+        },
+        "currency": {
+          "description": "ISO4217 3-character currency code of the pre-tax amount",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
     "companyInfo": {
       "description": "A minimal set of information about a company",
       "type": "object",

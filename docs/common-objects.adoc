@@ -2,6 +2,60 @@
 
 Definitions for objects used in multiple SHIP message types.
 
+== monetaryValue object
+
+A monetary value consisting of a number and a currency
+
+.Fields of the `monetaryValue` object
+|===
+|Name |Type |Usage |Description |Example
+
+|value
+|decimal number
+|`REQUIRED`
+|Number of units of the currency
+|19.95
+
+|currency
+|string
+|`RECOMMENDED`
+|ISO4217 3-character currency code
+|`"USD"`
+|===
+
+== monetaryAmount object
+
+An amount of money with associated tax
+
+.Fields of the `monetaryAmount` object
+|===
+|Name |Type |Usage |Description |Example
+
+|amountBeforeTax
+|<<monetaryValue object>>
+|`RECOMMENDED`
+|Amount before tax
+|
+
+|taxAmount
+|<<monetaryValue object>>
+|`RECOMMENDED`
+|Tax amount
+|
+
+|value
+|decimal number
+|`DEPRECATED`
+|Number of units of the currency of the pre-tax amount. Use *amountBeforeTax* instead.
+|`19.95`
+
+|currency
+|string
+|`DEPRECATED`
+|ISO4217 3-character currency code of the pre-tax amount. Use *amountBeforeTax* instead.
+|`"USD"`
+|===
+
 == companyInfo object
 
 A minimal set of information about a company
