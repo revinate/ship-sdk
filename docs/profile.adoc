@@ -96,8 +96,8 @@ A profile object represents a person or organization that may be associated with
 
 |companyInfo
 |<<companyInfo object>>
-|`DEPRECATED`
-|Company of the guest. Attach a <<profile object>> with *profileType* of `"CORPORATE"` to the <<guestStay object>> instead of using this field.
+|`SUGGESTED`
+|Company of the guest
 |
 
 |emailOptOut
