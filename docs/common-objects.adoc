@@ -52,22 +52,34 @@ A monetary value consisting of a number and a currency
 
 == monetaryAmount object
 
-An amount of money
+An amount of money with associated tax
 
 .Fields of the `monetaryAmount` object
 |===
 |Name |Type |Usage |Description |Example
 
+|amountBeforeTax
+|<<monetaryValue object>>
+|`RECOMMENDED`
+|Amount before tax
+|
+
+|taxAmount
+|<<monetaryValue object>>
+|`RECOMMENDED`
+|Tax amount
+|
+
 |value
 |decimal number
-|`REQUIRED`
-|Number of units of the currency
+|`DEPRECATED`
+|Number of units of the currency of the pre-tax amount. Use *amountBeforeTax* instead.
 |`19.95`
 
 |currency
 |string
-|`RECOMMENDED`
-|ISO4217 3-character currency code
+|`DEPRECATED`
+|ISO4217 3-character currency code of the pre-tax amount. Use *amountBeforeTax* instead.
 |`"USD"`
 |===
 

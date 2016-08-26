@@ -22,8 +22,7 @@
   "actualCheckoutDate": "2007-07-22T08:10:40.000-07:00",
   "checkedOutBy": "AJP",
   "stayLength": {
-    "stayLength": 3,
-    "stayLengthUnits": "DAY"
+    "stayLength": 3
   },
   "numberOfAdults": 1,
   "numberOfChildren": 0,
@@ -34,28 +33,45 @@
   "numberOfRooms": 1,
   "market": "ALL",
   "purposeOfStay": "BUSINESS",
-  "travelAgency": {
-    "name": "Avertine Travel"
-  },
   "totalRoomRevenue": {
-    "value": 404.5,
-    "currency": "USD"
+    "amountBeforeTax": {
+      "value": 404.5,
+      "currency": "USD"
+    },
+    "taxAmount": {
+      "value": 35.39,
+      "currency": "USD"
+    }
   },
   "totalFoodAndBeverageRevenue": {
-    "value": 4.99,
-    "currency": "USD"
+    "amountBeforeTax": {
+      "value": 4.99,
+      "currency": "USD"
+    },
+    "taxAmount": {
+      "value": 0.43,
+      "currency": "USD"
+    }
   },
   "totalLuggageRevenue": {
-    "value": 49.99,
-    "currency": "USD"
+    "amountBeforeTax": {
+      "value": 49.99,
+      "currency": "USD"
+    },
+    "taxAmount": {
+      "value": 4.37,
+      "currency": "USD"
+    }
   },
   "totalOtherRevenue": {
-    "value": 11.25,
-    "currency": "USD"
-  },
-  "totalTaxes": {
-    "value": 30.4,
-    "currency": "USD"
+    "amountBeforeTax": {
+      "value": 11.25,
+      "currency": "USD"
+    },
+    "taxAmount": {
+      "value": 0.98,
+      "currency": "USD"
+    }
   },
   "totalRemainingBalance": {
     "value": 24.55,
@@ -125,8 +141,14 @@
         "timeUnitType": "HOUR"
       },
       "pricePerUnit": {
-        "value": 25.9,
-        "currency": "USD"
+        "amountBeforeTax": {
+          "value": 25.9,
+          "currency": "USD"
+        },
+        "taxAmount": {
+          "value": 2.27,
+          "currency": "USD"
+        }
       },
       "numberOfUnits": 2
     }

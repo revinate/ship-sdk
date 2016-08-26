@@ -47,18 +47,23 @@
       "additionalProperties": false
     },
     "monetaryAmount": {
-      "description": "An amount of money",
+      "description": "An amount of money with associated tax",
       "type": "object",
-      "required": [
-        "value"
-      ],
       "properties": {
+        "amountBeforeTax": {
+          "description": "Amount before tax",
+          "$ref": "#/definitions/monetaryValue"
+        },
+        "taxAmount": {
+          "description": "Tax amount",
+          "$ref": "#/definitions/monetaryValue"
+        },
         "value": {
-          "description": "Number of units of the currency",
+          "description": "Number of units of the currency of the pre-tax amount",
           "type": "number"
         },
         "currency": {
-          "description": "ISO4217 3-character currency code",
+          "description": "ISO4217 3-character currency code of the pre-tax amount",
           "type": "string"
         }
       },
