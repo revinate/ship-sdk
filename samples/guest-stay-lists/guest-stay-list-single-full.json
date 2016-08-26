@@ -262,6 +262,40 @@
             "time": "2014-01-16T11:30:38.000-08:00"
           }
         ]
+      },
+      {
+        "action": "ADD",
+        "property": "AVERTINE",
+        "interfaceType": "SHIP",
+        "remoteSystemName": "avertine_ship",
+        "profileId": "314",
+        "profileType": "TRAVEL",
+        "lastName": "Avertine Travel",
+        "emailAddresses": [
+          {
+            "emailAddress": "travel@mailinator.com",
+            "primary": true
+          }
+        ],
+        "postalAddresses": [
+          {
+            "address1": "1234 Jones St",
+            "address2": "Suite C1",
+            "city": "San Francisco",
+            "state": "CA",
+            "country": "US",
+            "zipCode": "94108",
+            "addressType": "BUSINESS",
+            "primary": true
+          }
+        ],
+        "phoneNumbers": [
+          {
+            "phoneNumber": "555-555-1234",
+            "phoneNumberType": "BUSINESS",
+            "primary": true
+          }
+        ]
       }
     ],
     "guestNotes": [
