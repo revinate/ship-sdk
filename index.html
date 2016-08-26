@@ -525,12 +525,10 @@ table.CodeRay td.code>pre{padding:0}
 <ul class="sectlevel3">
 <li><a href="#_gueststay_object">1.1.1. guestStay object</a></li>
 <li><a href="#_staylength_object">1.1.2. stayLength object</a></li>
-<li><a href="#_monetaryvalue_object">1.1.3. monetaryValue object</a></li>
-<li><a href="#_monetaryamount_object">1.1.4. monetaryAmount object</a></li>
-<li><a href="#_rate_object">1.1.5. rate object</a></li>
-<li><a href="#_rateplan_object">1.1.6. ratePlan object</a></li>
-<li><a href="#_service_object">1.1.7. service object</a></li>
-<li><a href="#_gueststay_action_string">1.1.8. guestStay action string</a></li>
+<li><a href="#_rate_object">1.1.3. rate object</a></li>
+<li><a href="#_rateplan_object">1.1.4. ratePlan object</a></li>
+<li><a href="#_service_object">1.1.5. service object</a></li>
+<li><a href="#_gueststay_action_string">1.1.6. guestStay action string</a></li>
 </ul>
 </li>
 <li><a href="#_guest_stay_list_message">1.2. Guest-stay list message</a></li>
@@ -553,9 +551,12 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_simple_guest_stay_list_message">1.5. Simple guest-stay list message</a></li>
 <li><a href="#_common_objects">1.6. Common objects</a>
 <ul class="sectlevel3">
-<li><a href="#_companyinfo_object">1.6.1. companyInfo object</a></li>
-<li><a href="#_guestnote_object">1.6.2. guestNote object</a></li>
-<li><a href="#_userdefinedfield_object">1.6.3. userDefinedField object</a></li>
+<li><a href="#_timespan_object">1.6.1. timeSpan object</a></li>
+<li><a href="#_monetaryvalue_object">1.6.2. monetaryValue object</a></li>
+<li><a href="#_monetaryamount_object">1.6.3. monetaryAmount object</a></li>
+<li><a href="#_companyinfo_object">1.6.4. companyInfo object</a></li>
+<li><a href="#_guestnote_object">1.6.5. guestNote object</a></li>
+<li><a href="#_userdefinedfield_object">1.6.6. userDefinedField object</a></li>
 </ul>
 </li>
 </ul>
@@ -706,7 +707,7 @@ The <strong>Types</strong> of some of the fields below are listed as <code>strin
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">action</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">string enum: <code>BOOK</code>, <code>ADD</code>, <code>WAITLIST</code>, <code>CONFIRM</code>, <code>DENY</code>, <code>CANCEL</code>, <code>CHECKIN</code>, <code>NOSHOW</code>, <code>CHECKOUT</code>, <code>EDIT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string enum: <code>BOOK</code>, <code>ADD</code>, <code>WAITLIST</code>, <code>CONFIRM</code>, <code>DENY</code>, <code>CANCEL</code>, <code>CHECKIN</code>, <code>NOSHOW</code>, <code>CHECKOUT</code>, <code>EDIT</code>, <code>NA</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>REQUIRED</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Action that triggered the guest-stay message, see <a href="#_gueststay_action_string">guestStay action string</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>"ADD"</code></p></td>
@@ -889,15 +890,15 @@ The <strong>Types</strong> of some of the fields below are listed as <code>strin
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">roomType</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUGGESTED</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Room type, preferably in code/short form</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>RECOMMENDED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Actual room type of the stay, preferably in code/short form</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>"KINGDLX"</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">roomTypeChargeCode</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUGGESTED</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Charge code of the room type or room identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Room type charged to the stay</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>"KING"</code></p></td>
 </tr>
 <tr>
@@ -918,14 +919,14 @@ The <strong>Types</strong> of some of the fields below are listed as <code>strin
 <td class="tableblock halign-left valign-top"><p class="tableblock">market</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUGGESTED</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Market name or code of the guest or stay</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"Bay Area"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Market segment name or code of the stay</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"WEB"</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">tripType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">purposeOfStay</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>OPTIONAL</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Trip type of the stay</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Purpose of the stay</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>"BUSINESS"</code></p></td>
 </tr>
 <tr>
@@ -1064,122 +1065,26 @@ The <strong>Types</strong> of some of the fields below are listed as <code>strin
 <td class="tableblock halign-left valign-top"><p class="tableblock">stayLength</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">integral number</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>REQUIRED</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number of time units of the stay</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of days of the stay</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>3</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">stayLengthUnits</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string enum: <code>DAY</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>REQUIRED</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Type of the time units of the stay length</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DEPRECATED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type of the time units of the stay length. Should be omitted as only <code>"DAY"</code> is possible.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>"DAY"</code></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_monetaryvalue_object">1.1.3. monetaryValue object</h4>
-<div class="paragraph">
-<p>A monetary value consisting of a number and a currency</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 4. Fields of the <code>monetaryValue</code> object</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Usage</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">decimal number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>REQUIRED</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number of units of the currency</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">19.95</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">currency</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>RECOMMENDED</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ISO4217 3-character currency code</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"USD"</code></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_monetaryamount_object">1.1.4. monetaryAmount object</h4>
-<div class="paragraph">
-<p>An amount of money with associated tax</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 5. Fields of the <code>monetaryAmount</code> object</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Usage</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">amountBeforeTax</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_monetaryvalue_object">monetaryValue object</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>RECOMMENDED</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Amount before tax</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">taxAmount</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_monetaryvalue_object">monetaryValue object</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>RECOMMENDED</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Tax amount</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">decimal number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DEPRECATED</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number of units of the currency of the pre-tax amount. Use <strong>amountBeforeTax</strong> instead.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>19.95</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">currency</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DEPRECATED</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ISO4217 3-character currency code of the pre-tax amount. Use <strong>amountBeforeTax</strong> instead.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"USD"</code></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_rate_object">1.1.5. rate object</h4>
+<h4 id="_rate_object">1.1.3. rate object</h4>
 <div class="paragraph">
 <p>A rate during a specific time period</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 6. Fields of the <code>rate</code> object</caption>
+<caption class="title">Table 4. Fields of the <code>rate</code> object</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -1229,12 +1134,12 @@ The <strong>Types</strong> of some of the fields below are listed as <code>strin
 </table>
 </div>
 <div class="sect3">
-<h4 id="_rateplan_object">1.1.6. ratePlan object</h4>
+<h4 id="_rateplan_object">1.1.4. ratePlan object</h4>
 <div class="paragraph">
 <p>A rate plan</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 7. Fields of the <code>ratePlan</code> object</caption>
+<caption class="title">Table 5. Fields of the <code>ratePlan</code> object</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -1260,6 +1165,20 @@ The <strong>Types</strong> of some of the fields below are listed as <code>strin
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>"BAR"</code></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timeSpan</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_timespan_object">timeSpan object</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OPTIONAL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Time period over which the rate plan applies</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">confidential</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OPTIONAL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether the rate plan should be hidden from guests</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">rates</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">array of <a href="#_rate_object">rate objects</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>RECOMMENDED</code></p></td>
@@ -1270,12 +1189,12 @@ The <strong>Types</strong> of some of the fields below are listed as <code>strin
 </table>
 </div>
 <div class="sect3">
-<h4 id="_service_object">1.1.7. service object</h4>
+<h4 id="_service_object">1.1.5. service object</h4>
 <div class="paragraph">
 <p>A service rendered during a stay</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 8. Fields of the <code>service</code> object</caption>
+<caption class="title">Table 6. Fields of the <code>service</code> object</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -1301,38 +1220,38 @@ The <strong>Types</strong> of some of the fields below are listed as <code>strin
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>"SPA"</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ratePlanCode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rateCode</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>REQUIRED</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Rate plan name or rate code of the service</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>"SPA_DLX"</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">totalPrice</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timeSpan</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_timespan_object">timeSpan object</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OPTIONAL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Time period over which the service was rendered</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pricePerUnit</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_monetaryamount_object">monetaryAmount object</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>REQUIRED</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Total price of the service</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Price per unit of the service</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">quantity</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">numberOfUnits</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">integral number</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>REQUIRED</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Quantity of this service rendered during the stay</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of units of the service</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>23</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">servicePrices</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">array of <a href="#_rate_object">rate objects</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>RECOMMENDED</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Breakdown of the rates for the service</p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_gueststay_action_string">1.1.8. guestStay action string</h4>
+<h4 id="_gueststay_action_string">1.1.6. guestStay action string</h4>
 <div class="paragraph">
 <p>Typically, transmission of a guest-stay message is triggered by a guest-stay-related action being performed on the sending system. The action being performed by the sending system is mapped to the possible values of the <strong>action</strong> field in the <a href="#_gueststay_object">guestStay object</a>. The following table lists some actions that should trigger a guest-stay message, and the corresponding <strong>action</strong> field value. The <strong>statusCode</strong> of the guest-stay before and after the action are also included for illustrative purposes.</p>
 </div>
@@ -1349,7 +1268,7 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 </table>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 9. guestStay actions</caption>
+<caption class="title">Table 7. guestStay actions</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 25%;">
@@ -1425,8 +1344,23 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 <td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Same as before</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System resent an existing stay</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NA</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Same as before</p></td>
+</tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>The following diagram illustrates how <strong>actions</strong> interact with <strong>statusCodes</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="guest-stay-actions.png" alt="guestStay actions" width="600">
+</div>
+<div class="title">Figure 1. guestStay actions</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1449,7 +1383,7 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 <p>A profile object represents a person or organization that may be associated with a guest-stay, for example the primary guest, an accompanying guest, a corporate entity, or a travel agency.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 10. Fields of the <code>profile</code> object</caption>
+<caption class="title">Table 8. Fields of the <code>profile</code> object</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -1568,8 +1502,8 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">companyInfo</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_companyinfo_object">companyInfo object</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DEPRECATED</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Company of the guest. Attach a <a href="#_profile_object">profile object</a> with <strong>profileType</strong> of <code>"CORPORATE"</code> to the <a href="#_gueststay_object">guestStay object</a> instead of using this field.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUGGESTED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Company of the guest</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
@@ -1637,7 +1571,7 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 <p>An email address</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 11. Fields of the <code>emailAddress</code> object</caption>
+<caption class="title">Table 9. Fields of the <code>emailAddress</code> object</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -1685,7 +1619,7 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 <p>A postal address</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 12. Fields of the <code>postalAddress</code> object</caption>
+<caption class="title">Table 10. Fields of the <code>postalAddress</code> object</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -1775,7 +1709,7 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 <p>A phone number</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 13. Fields of the <code>phoneNumber</code> object</caption>
+<caption class="title">Table 11. Fields of the <code>phoneNumber</code> object</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -1830,7 +1764,7 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 <p>A loyalty program or other program membership</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 14. Fields of the <code>membership</code> object</caption>
+<caption class="title">Table 12. Fields of the <code>membership</code> object</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -1885,7 +1819,7 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 <p>A credit card</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 15. Fields of the <code>creditCard</code> object</caption>
+<caption class="title">Table 13. Fields of the <code>creditCard</code> object</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -1940,7 +1874,7 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 <p>Typically, transmission of a profile message is triggered by a profile-related action being performed on the sending system. The action being performed by the sending system is mapped to the possible values of the <strong>action</strong> field in the <a href="#_profile_object">profile object</a>. The following table lists some actions that should trigger a profile message, and the corresponding <strong>action</strong> field value.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 16. profile actions</caption>
+<caption class="title">Table 14. profile actions</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1983,7 +1917,7 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 <p>A simpleGuestStay object is a simplified version of the guestStay object. It contains information about the location, duration and other details of the stay, as well as information about the primary guest. It is intended to be used by applications that do not require the full set of fields in the guestStay object.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 17. Fields of the <code>simpleGuestStay</code> object</caption>
+<caption class="title">Table 15. Fields of the <code>simpleGuestStay</code> object</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -2195,12 +2129,156 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 <p>Definitions for objects used in multiple SHIP message types.</p>
 </div>
 <div class="sect3">
-<h4 id="_companyinfo_object">1.6.1. companyInfo object</h4>
+<h4 id="_timespan_object">1.6.1. timeSpan object</h4>
+<div class="paragraph">
+<p>A time period with a start time</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 16. Fields of the <code>timeSpan</code> object</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Usage</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">startTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ISO8601 date-time string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>REQUIRED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"2016-07-22T00:00:00.000-07:00"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timeUnits</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integral number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>REQUIRED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of time units</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timeUnitType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string enum: <code>DAY</code>, <code>HOUR</code>, <code>MINUTE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>REQUIRED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type of the time units</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"DAY"</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_monetaryvalue_object">1.6.2. monetaryValue object</h4>
+<div class="paragraph">
+<p>A monetary value consisting of a number and a currency</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 17. Fields of the <code>monetaryValue</code> object</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Usage</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">decimal number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>REQUIRED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of units of the currency</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">19.95</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">currency</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>RECOMMENDED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ISO4217 3-character currency code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"USD"</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_monetaryamount_object">1.6.3. monetaryAmount object</h4>
+<div class="paragraph">
+<p>An amount of money with associated tax</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 18. Fields of the <code>monetaryAmount</code> object</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Usage</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">amountBeforeTax</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_monetaryvalue_object">monetaryValue object</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>RECOMMENDED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amount before tax</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">taxAmount</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_monetaryvalue_object">monetaryValue object</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>RECOMMENDED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tax amount</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">decimal number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DEPRECATED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of units of the currency of the pre-tax amount. Use <strong>amountBeforeTax</strong> instead.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>19.95</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">currency</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DEPRECATED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ISO4217 3-character currency code of the pre-tax amount. Use <strong>amountBeforeTax</strong> instead.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"USD"</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_companyinfo_object">1.6.4. companyInfo object</h4>
 <div class="paragraph">
 <p>A minimal set of information about a company</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 18. Fields of the <code>companyInfo</code> object</caption>
+<caption class="title">Table 19. Fields of the <code>companyInfo</code> object</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -2229,12 +2307,12 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 </table>
 </div>
 <div class="sect3">
-<h4 id="_guestnote_object">1.6.2. guestNote object</h4>
+<h4 id="_guestnote_object">1.6.5. guestNote object</h4>
 <div class="paragraph">
 <p>A note</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 19. Fields of the <code>guestNote</code> object</caption>
+<caption class="title">Table 20. Fields of the <code>guestNote</code> object</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -2284,12 +2362,12 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 </table>
 </div>
 <div class="sect3">
-<h4 id="_userdefinedfield_object">1.6.3. userDefinedField object</h4>
+<h4 id="_userdefinedfield_object">1.6.6. userDefinedField object</h4>
 <div class="paragraph">
 <p>A name-value pair defined by a specific system or application</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 20. Fields of the <code>userDefinedField</code> object</caption>
+<caption class="title">Table 21. Fields of the <code>userDefinedField</code> object</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -2441,8 +2519,7 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
   <span class="key"><span class="delimiter">&quot;</span><span class="content">actualCheckoutDate</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2007-07-22T08:10:40.000-07:00</span><span class="delimiter">&quot;</span></span>,
   <span class="key"><span class="delimiter">&quot;</span><span class="content">checkedOutBy</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">AJP</span><span class="delimiter">&quot;</span></span>,
   <span class="key"><span class="delimiter">&quot;</span><span class="content">stayLength</span><span class="delimiter">&quot;</span></span>: {
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">stayLength</span><span class="delimiter">&quot;</span></span>: <span class="integer">3</span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">stayLengthUnits</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">DAY</span><span class="delimiter">&quot;</span></span>
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">stayLength</span><span class="delimiter">&quot;</span></span>: <span class="integer">3</span>
   },
   <span class="key"><span class="delimiter">&quot;</span><span class="content">numberOfAdults</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>,
   <span class="key"><span class="delimiter">&quot;</span><span class="content">numberOfChildren</span><span class="delimiter">&quot;</span></span>: <span class="integer">0</span>,
@@ -2452,7 +2529,7 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
   <span class="key"><span class="delimiter">&quot;</span><span class="content">blockCode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">KING-Block</span><span class="delimiter">&quot;</span></span>,
   <span class="key"><span class="delimiter">&quot;</span><span class="content">numberOfRooms</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>,
   <span class="key"><span class="delimiter">&quot;</span><span class="content">market</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">ALL</span><span class="delimiter">&quot;</span></span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">tripType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">BUSINESS</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">purposeOfStay</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">BUSINESS</span><span class="delimiter">&quot;</span></span>,
   <span class="key"><span class="delimiter">&quot;</span><span class="content">totalRoomRevenue</span><span class="delimiter">&quot;</span></span>: {
     <span class="key"><span class="delimiter">&quot;</span><span class="content">amountBeforeTax</span><span class="delimiter">&quot;</span></span>: {
       <span class="key"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>: <span class="float">404.5</span>,
@@ -2504,7 +2581,13 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
   <span class="key"><span class="delimiter">&quot;</span><span class="content">depositRequiredDate</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2009-08-15</span><span class="delimiter">&quot;</span></span>,
   <span class="key"><span class="delimiter">&quot;</span><span class="content">ratePlans</span><span class="delimiter">&quot;</span></span>: [
     {
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">rateCode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">BASE_RATE</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">rateCode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">SECRET_RATE</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">timeSpan</span><span class="delimiter">&quot;</span></span>: {
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">startTime</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2007-07-19T00:00:00.000-07:00</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">timeUnits</span><span class="delimiter">&quot;</span></span>: <span class="integer">3</span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">timeUnitType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">DAY</span><span class="delimiter">&quot;</span></span>
+      },
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">confidential</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>,
       <span class="key"><span class="delimiter">&quot;</span><span class="content">rates</span><span class="delimiter">&quot;</span></span>: [
         {
           <span class="key"><span class="delimiter">&quot;</span><span class="content">amount</span><span class="delimiter">&quot;</span></span>: {
@@ -2548,8 +2631,13 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
   <span class="key"><span class="delimiter">&quot;</span><span class="content">services</span><span class="delimiter">&quot;</span></span>: [
     {
       <span class="key"><span class="delimiter">&quot;</span><span class="content">inventoryCode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">SPA</span><span class="delimiter">&quot;</span></span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">ratePlanCode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">STD_SPA</span><span class="delimiter">&quot;</span></span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">totalPrice</span><span class="delimiter">&quot;</span></span>: {
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">rateCode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">STD_SPA</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">timeSpan</span><span class="delimiter">&quot;</span></span>: {
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">startTime</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2007-07-19T23:00:00.000-07:00</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">timeUnits</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">timeUnitType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">HOUR</span><span class="delimiter">&quot;</span></span>
+      },
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">pricePerUnit</span><span class="delimiter">&quot;</span></span>: {
         <span class="key"><span class="delimiter">&quot;</span><span class="content">amountBeforeTax</span><span class="delimiter">&quot;</span></span>: {
           <span class="key"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>: <span class="float">25.9</span>,
           <span class="key"><span class="delimiter">&quot;</span><span class="content">currency</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">USD</span><span class="delimiter">&quot;</span></span>
@@ -2559,27 +2647,7 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
           <span class="key"><span class="delimiter">&quot;</span><span class="content">currency</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">USD</span><span class="delimiter">&quot;</span></span>
         }
       },
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">quantity</span><span class="delimiter">&quot;</span></span>: <span class="integer">2</span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">servicePrices</span><span class="delimiter">&quot;</span></span>: [
-        {
-          <span class="key"><span class="delimiter">&quot;</span><span class="content">amount</span><span class="delimiter">&quot;</span></span>: {
-            <span class="key"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>: <span class="float">12.95</span>,
-            <span class="key"><span class="delimiter">&quot;</span><span class="content">currency</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">USD</span><span class="delimiter">&quot;</span></span>
-          },
-          <span class="key"><span class="delimiter">&quot;</span><span class="content">startTime</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2007-07-19T23:00:00.000-07:00</span><span class="delimiter">&quot;</span></span>,
-          <span class="key"><span class="delimiter">&quot;</span><span class="content">timeUnits</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>,
-          <span class="key"><span class="delimiter">&quot;</span><span class="content">timeUnitType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">HOUR</span><span class="delimiter">&quot;</span></span>
-        },
-        {
-          <span class="key"><span class="delimiter">&quot;</span><span class="content">amount</span><span class="delimiter">&quot;</span></span>: {
-            <span class="key"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>: <span class="float">12.95</span>,
-            <span class="key"><span class="delimiter">&quot;</span><span class="content">currency</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">USD</span><span class="delimiter">&quot;</span></span>
-          },
-          <span class="key"><span class="delimiter">&quot;</span><span class="content">startTime</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2007-07-20T22:00:00.000-07:00</span><span class="delimiter">&quot;</span></span>,
-          <span class="key"><span class="delimiter">&quot;</span><span class="content">timeUnits</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>,
-          <span class="key"><span class="delimiter">&quot;</span><span class="content">timeUnitType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">HOUR</span><span class="delimiter">&quot;</span></span>
-        }
-      ]
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">numberOfUnits</span><span class="delimiter">&quot;</span></span>: <span class="integer">2</span>
     }
   ],
   <span class="key"><span class="delimiter">&quot;</span><span class="content">profiles</span><span class="delimiter">&quot;</span></span>: [
@@ -3215,7 +3283,7 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-08-24 19:28:41 PDT
+Last updated 2016-08-25 04:04:18 PDT
 </div>
 </div>
 </body>
