@@ -32,7 +32,7 @@
   "blockCode": "KING-Block",
   "numberOfRooms": 1,
   "market": "ALL",
-  "tripType": "BUSINESS",
+  "purposeOfStay": "BUSINESS",
   "totalRoomRevenue": {
     "amountBeforeTax": {
       "value": 404.5,

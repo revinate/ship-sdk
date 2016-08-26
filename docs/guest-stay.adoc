@@ -168,14 +168,14 @@ A guestStay object represents a past, current, or upcoming stay by a guest or gu
 
 |roomType
 |string
-|`SUGGESTED`
-|Room type, preferably in code/short form
+|`RECOMMENDED`
+|Actual room type of the stay, preferably in code/short form
 |`"KINGDLX"`
 
 |roomTypeChargeCode
 |string
 |`SUGGESTED`
-|Charge code of the room type or room identifier
+|Room type charged to the stay
 |`"KING"`
 
 |blockCode
@@ -193,13 +193,13 @@ A guestStay object represents a past, current, or upcoming stay by a guest or gu
 |market
 |string
 |`SUGGESTED`
-|Market name or code of the guest or stay
-|`"Bay Area"`
+|Market segment name or code of the stay
+|`"WEB"`
 
-|tripType
+|purposeOfStay
 |string
 |`OPTIONAL`
-|Trip type of the stay
+|Purpose of the stay
 |`"BUSINESS"`
 
 |travelAgency
