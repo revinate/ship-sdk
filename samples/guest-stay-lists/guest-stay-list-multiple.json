@@ -10,10 +10,8 @@
     "roomNumber": "123",
     "roomType": "KING",
     "totalRoomRevenue": {
-      "amountBeforeTax": {
-        "value": 300,
-        "currency": "USD"
-      }
+      "value": 300,
+      "currency": "USD"
     },
     "ratePlans": [
       {
@@ -82,10 +80,8 @@
     "roomNumber": "FLT2-A",
     "roomType": "KING",
     "totalRoomRevenue": {
-      "amountBeforeTax": {
-        "value": 295.5,
-        "currency": "USD"
-      }
+      "value": 295.5,
+      "currency": "USD"
     },
     "ratePlans": [
       {

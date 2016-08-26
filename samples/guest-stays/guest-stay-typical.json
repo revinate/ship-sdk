@@ -9,10 +9,8 @@
   "roomNumber": "123",
   "roomType": "KING",
   "totalRoomRevenue": {
-    "amountBeforeTax": {
-      "value": 300,
-      "currency": "USD"
-    }
+    "value": 300,
+    "currency": "USD"
   },
   "ratePlans": [
     {

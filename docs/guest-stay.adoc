@@ -204,8 +204,8 @@ A guestStay object represents a past, current, or upcoming stay by a guest or gu
 
 |travelAgency
 |<<companyInfo object>>
-|`DEPRECATED`
-|Travel agency associated with the stay. Attach a <<profile object>> with *profileType* of `"TRAVEL"` to the stay instead of using this field.
+|`OPTIONAL`
+|Travel agency associated with the stay
 |
 
 |totalRoomRevenue
@@ -234,8 +234,8 @@ A guestStay object represents a past, current, or upcoming stay by a guest or gu
 
 |totalTaxes
 |<<monetaryValue object>>
-|`DEPRECATED`
-|Total of all taxes. Use the *taxAmount* field in each <<monetaryAmount object>> instead.
+|`SUGGESTED`
+|Total of all taxes
 |
 
 |totalRemainingBalance
@@ -309,8 +309,8 @@ A description of the length of stay
 
 |stayLengthUnits
 |string enum: `DAY`
-|`DEPRECATED`
-|Type of the time units of the stay length. Should be omitted as only `"DAY"` is possible.
+|`OPTIONAL`
+|Type of the time units of the stay length
 |`"DAY"`
 |===
 
