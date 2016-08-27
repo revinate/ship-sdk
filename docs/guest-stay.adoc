@@ -341,7 +341,7 @@ A rate during a specific time period
 |`2`
 
 |timeUnitType
-|string enum: `DAY`, `HOUR`
+|string enum: `DAY`, `HOUR`, `MINUTE`
 |`RECOMMENDED`
 |Type of the time units
 |`"DAY"`

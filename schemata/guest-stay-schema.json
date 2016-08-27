@@ -269,7 +269,7 @@
         "timeUnitType": {
           "description": "Type of the time units",
           "type": "string",
-          "enum": ["DAY", "HOUR"]
+          "enum": ["DAY", "HOUR", "MINUTE"]
         }
       },
       "additionalProperties": false
