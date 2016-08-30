@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.4">
-<meta name="author" content="v1.0, 2016-08-24">
+<meta name="author" content="v1.1, 2016-08-30">
 <title>Simple Hospitality Interchange Protocol</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -514,7 +514,7 @@ table.CodeRay td.code>pre{padding:0}
 <div id="header">
 <h1>Simple Hospitality Interchange Protocol</h1>
 <div class="details">
-<span id="author" class="author">v1.0, 2016-08-24</span><br>
+<span id="author" class="author">v1.1, 2016-08-30</span><br>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -968,7 +968,7 @@ The <strong>Types</strong> of some of the fields below are listed as <code>strin
 <td class="tableblock halign-left valign-top"><p class="tableblock">totalTaxes</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_monetaryvalue_object">monetaryValue object</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>DEPRECATED</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Total of all taxes. Use the <strong>tax</strong> field in each <a href="#_monetaryamount_object">monetaryAmount object</a> instead.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total of all taxes. Use the <strong>taxAmount</strong> field in each <a href="#_monetaryamount_object">monetaryAmount object</a> instead.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
@@ -1125,7 +1125,7 @@ The <strong>Types</strong> of some of the fields below are listed as <code>strin
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">timeUnitType</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">string enum: <code>DAY</code>, <code>HOUR</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string enum: <code>DAY</code>, <code>HOUR</code>, <code>MINUTE</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>RECOMMENDED</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Type of the time units</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>"DAY"</code></p></td>
@@ -2758,6 +2758,40 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
           <span class="key"><span class="delimiter">&quot;</span><span class="content">time</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2014-01-16T11:30:38.000-08:00</span><span class="delimiter">&quot;</span></span>
         }
       ]
+    },
+    {
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">action</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">ADD</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">property</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">AVERTINE</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">interfaceType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">SHIP</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">remoteSystemName</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">avertine_ship</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">profileId</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">314</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">profileType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">TRAVEL</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">lastName</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Avertine Travel</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">emailAddresses</span><span class="delimiter">&quot;</span></span>: [
+        {
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">emailAddress</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">travel@mailinator.com</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">primary</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>
+        }
+      ],
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">postalAddresses</span><span class="delimiter">&quot;</span></span>: [
+        {
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">address1</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">1234 Jones St</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">address2</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Suite C1</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">city</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">San Francisco</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">state</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">CA</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">country</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">US</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">zipCode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">94108</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">addressType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">BUSINESS</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">primary</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>
+        }
+      ],
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">phoneNumbers</span><span class="delimiter">&quot;</span></span>: [
+        {
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">phoneNumber</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">555-555-1234</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">phoneNumberType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">BUSINESS</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">primary</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>
+        }
+      ]
     }
   ],
   <span class="key"><span class="delimiter">&quot;</span><span class="content">guestNotes</span><span class="delimiter">&quot;</span></span>: [
@@ -3273,8 +3307,16 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1.0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2016-08-24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2016-08-26</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Initial version</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2016-08-30</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add <strong>amountBeforeTax</strong> and <strong>taxAmount</strong> to <strong>monetaryAmount</strong> object and deprecate <strong>value</strong> and <strong>currency</strong> from same.
+</p><p class="tableblock">Deprecate <strong>travelAgency</strong> and <strong>totalTaxes</strong> from <strong>guestStay</strong> object.
+</p><p class="tableblock">Deprecate <strong>stayLengthUnits</strong> from <strong>stayLength</strong> object.
+</p><p class="tableblock">Add <code>minute</code> as a possible enum to <strong>timeUnitType</strong> in <strong>rate</strong> object.</p></td>
 </tr>
 </tbody>
 </table>
@@ -3283,7 +3325,7 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-08-25 04:04:18 PDT
+Last updated 2016-08-30 14:47:07 PDT
 </div>
 </div>
 </body>
