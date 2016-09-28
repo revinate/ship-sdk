@@ -235,7 +235,7 @@ A guestStay object represents a past, current, or upcoming stay by a guest or gu
 |totalTaxes
 |<<monetaryValue object>>
 |`DEPRECATED`
-|Total of all taxes. Use the *taxAmount* field in each <<monetaryAmount object>> instead.
+|Total of all taxes. Use the *taxAmount* field in each <<monetaryAmount object>> instead. Currently this field is internally mapped to the totalRoomRevenue.taxAmount field if this one is empty. Else the value is discarded.
 |
 
 |totalRemainingBalance

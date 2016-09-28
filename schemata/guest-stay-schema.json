@@ -169,7 +169,7 @@
       "$ref": "common-definitions.json#/definitions/monetaryAmount"
     },
     "totalTaxes": {
-      "description": "Total of all taxes",
+      "description": "Total of all taxes, deprecated.",
       "$ref": "common-definitions.json#/definitions/monetaryValue"
     },
     "totalRemainingBalance": {
