@@ -37,8 +37,14 @@ A guestStay object represents a past, current, or upcoming stay by a guest or gu
 |confirmationCode
 |string
 |`REQUIRED`
-|ID of the stay
+|unique ID of the stay in the PMS. This number is used to track update of the reservation (booking, checkin, checkout...) and is typically internal to the PMS (see bookingNumber below for customer facing confirmation number).
 |`"30001"`
+
+|bookingNumber
+|string
+|`SUGGESTED`
+|ID assigned to the stay by the booking engine or central reservation system. This is typically used for customer facing confirmation number.
+|`"CRO-123A"`
 
 |statusCode
 |string enum: `REQUESTED`, `RESERVED`, `WAITLISTED`, `REQUESTDENIED`, `INHOUSE`, `CANCELED`, `NOSHOW`, `CHECKEDOUT`
@@ -63,12 +69,6 @@ A guestStay object represents a past, current, or upcoming stay by a guest or gu
 |`OPTIONAL`
 |Name, username, or initials of the user or system that last updated the stay
 |`"Test User"`
-
-|bookingNumber
-|string
-|`SUGGESTED`
-|ID assigned to the stay by the booking engine or central reservation system
-|`"CRO-123A"`
 
 |bookingDate
 |ISO8601 date-time string
