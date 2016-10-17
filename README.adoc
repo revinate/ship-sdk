@@ -38,4 +38,5 @@ Sample messages for each of the SHIP message types can be found in the link:samp
 
 == Implementations
 
-The https://github.com/revinate/ship-java[ship-java] project is a Java implementation of the SHIP message types.
+* https://github.com/revinate/ship-java[ship-java] - Java implementation of the SHIP message types.
+* https://github.com/revinate/ship-scala[ship-scala] - Scala implementation of the SHIP message types.
