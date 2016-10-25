@@ -181,8 +181,8 @@ A guestStay object represents a past, current, or upcoming stay by a guest or gu
 |blockCode
 |string
 |`SUGGESTED`
-|Block code of the stay
-|`"KING-Block"`
+|Block code of the room if the room is part of a block of room (conference, wedding, ...etc)
+|`"Hotelier Marketing 101 - Revinate world Conference"`
 
 |numberOfRooms
 |integral number
