@@ -21,4 +21,14 @@ Add `minute` as a possible enum to *timeUnitType* in *rate* object.
 |1.2
 |2016-12-18
 |Add *result* and *guestStayListResult* objects
+
+|1.3
+|2016-12-19
+|Add *guestStayResult* object.
+
+Add *status*, *sourceField*, and *sourceValue* to *result* object.
+
+Switch *field* in *result* object from JSON path to JSON pointer.
+
+Add *guestStays* to *guestStayListResult* object and deprecate *errors* and *warnings* from same.
 |===

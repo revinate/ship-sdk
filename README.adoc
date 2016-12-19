@@ -30,6 +30,8 @@ link:docs/common-objects.adoc[Common objects]
 
 link:docs/result.adoc[Result message]
 
+link:docs/guest-stay-result.adoc[Guest-stay result message]
+
 link:docs/guest-stay-list-result.adoc[Guest-stay list result message]
 
 link:docs/changelog.adoc[Revision history]

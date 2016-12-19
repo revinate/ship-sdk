@@ -4,6 +4,6 @@ deploy:
   provider: releases
   api_key:
     secure: qdntlfcRUwCa02wzge6i3JSbXvEKXDiDNp3EUiiaabRws6s8947Mjf+iSwPKmjmVrKghyl2JmfiI5dzp8g2+BLOWbvf4+7kkW98Nga+cVTYjt0ld4c9lhKgZ1QS5ZDEADQXThIRMVYfgEDl5hbRJONTK/m56qVLPK1G+tO/ruMBOgvd9M18PlX3eJwCZVv7/iouh90GR6Xc9iwTKEmhx/klND/pBdDznv8fTcTDCe9Ftq1CRf2uno1D7uo4gr5KtxRdfwGtRophelT0u8wfikNt70gehV2Ff93yK+X3vhGWZ1+ex0LJUMbuGLXxGZj/uosEt4UqHELWcxwl9JPPUJdKACdAH38DiqbmrGoGBwPJivkK9NhCd3y1ueWk7z0u8G6Cc83eZbmQBvYLeIaye1afmlxgnB4ekiqRjVWli3Ii0+TrJa/uPlwwVxmh8pQdcO3W+PxK35vhQPZSlz9H8h6AbR2EQANIilrwlom5WWb4ZuoR4kwMZvA4igGMrtfxBpf9uf3Lxu+Nk7GNE+8lksW/mzmansKN56jIdnLttFZx78Pcak4IISuhbjFL2m3dY19dTlrc/kM9i2KGxUQOhFUZNzHLQdnk87dccdbG5dq1nns5/5DEFQEv04wQ/Q1eLCYpP7JdC5jrNqzYuwEPt0SLKiZks13+U9EYyDKZyOz4=
-  file: build/ship-sdk-1.2.zip
+  file: build/ship-sdk-1.3.zip
   on:
     tags: true
