@@ -28,6 +28,10 @@ link:docs/simple-guest-stay-list.adoc[Simple guest-stay list message]
 
 link:docs/common-objects.adoc[Common objects]
 
+link:docs/result.adoc[Result message]
+
+link:docs/guest-stay-list-result.adoc[Guest-stay list result message]
+
 link:docs/changelog.adoc[Revision history]
 
 A single-page version of the documentation can also be found at https://revinate.github.io/ship-sdk/.
