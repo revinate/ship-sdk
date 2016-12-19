@@ -10,15 +10,33 @@ A result object contains the result of processing a message or part of a message
 |===
 |Name |Type |Usage |Description |Example
 
+|status
+|string enum: `NEW`, `SUCCESS`, `WARNING`, `FAILED`, `MISSING`, `DELETE`
+|`RECOMMENDED`
+|Status code of the result
+|`"SUCCESS"`
+
 |message
 |string
 |`SUGGESTED`
 |Description of the result
 |`"is required"`
 
+|sourceField
+|string
+|`OPTIONAL`
+|If the incoming message was transformed, this identifies the field of the incoming message to which the result pertains
+|`"cell 12"`
+
+|sourceValue
+|string
+|`OPTIONAL`
+|If the incoming message was transformed, the original value in the incoming message to which the result pertains
+|`"CODE123"`
+
 |field
 |string
 |`SUGGESTED`
-|JSON path identifying the SHIP field to which the result pertains
-|`"$.profiles[0].lastName"`
+|JSON pointer identifying the SHIP field to which the result pertains
+|`"guestStay#/profiles/0/lastName"`
 |===

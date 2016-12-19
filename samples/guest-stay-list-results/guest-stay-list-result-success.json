@@ -1,20 +1,16 @@
 {
-  "status": "WARNING",
-  "message": "Some guest-stay transformations failed",
+  "status": "SUCCESS",
   "sourceField": "table",
-  "sourceValue": "\"NOT AVAILABLE\",\"1194.0000\",\"1194.0000\",\"NULL\",\"NULL\",\".\",,,,\"CRO\",,,\"0\",\"1\",\"100.99\",\"CC\",\"EN\",,,,,\"TREE\",\"N\",,,,,,\"PLAT\"\n\"2016-12-18\",\"5.0000\",\"5.0000\",\"NULL\",\"NULL\",\".\",,,,\"ONL\",,,\"0\",\"1\",\"100.99\",\"CC\",\"EN\",,,,,\"TREE\",\"N\",,,,,,\"PLAT\"",
   "field": "guestStayList#",
   "summary": {
-    "successCount": 1,
-    "errorCount": 1,
+    "successCount": 2,
+    "errorCount": 0,
     "totalCount": 2
   },
   "guestStays": [
     {
-      "status": "FAILED",
-      "message": "Transformation to guest-stay failed with multiple causes:\n    guestStay#/totalDepositRequired/value Transformation failed: Not a number\n    guestStay#/totalLuggageRevenue/amountBeforeTax/value Transformation failed: Not a number\n",
+      "status": "SUCCESS",
       "sourceField": "row 0",
-      "sourceValue": "\"NOT AVAILABLE\",\"1194.0000\",\"1194.0000\",\"NULL\",\"NULL\",\".\",,,,\"CRO\",,,\"0\",\"1\",\"100.99\",\"CC\",\"EN\",,,,,\"TREE\",\"N\",,,,,,\"PLAT\"",
       "field": "guestStay#",
       "guestStay": {
         "action": "CHECKOUT",
@@ -41,32 +37,7 @@
             ]
           }
         ]
-      },
-      "errors": [
-        {
-          "status": "FAILED",
-          "message": "Transformation failed: Not a number",
-          "sourceField": "cell 7",
-          "sourceValue": "",
-          "field": "guestStay#/totalDepositRequired/value"
-        },
-        {
-          "status": "FAILED",
-          "message": "Transformation failed: Not a number",
-          "sourceField": "cell 8",
-          "sourceValue": "",
-          "field": "guestStay#/totalLuggageRevenue/amountBeforeTax/value"
-        }
-      ],
-      "warnings": [
-        {
-          "status": "FAILED",
-          "message": "Transformation failed: Invalid format: \"NOT AVAILABLE\"",
-          "sourceField": "cell 0",
-          "sourceValue": "NOT AVAILABLE",
-          "field": "guestStay#/actualCheckoutDate"
-        }
-      ]
+      }
     },
     {
       "status": "SUCCESS",

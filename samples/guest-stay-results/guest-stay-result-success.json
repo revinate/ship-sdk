@@ -1,0 +1,31 @@
+{
+  "status": "SUCCESS",
+  "sourceField": "row 1",
+  "field": "guestStay#",
+  "guestStay": {
+    "action": "CHECKOUT",
+    "property": "AVERTINE",
+    "confirmationCode": "38000",
+    "statusCode": "CHECKEDOUT",
+    "checkinDate": "2007-07-19",
+    "checkoutDate": "2007-07-22",
+    "roomNumber": "123",
+    "roomType": "KING",
+    "profiles": [
+      {
+        "action": "ADD",
+        "property": "AVERTINE",
+        "profileId": "28002",
+        "profileType": "GUEST",
+        "firstName": "Contact",
+        "lastName": "Sample",
+        "emailAddresses": [
+          {
+            "emailAddress": "sample@mailinator.com",
+            "primary": true
+          }
+        ]
+      }
+    ]
+  }
+}

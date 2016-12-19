@@ -1,4 +1,7 @@
 {
-  "message": "is required",
-  "field": "$.profiles[0].lastName"
+  "status": "FAILED",
+  "message": "Transformation failed: The value \"abc\" failed the \"email\" validation",
+  "sourceField": "cell 2",
+  "sourceValue": "abc",
+  "field": "guestStay#/profiles/0/emailAddresses/0/emailAddress"
 }

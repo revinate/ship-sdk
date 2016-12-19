@@ -32,6 +32,8 @@ include::common-objects.adoc[]
 
 include::result.adoc[]
 
+include::guest-stay-result.adoc[]
+
 include::guest-stay-list-result.adoc[]
 
 :leveloffset: 0
@@ -113,12 +115,20 @@ include::../samples/simple-guest-stay-lists/simple-guest-stay-list-multiple.json
 
 === Sample guest-stay list result messages
 
-==== Guest-stay list result message with commonly used fields
+==== Guest-stay list result message with success result
 
-.Guest-stay list result message with commonly used fields
+.Guest-stay list result message with success result
 [source,json]
 ----
-include::../samples/guest-stay-list-results/guest-stay-list-result-typical.json[]
+include::../samples/guest-stay-list-results/guest-stay-list-result-success.json[]
+----
+
+==== Guest-stay list result message with status, errors, and warnings only
+
+.Guest-stay list result message with status, errors, and warnings only
+[source,json]
+----
+include::../samples/guest-stay-list-results/guest-stay-list-result-novalue.json[]
 ----
 
 ==== Guest-stay list result message with all possible fields

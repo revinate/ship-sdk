@@ -1,0 +1,58 @@
+{
+  "status": "FAILED",
+  "message": "Transformation to guest-stay failed with multiple causes:\n    guestStay#/totalDepositRequired/value Transformation failed: Not a number\n    guestStay#/totalLuggageRevenue/amountBeforeTax/value Transformation failed: Not a number\n",
+  "sourceField": "row 0",
+  "sourceValue": "\"NOT AVAILABLE\",\"1194.0000\",\"1194.0000\",\"NULL\",\"NULL\",\".\",,,,\"CRO\",,,\"0\",\"1\",\"100.99\",\"CC\",\"EN\",,,,,\"TREE\",\"N\",,,,,,\"PLAT\"",
+  "field": "guestStay#",
+  "guestStay": {
+    "action": "CHECKOUT",
+    "property": "AVERTINE",
+    "confirmationCode": "38000",
+    "statusCode": "CHECKEDOUT",
+    "checkinDate": "2007-07-19",
+    "checkoutDate": "2007-07-22",
+    "roomNumber": "123",
+    "roomType": "KING",
+    "profiles": [
+      {
+        "action": "ADD",
+        "property": "AVERTINE",
+        "profileId": "28002",
+        "profileType": "GUEST",
+        "firstName": "Contact",
+        "lastName": "Sample",
+        "emailAddresses": [
+          {
+            "emailAddress": "sample@mailinator.com",
+            "primary": true
+          }
+        ]
+      }
+    ]
+  },
+  "errors": [
+    {
+      "status": "FAILED",
+      "message": "Transformation failed: Not a number",
+      "sourceField": "cell 7",
+      "sourceValue": "",
+      "field": "guestStay#/totalDepositRequired/value"
+    },
+    {
+      "status": "FAILED",
+      "message": "Transformation failed: Not a number",
+      "sourceField": "cell 8",
+      "sourceValue": "",
+      "field": "guestStay#/totalLuggageRevenue/amountBeforeTax/value"
+    }
+  ],
+  "warnings": [
+    {
+      "status": "FAILED",
+      "message": "Transformation failed: Invalid format: \"NOT AVAILABLE\"",
+      "sourceField": "cell 0",
+      "sourceValue": "NOT AVAILABLE",
+      "field": "guestStay#/actualCheckoutDate"
+    }
+  ]
+}

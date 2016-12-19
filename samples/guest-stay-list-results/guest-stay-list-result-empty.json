@@ -1,4 +1,7 @@
 {
+  "status": "SUCCESS",
+  "sourceField": "table",
+  "field": "guestStayList#",
   "summary": {
     "successCount": 0,
     "errorCount": 0,
