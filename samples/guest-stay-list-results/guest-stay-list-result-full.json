@@ -1,0 +1,33 @@
+{
+  "message": "Some guest-stay transformations failed",
+  "field": "$",
+  "summary": {
+    "successCount": 1,
+    "errorCount": 1,
+    "totalCount": 2
+  },
+  "errors": [
+    {
+      "message": "is required",
+      "field": "$.[1].profiles[0].lastName"
+    }
+  ],
+  "warnings": [
+    {
+      "message": "is recommended",
+      "field": "$.[0].reservationSource"
+    },
+    {
+      "message": "is recommended",
+      "field": "$.[0].profiles[0].primaryLanguage"
+    },
+    {
+      "message": "is recommended",
+      "field": "$.[1].profiles[0].postalAddresses[0].address1"
+    },
+    {
+      "message": "is recommended",
+      "field": "$.[1].profiles[0].postalAddresses[0].city"
+    }
+  ]
+}

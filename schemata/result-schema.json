@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "result",
+  "description": "A result object contains the result of processing a message or part of a message.",
+  "type": "object",
+  "properties": {
+    "message": {
+      "description": "Description of the result",
+      "type": "string"
+    },
+    "field": {
+      "description": "JSON path identifying the SHIP field to which the result pertains",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

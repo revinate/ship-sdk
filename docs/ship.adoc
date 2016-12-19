@@ -30,6 +30,10 @@ include::simple-guest-stay-list.adoc[]
 
 include::common-objects.adoc[]
 
+include::result.adoc[]
+
+include::guest-stay-list-result.adoc[]
+
 :leveloffset: 0
 == Sample messages
 
@@ -105,6 +109,24 @@ include::../samples/simple-guest-stays/simple-guest-stay-full.json[]
 [source,json]
 ----
 include::../samples/simple-guest-stay-lists/simple-guest-stay-list-multiple.json[]
+----
+
+=== Sample guest-stay list result messages
+
+==== Guest-stay list result message with commonly used fields
+
+.Guest-stay list result message with commonly used fields
+[source,json]
+----
+include::../samples/guest-stay-list-results/guest-stay-list-result-typical.json[]
+----
+
+==== Guest-stay list result message with all possible fields
+
+.Guest-stay list result message with all possible fields
+[source,json]
+----
+include::../samples/guest-stay-list-results/guest-stay-list-result-full.json[]
 ----
 
 [appendix]

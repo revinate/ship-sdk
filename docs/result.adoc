@@ -1,0 +1,24 @@
+= Result message
+
+A result message contains a single <<result object>>.
+
+== result object
+
+A result object contains the result of processing a message or part of a message.
+
+.Fields of the `result` object
+|===
+|Name |Type |Usage |Description |Example
+
+|message
+|string
+|`SUGGESTED`
+|Description of the result
+|`"is required"`
+
+|field
+|string
+|`SUGGESTED`
+|JSON path identifying the SHIP field to which the result pertains
+|`"$.profiles[0].lastName"`
+|===
