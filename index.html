@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.4">
-<meta name="author" content="v1.1, 2016-08-30">
+<meta name="author" content="v1.3, 2016-12-19">
 <title>Simple Hospitality Interchange Protocol</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -514,7 +514,7 @@ table.CodeRay td.code>pre{padding:0}
 <div id="header">
 <h1>Simple Hospitality Interchange Protocol</h1>
 <div class="details">
-<span id="author" class="author">v1.1, 2016-08-30</span><br>
+<span id="author" class="author">v1.3, 2016-12-19</span><br>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -559,6 +559,22 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_userdefinedfield_object">1.6.6. userDefinedField object</a></li>
 </ul>
 </li>
+<li><a href="#_result_message">1.7. Result message</a>
+<ul class="sectlevel3">
+<li><a href="#_result_object">1.7.1. result object</a></li>
+</ul>
+</li>
+<li><a href="#_guest_stay_result_message">1.8. Guest-stay result message</a>
+<ul class="sectlevel3">
+<li><a href="#_gueststayresult_object">1.8.1. guestStayResult object</a></li>
+</ul>
+</li>
+<li><a href="#_guest_stay_list_result_message">1.9. Guest-stay list result message</a>
+<ul class="sectlevel3">
+<li><a href="#_gueststaylistresult_object">1.9.1. guestStayListResult object</a></li>
+<li><a href="#_summary_object">1.9.2. summary object</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#_sample_messages">2. Sample messages</a>
@@ -589,6 +605,13 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_sample_simple_guest_stay_list_messages">2.5. Sample simple guest-stay list messages</a>
 <ul class="sectlevel3">
 <li><a href="#_simple_guest_stay_list_message_with_multiple_simple_guest_stays">2.5.1. Simple guest-stay list message with multiple simple guest-stays</a></li>
+</ul>
+</li>
+<li><a href="#_sample_guest_stay_list_result_messages">2.6. Sample guest-stay list result messages</a>
+<ul class="sectlevel3">
+<li><a href="#_guest_stay_list_result_message_with_success_result">2.6.1. Guest-stay list result message with success result</a></li>
+<li><a href="#_guest_stay_list_result_message_with_status_errors_and_warnings_only">2.6.2. Guest-stay list result message with status, errors, and warnings only</a></li>
+<li><a href="#_guest_stay_list_result_message_with_all_possible_fields">2.6.3. Guest-stay list result message with all possible fields</a></li>
 </ul>
 </li>
 </ul>
@@ -737,8 +760,15 @@ The <strong>Types</strong> of some of the fields below are listed as <code>strin
 <td class="tableblock halign-left valign-top"><p class="tableblock">confirmationCode</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>REQUIRED</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ID of the stay</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unique ID of the stay in the PMS. This number is used to track update of the reservation (booking, checkin, checkout&#8230;&#8203;) and is typically internal to the PMS (see bookingNumber below for customer facing confirmation number).</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>"30001"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bookingNumber</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUGGESTED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID assigned to the stay by the booking engine or central reservation system. This is typically used for customer facing confirmation number.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"CRO-123A"</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">statusCode</p></td>
@@ -767,13 +797,6 @@ The <strong>Types</strong> of some of the fields below are listed as <code>strin
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>OPTIONAL</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Name, username, or initials of the user or system that last updated the stay</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>"Test User"</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">bookingNumber</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUGGESTED</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ID assigned to the stay by the booking engine or central reservation system</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"CRO-123A"</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">bookingDate</p></td>
@@ -905,8 +928,8 @@ The <strong>Types</strong> of some of the fields below are listed as <code>strin
 <td class="tableblock halign-left valign-top"><p class="tableblock">blockCode</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUGGESTED</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Block code of the stay</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"KING-Block"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Block code of the room if the room is part of a block of room (conference, wedding, &#8230;&#8203;etc)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"Hotelier Marketing 101 - Revinate world Conference"</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">numberOfRooms</p></td>
@@ -968,7 +991,7 @@ The <strong>Types</strong> of some of the fields below are listed as <code>strin
 <td class="tableblock halign-left valign-top"><p class="tableblock">totalTaxes</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_monetaryvalue_object">monetaryValue object</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>DEPRECATED</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Total of all taxes. Use the <strong>taxAmount</strong> field in each <a href="#_monetaryamount_object">monetaryAmount object</a> instead.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total of all taxes. Use the <strong>taxAmount</strong> field in each <a href="#_monetaryamount_object">monetaryAmount object</a> instead. Currently this field is internally mapped to the totalRoomRevenue.taxAmount field if this one is empty. Else the value is discarded.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
@@ -2403,6 +2426,307 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 </table>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_result_message">1.7. Result message</h3>
+<div class="paragraph">
+<p>A result message contains a single <a href="#_result_object">result object</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="_result_object">1.7.1. result object</h4>
+<div class="paragraph">
+<p>A result object contains the result of processing a message or part of a message.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 22. Fields of the <code>result</code> object</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Usage</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string enum: <code>NEW</code>, <code>SUCCESS</code>, <code>WARNING</code>, <code>FAILED</code>, <code>MISSING</code>, <code>DELETE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>RECOMMENDED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status code of the result</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"SUCCESS"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUGGESTED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description of the result</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"is required"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sourceField</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OPTIONAL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If the incoming message was transformed, this identifies the field of the incoming message to which the result pertains</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"cell 12"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sourceValue</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OPTIONAL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If the incoming message was transformed, the original value in the incoming message to which the result pertains</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"CODE123"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">field</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUGGESTED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JSON pointer identifying the SHIP field to which the result pertains</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"guestStay#/profiles/0/lastName"</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_guest_stay_result_message">1.8. Guest-stay result message</h3>
+<div class="paragraph">
+<p>A guest-stay result message contains a single <a href="#_gueststayresult_object">guestStayResult object</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="_gueststayresult_object">1.8.1. guestStayResult object</h4>
+<div class="paragraph">
+<p>A guestStayResult object is a <a href="#_result_object">result object</a> with additional fields to indicate the result of processing a guest-stay message.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 23. Fields of the <code>guestStayResult</code> object</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Usage</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string enum: <code>NEW</code>, <code>SUCCESS</code>, <code>WARNING</code>, <code>FAILED</code>, <code>MISSING</code>, <code>DELETE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>RECOMMENDED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status code of the result</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"SUCCESS"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUGGESTED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description of the result</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"Transformation to guest-stay failed with multiple causes"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sourceField</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OPTIONAL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If the incoming message was transformed, this identifies the field of the incoming message to which the result pertains</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"row 0"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sourceValue</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OPTIONAL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If the incoming message was transformed, the original value in the incoming message to which the result pertains</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"CODE123"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">field</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUGGESTED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JSON pointer identifying the SHIP field to which the result pertains</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"guestStay#"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">guestStay</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_gueststay_object">guestStay object</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OPTIONAL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The guestStay object produced by processing the incoming message. May be invalid, check errors first.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">errors</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">array of <a href="#_result_object">result objects</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUGGESTED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Errors generated by the processing of the guest-stay</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">warnings</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">array of <a href="#_result_object">result objects</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUGGESTED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Warnings generated by the processing of the guest-stay</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_guest_stay_list_result_message">1.9. Guest-stay list result message</h3>
+<div class="paragraph">
+<p>A guest-stay list result message contains a single <a href="#_gueststaylistresult_object">guestStayListResult object</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="_gueststaylistresult_object">1.9.1. guestStayListResult object</h4>
+<div class="paragraph">
+<p>A guestStayListResult object is a <a href="#_result_object">result object</a> with additional fields to indicate the result of processing a guest-stay list message.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 24. Fields of the <code>guestStayListResult</code> object</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Usage</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string enum: <code>NEW</code>, <code>SUCCESS</code>, <code>WARNING</code>, <code>FAILED</code>, <code>MISSING</code>, <code>DELETE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>RECOMMENDED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status code of the result</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"SUCCESS"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUGGESTED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description of the result</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"Some guest-stay transformations failed"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sourceField</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OPTIONAL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If the incoming message was transformed, this identifies the field of the incoming message to which the result pertains</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"table"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sourceValue</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OPTIONAL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If the incoming message was transformed, the original value in the incoming message to which the result pertains</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"CODE123"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">field</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUGGESTED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JSON pointer identifying the SHIP field to which the result pertains</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"guestStayList#"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">summary</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_summary_object">summary object</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUGGESTED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Summary of the guest-stay list result</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">guestStays</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">array of <a href="#_gueststayresult_object">guestStayResult objects</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUGGESTED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Guest-stay results produced by processing the incoming message</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">errors</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">array of <a href="#_result_object">result objects</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DEPRECATED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Errors generated by the processing of the guest-stay list. Deprecated, use <strong>guestStays</strong> instead.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">warnings</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">array of <a href="#_result_object">result objects</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DEPRECATED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Warnings generated by the processing of the guest-stay list. Deprecated, use <strong>guestStays</strong> instead.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_summary_object">1.9.2. summary object</h4>
+<div class="paragraph">
+<p>Summary of the guest-stay list result</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 25. Fields of the <code>summary</code> object</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Usage</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">successCount</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integral number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>REQUIRED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of guestStays successfully processed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">errorCount</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integral number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>REQUIRED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of guestStays that failed to process</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">totalCount</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integral number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>REQUIRED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total number of guestStays processed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -3286,6 +3610,261 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_sample_guest_stay_list_result_messages">2.6. Sample guest-stay list result messages</h3>
+<div class="sect3">
+<h4 id="_guest_stay_list_result_message_with_success_result">2.6.1. Guest-stay list result message with success result</h4>
+<div class="listingblock">
+<div class="title">Listing 9. Guest-stay list result message with success result</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">status</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">SUCCESS</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceField</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">table</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">field</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">guestStayList#</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">summary</span><span class="delimiter">&quot;</span></span>: {
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">successCount</span><span class="delimiter">&quot;</span></span>: <span class="integer">2</span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">errorCount</span><span class="delimiter">&quot;</span></span>: <span class="integer">0</span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">totalCount</span><span class="delimiter">&quot;</span></span>: <span class="integer">2</span>
+  },
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">guestStays</span><span class="delimiter">&quot;</span></span>: [
+    {
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">status</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">SUCCESS</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceField</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">row 0</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">field</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">guestStay#</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">guestStay</span><span class="delimiter">&quot;</span></span>: {
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">action</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">CHECKOUT</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">property</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">AVERTINE</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">confirmationCode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">38000</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">statusCode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">CHECKEDOUT</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">checkinDate</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2007-07-19</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">checkoutDate</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2007-07-22</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">roomNumber</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">123</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">roomType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">KING</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">profiles</span><span class="delimiter">&quot;</span></span>: [
+          {
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">action</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">ADD</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">property</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">AVERTINE</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">profileId</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">28002</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">profileType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">GUEST</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">firstName</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Contact</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">lastName</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Sample</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">emailAddresses</span><span class="delimiter">&quot;</span></span>: [
+              {
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">emailAddress</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">sample@mailinator.com</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">primary</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">status</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">SUCCESS</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceField</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">row 1</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">field</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">guestStay#</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">guestStay</span><span class="delimiter">&quot;</span></span>: {
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">action</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">CHECKOUT</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">property</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">AVERTINE</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">confirmationCode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">38000</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">statusCode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">CHECKEDOUT</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">checkinDate</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2007-07-19</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">checkoutDate</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2007-07-22</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">roomNumber</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">123</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">roomType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">KING</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">profiles</span><span class="delimiter">&quot;</span></span>: [
+          {
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">action</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">ADD</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">property</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">AVERTINE</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">profileId</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">28002</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">profileType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">GUEST</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">firstName</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Contact</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">lastName</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Sample</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">emailAddresses</span><span class="delimiter">&quot;</span></span>: [
+              {
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">emailAddress</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">sample@mailinator.com</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">primary</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_guest_stay_list_result_message_with_status_errors_and_warnings_only">2.6.2. Guest-stay list result message with status, errors, and warnings only</h4>
+<div class="listingblock">
+<div class="title">Listing 10. Guest-stay list result message with status, errors, and warnings only</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">status</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">WARNING</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Some guest-stay transformations failed</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceField</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">table</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceValue</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="char">\&quot;</span><span class="content">NOT AVAILABLE</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">1194.0000</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">1194.0000</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">NULL</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">NULL</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">.</span><span class="char">\&quot;</span><span class="content">,,,,</span><span class="char">\&quot;</span><span class="content">CRO</span><span class="char">\&quot;</span><span class="content">,,,</span><span class="char">\&quot;</span><span class="content">0</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">1</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">100.99</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">CC</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">EN</span><span class="char">\&quot;</span><span class="content">,,,,,</span><span class="char">\&quot;</span><span class="content">TREE</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">N</span><span class="char">\&quot;</span><span class="content">,,,,,,</span><span class="char">\&quot;</span><span class="content">PLAT</span><span class="char">\&quot;</span><span class="char">\n</span><span class="char">\&quot;</span><span class="content">2016-12-18</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">5.0000</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">5.0000</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">NULL</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">NULL</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">.</span><span class="char">\&quot;</span><span class="content">,,,,</span><span class="char">\&quot;</span><span class="content">ONL</span><span class="char">\&quot;</span><span class="content">,,,</span><span class="char">\&quot;</span><span class="content">0</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">1</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">100.99</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">CC</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">EN</span><span class="char">\&quot;</span><span class="content">,,,,,</span><span class="char">\&quot;</span><span class="content">TREE</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">N</span><span class="char">\&quot;</span><span class="content">,,,,,,</span><span class="char">\&quot;</span><span class="content">PLAT</span><span class="char">\&quot;</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">field</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">guestStayList#</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">summary</span><span class="delimiter">&quot;</span></span>: {
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">successCount</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">errorCount</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">totalCount</span><span class="delimiter">&quot;</span></span>: <span class="integer">2</span>
+  },
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">guestStays</span><span class="delimiter">&quot;</span></span>: [
+    {
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">status</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">FAILED</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Transformation to guest-stay failed with multiple causes:</span><span class="char">\n</span><span class="content">    guestStay#/totalDepositRequired/value Transformation failed: Not a number</span><span class="char">\n</span><span class="content">    guestStay#/totalLuggageRevenue/amountBeforeTax/value Transformation failed: Not a number</span><span class="char">\n</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceField</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">row 0</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceValue</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="char">\&quot;</span><span class="content">NOT AVAILABLE</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">1194.0000</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">1194.0000</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">NULL</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">NULL</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">.</span><span class="char">\&quot;</span><span class="content">,,,,</span><span class="char">\&quot;</span><span class="content">CRO</span><span class="char">\&quot;</span><span class="content">,,,</span><span class="char">\&quot;</span><span class="content">0</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">1</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">100.99</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">CC</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">EN</span><span class="char">\&quot;</span><span class="content">,,,,,</span><span class="char">\&quot;</span><span class="content">TREE</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">N</span><span class="char">\&quot;</span><span class="content">,,,,,,</span><span class="char">\&quot;</span><span class="content">PLAT</span><span class="char">\&quot;</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">field</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">guestStay#</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">errors</span><span class="delimiter">&quot;</span></span>: [
+        {
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">status</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">FAILED</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Transformation failed: Not a number</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceField</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">cell 7</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceValue</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">field</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">guestStay#/totalDepositRequired/value</span><span class="delimiter">&quot;</span></span>
+        },
+        {
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">status</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">FAILED</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Transformation failed: Not a number</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceField</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">cell 8</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceValue</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">field</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">guestStay#/totalLuggageRevenue/amountBeforeTax/value</span><span class="delimiter">&quot;</span></span>
+        }
+      ],
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">warnings</span><span class="delimiter">&quot;</span></span>: [
+        {
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">status</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">FAILED</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Transformation failed: Invalid format: </span><span class="char">\&quot;</span><span class="content">NOT AVAILABLE</span><span class="char">\&quot;</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceField</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">cell 0</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceValue</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">NOT AVAILABLE</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">field</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">guestStay#/actualCheckoutDate</span><span class="delimiter">&quot;</span></span>
+        }
+      ]
+    },
+    {
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">status</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">SUCCESS</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceField</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">row 1</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">field</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">guestStay#</span><span class="delimiter">&quot;</span></span>
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_guest_stay_list_result_message_with_all_possible_fields">2.6.3. Guest-stay list result message with all possible fields</h4>
+<div class="listingblock">
+<div class="title">Listing 11. Guest-stay list result message with all possible fields</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">status</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">WARNING</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Some guest-stay transformations failed</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceField</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">table</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceValue</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="char">\&quot;</span><span class="content">NOT AVAILABLE</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">1194.0000</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">1194.0000</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">NULL</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">NULL</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">.</span><span class="char">\&quot;</span><span class="content">,,,,</span><span class="char">\&quot;</span><span class="content">CRO</span><span class="char">\&quot;</span><span class="content">,,,</span><span class="char">\&quot;</span><span class="content">0</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">1</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">100.99</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">CC</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">EN</span><span class="char">\&quot;</span><span class="content">,,,,,</span><span class="char">\&quot;</span><span class="content">TREE</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">N</span><span class="char">\&quot;</span><span class="content">,,,,,,</span><span class="char">\&quot;</span><span class="content">PLAT</span><span class="char">\&quot;</span><span class="char">\n</span><span class="char">\&quot;</span><span class="content">2016-12-18</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">5.0000</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">5.0000</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">NULL</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">NULL</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">.</span><span class="char">\&quot;</span><span class="content">,,,,</span><span class="char">\&quot;</span><span class="content">ONL</span><span class="char">\&quot;</span><span class="content">,,,</span><span class="char">\&quot;</span><span class="content">0</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">1</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">100.99</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">CC</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">EN</span><span class="char">\&quot;</span><span class="content">,,,,,</span><span class="char">\&quot;</span><span class="content">TREE</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">N</span><span class="char">\&quot;</span><span class="content">,,,,,,</span><span class="char">\&quot;</span><span class="content">PLAT</span><span class="char">\&quot;</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">field</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">guestStayList#</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">summary</span><span class="delimiter">&quot;</span></span>: {
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">successCount</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">errorCount</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">totalCount</span><span class="delimiter">&quot;</span></span>: <span class="integer">2</span>
+  },
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">guestStays</span><span class="delimiter">&quot;</span></span>: [
+    {
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">status</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">FAILED</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Transformation to guest-stay failed with multiple causes:</span><span class="char">\n</span><span class="content">    guestStay#/totalDepositRequired/value Transformation failed: Not a number</span><span class="char">\n</span><span class="content">    guestStay#/totalLuggageRevenue/amountBeforeTax/value Transformation failed: Not a number</span><span class="char">\n</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceField</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">row 0</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceValue</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="char">\&quot;</span><span class="content">NOT AVAILABLE</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">1194.0000</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">1194.0000</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">NULL</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">NULL</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">.</span><span class="char">\&quot;</span><span class="content">,,,,</span><span class="char">\&quot;</span><span class="content">CRO</span><span class="char">\&quot;</span><span class="content">,,,</span><span class="char">\&quot;</span><span class="content">0</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">1</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">100.99</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">CC</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">EN</span><span class="char">\&quot;</span><span class="content">,,,,,</span><span class="char">\&quot;</span><span class="content">TREE</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">N</span><span class="char">\&quot;</span><span class="content">,,,,,,</span><span class="char">\&quot;</span><span class="content">PLAT</span><span class="char">\&quot;</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">field</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">guestStay#</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">guestStay</span><span class="delimiter">&quot;</span></span>: {
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">action</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">CHECKOUT</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">property</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">AVERTINE</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">confirmationCode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">38000</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">statusCode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">CHECKEDOUT</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">checkinDate</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2007-07-19</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">checkoutDate</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2007-07-22</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">roomNumber</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">123</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">roomType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">KING</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">profiles</span><span class="delimiter">&quot;</span></span>: [
+          {
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">action</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">ADD</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">property</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">AVERTINE</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">profileId</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">28002</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">profileType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">GUEST</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">firstName</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Contact</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">lastName</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Sample</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">emailAddresses</span><span class="delimiter">&quot;</span></span>: [
+              {
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">emailAddress</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">sample@mailinator.com</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">primary</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>
+              }
+            ]
+          }
+        ]
+      },
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">errors</span><span class="delimiter">&quot;</span></span>: [
+        {
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">status</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">FAILED</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Transformation failed: Not a number</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceField</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">cell 7</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceValue</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">field</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">guestStay#/totalDepositRequired/value</span><span class="delimiter">&quot;</span></span>
+        },
+        {
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">status</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">FAILED</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Transformation failed: Not a number</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceField</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">cell 8</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceValue</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">field</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">guestStay#/totalLuggageRevenue/amountBeforeTax/value</span><span class="delimiter">&quot;</span></span>
+        }
+      ],
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">warnings</span><span class="delimiter">&quot;</span></span>: [
+        {
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">status</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">FAILED</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Transformation failed: Invalid format: </span><span class="char">\&quot;</span><span class="content">NOT AVAILABLE</span><span class="char">\&quot;</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceField</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">cell 0</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceValue</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">NOT AVAILABLE</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">field</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">guestStay#/actualCheckoutDate</span><span class="delimiter">&quot;</span></span>
+        }
+      ]
+    },
+    {
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">status</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">SUCCESS</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceField</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">row 1</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">field</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">guestStay#</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">guestStay</span><span class="delimiter">&quot;</span></span>: {
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">action</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">CHECKOUT</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">property</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">AVERTINE</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">confirmationCode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">38000</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">statusCode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">CHECKEDOUT</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">checkinDate</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2007-07-19</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">checkoutDate</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2007-07-22</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">roomNumber</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">123</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">roomType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">KING</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">profiles</span><span class="delimiter">&quot;</span></span>: [
+          {
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">action</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">ADD</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">property</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">AVERTINE</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">profileId</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">28002</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">profileType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">GUEST</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">firstName</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Contact</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">lastName</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Sample</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">emailAddresses</span><span class="delimiter">&quot;</span></span>: [
+              {
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">emailAddress</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">sample@mailinator.com</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">primary</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -3318,6 +3897,19 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 </p><p class="tableblock">Deprecate <strong>stayLengthUnits</strong> from <strong>stayLength</strong> object.
 </p><p class="tableblock">Add <code>minute</code> as a possible enum to <strong>timeUnitType</strong> in <strong>rate</strong> object.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2016-12-18</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add <strong>result</strong> and <strong>guestStayListResult</strong> objects</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2016-12-19</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add <strong>guestStayResult</strong> object.
+</p><p class="tableblock">Add <strong>status</strong>, <strong>sourceField</strong>, and <strong>sourceValue</strong> to <strong>result</strong> object.
+</p><p class="tableblock">Switch <strong>field</strong> in <strong>result</strong> object from JSON path to JSON pointer.
+</p><p class="tableblock">Add <strong>guestStays</strong> to <strong>guestStayListResult</strong> object and deprecate <strong>errors</strong> and <strong>warnings</strong> from same.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -3325,7 +3917,7 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-08-30 14:47:07 PDT
+Last updated 2016-12-18 19:36:00 PST
 </div>
 </div>
 </body>
