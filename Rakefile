@@ -3,7 +3,7 @@ require 'rake/clean'
 require 'json-schema'
 require 'asciidoctor'
 
-VERSION = '1.1'
+VERSION = '1.2'
 
 CLEAN.include('build', 'docs/*.html', 'docs/*.pdf')
 

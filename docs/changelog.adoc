@@ -17,4 +17,8 @@ Deprecate *travelAgency* and *totalTaxes* from *guestStay* object.
 Deprecate *stayLengthUnits* from *stayLength* object.
 
 Add `minute` as a possible enum to *timeUnitType* in *rate* object.
+
+|1.2
+|2016-12-18
+|Add *result* and *guestStayListResult* objects
 |===
