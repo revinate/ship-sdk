@@ -1,0 +1,10 @@
+{
+  "status": "SUCCESS",
+  "sourceField": "table",
+  "field": "profileList#",
+  "summary": {
+    "successCount": 0,
+    "errorCount": 0,
+    "totalCount": 0
+  }
+}

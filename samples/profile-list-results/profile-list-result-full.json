@@ -1,0 +1,48 @@
+{
+  "status": "FAILED",
+  "message": "All profile transformations failed",
+  "sourceField": "table",
+  "field": "profileList#",
+  "summary": {
+    "successCount": 0,
+    "errorCount": 1,
+    "totalCount": 1
+  },
+  "profiles": [
+    {
+      "status": "FAILED",
+      "message": "Transformation to profile failed with multiple causes:\n    profile#/emailAddresses/0/primary Transformation failed: Could not parse \"not_a_boolean\"\n",
+      "sourceField": "row 0",
+      "sourceValue": "\"Mango000001\",\"Tango000001\",\"Mango000001@mailbox.revinate.net\",\"not_a_boolean\",\"not_a_gender\"",
+      "field": "profile#",
+      "profile": {
+        "action": "ADD",
+        "property": "d5e974f4-41e9-4a33-9290-eed5a6086597",
+        "interfaceType": "FILE",
+        "remoteSystemName": "b30b3a97-5b6d-4199-a35c-fcece539504f",
+        "profileType": "GUEST",
+        "firstName": "Mango000001",
+        "lastName": "Tango000001",
+        "emailAddresses": []
+      },
+      "errors": [
+        {
+          "status": "FAILED",
+          "message": "Transformation failed: Could not parse \"not_a_boolean\"",
+          "sourceField": "cell 3",
+          "sourceValue": "not_a_boolean",
+          "field": "profile#/emailAddresses/0/primary"
+        }
+      ],
+      "warnings": [
+        {
+          "status": "FAILED",
+          "message": "Transformation failed: \"not_a_gender\" is not a valid Gender",
+          "sourceField": "cell 4",
+          "sourceValue": "not_a_gender",
+          "field": "profile#/gender"
+        }
+      ]
+    }
+  ]
+}

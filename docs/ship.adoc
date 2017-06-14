@@ -36,6 +36,10 @@ include::guest-stay-result.adoc[]
 
 include::guest-stay-list-result.adoc[]
 
+include::profile-result.adoc[]
+
+include::profile-list-result.adoc[]
+
 :leveloffset: 0
 == Sample messages
 
@@ -137,6 +141,24 @@ include::../samples/guest-stay-list-results/guest-stay-list-result-novalue.json[
 [source,json]
 ----
 include::../samples/guest-stay-list-results/guest-stay-list-result-full.json[]
+----
+
+=== Sample profile list result messages
+
+==== Profile list result message with success result
+
+.Profile list result message with success result
+[source,json]
+----
+include::../samples/profile-list-results/profile-list-result-success.json[]
+----
+
+==== Profile list result message with all possible fields
+
+.Profile list result message with all possible fields
+[source,json]
+----
+include::../samples/profile-list-results/profile-list-result-full.json[]
 ----
 
 [appendix]

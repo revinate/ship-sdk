@@ -1,0 +1,20 @@
+{
+  "status": "SUCCESS",
+  "sourceField": "row 0",
+  "field": "profile#",
+  "profile": {
+    "action": "ADD",
+    "property": "d5e974f4-41e9-4a33-9290-eed5a6086597",
+    "interfaceType": "FILE",
+    "remoteSystemName": "b30b3a97-5b6d-4199-a35c-fcece539504f",
+    "profileType": "GUEST",
+    "firstName": "Mango000001",
+    "lastName": "Tango000001",
+    "emailAddresses": [
+      {
+        "emailAddress": "Mango000001@mailbox.revinate.net",
+        "primary": true
+      }
+    ]
+  }
+}

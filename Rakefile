@@ -131,7 +131,25 @@ task :validate_guest_stay_list_results do
   end
 end
 
+desc 'Validate all profile result JSON samples against schema'
+task :validate_profile_results do
+  schema = 'schemata/profile-result-schema.json'
+  validate_schema(schema)
+  FileList['samples/profile-stay-results/*.json'].each do |file|
+    validate_json(schema, file)
+  end
+end
+
+desc 'Validate all profile list result JSON samples against schema'
+task :validate_profile_list_results do
+  schema = 'schemata/profile-list-result-schema.json'
+  validate_schema(schema)
+  FileList['samples/profile-list-results/*.json'].each do |file|
+    validate_json(schema, file)
+  end
+end
+
 desc 'Perform tests'
-task test: %w[validate_common_definitions validate_guest_stays validate_guest_stay_lists validate_profiles validate_simple_guest_stays validate_simple_guest_stay_lists validate_results validate_guest_stay_results validate_guest_stay_list_results]
+task test: %w[validate_common_definitions validate_guest_stays validate_guest_stay_lists validate_profiles validate_simple_guest_stays validate_simple_guest_stay_lists validate_results validate_guest_stay_results validate_guest_stay_list_results validate_profile_results validate_profile_list_results]
 
 file package_task.package_dir_path => %w[generate_docs test]
