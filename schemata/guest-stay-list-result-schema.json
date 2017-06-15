@@ -27,7 +27,7 @@
     },
     "summary": {
       "description": "Summary of the guest-stay list result",
-      "$ref": "#/definitions/summary"
+      "$ref": "common-definitions.json#/definitions/summary"
     },
     "guestStays": {
       "description": "Guest-stay results produced by processing the incoming message",
@@ -51,31 +51,5 @@
       }
     }
   },
-  "additionalProperties": false,
-  "definitions": {
-    "summary": {
-      "description": "Summary of the guest-stay list result",
-      "type": "object",
-      "required": [
-        "successCount",
-        "errorCount",
-        "totalCount"
-      ],
-      "properties": {
-        "successCount": {
-          "description": "Number of guestStays successfully processed",
-          "type": "integer"
-        },
-        "errorCount": {
-          "description": "Number of guestStays that failed to process",
-          "type": "integer"
-        },
-        "totalCount": {
-          "description": "Total number of guestStays processed",
-          "type": "integer"
-        }
-      },
-      "additionalProperties": false
-    }
-  }
+  "additionalProperties": false
 }

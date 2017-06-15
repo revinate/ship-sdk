@@ -151,3 +151,30 @@ A name-value pair defined by a specific system or application
 |Field value
 |`"Opaque value"`
 |===
+
+== summary object
+
+A Summary of the SHIP objects list result.
+
+.Fields of the `summary` object
+|===
+|Name |Type |Usage |Description |Example
+
+|successCount
+|integer
+|`REQUIRED`
+|Number of SHIP objects successfully processed
+|6
+
+|errorCount
+|integer
+|`REQUIRED`
+|Number of SHIP objects that failed to process
+|7
+
+|totalCount
+|integer
+|`REQUIRED`
+|Total number of SHIP objects processed
+|13
+|===

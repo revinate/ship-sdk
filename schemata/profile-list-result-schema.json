@@ -27,7 +27,7 @@
     },
     "summary": {
       "description": "Summary of the profile list result",
-      "$ref": "#/definitions/summary"
+      "$ref": "common-definitions.json#/definitions/summary"
     },
     "profiles": {
       "description": "Profile results produced by processing the incoming message",
@@ -51,31 +51,5 @@
       }
     }
   },
-  "additionalProperties": false,
-  "definitions": {
-    "summary": {
-      "description": "Summary of the profile list result",
-      "type": "object",
-      "required": [
-        "successCount",
-        "errorCount",
-        "totalCount"
-      ],
-      "properties": {
-        "successCount": {
-          "description": "Number of profiles successfully processed",
-          "type": "integer"
-        },
-        "errorCount": {
-          "description": "Number of profiles that failed to process",
-          "type": "integer"
-        },
-        "totalCount": {
-          "description": "Total number of profiles processed",
-          "type": "integer"
-        }
-      },
-      "additionalProperties": false
-    }
-  }
+  "additionalProperties": false
 }

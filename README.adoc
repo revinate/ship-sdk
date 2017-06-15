@@ -34,6 +34,10 @@ link:docs/guest-stay-result.adoc[Guest-stay result message]
 
 link:docs/guest-stay-list-result.adoc[Guest-stay list result message]
 
+link:docs/profile-result.adoc[Profile result message]
+
+link:docs/profile-list-result.adoc[Profile list result message]
+
 link:docs/changelog.adoc[Revision history]
 
 A single-page version of the documentation can also be found at https://revinate.github.io/ship-sdk/.
