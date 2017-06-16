@@ -121,6 +121,20 @@
       "items": {
         "$ref": "common-definitions.json#/definitions/guestNote"
       }
+    },
+    "pmsDefinedFields": {
+      "description": "PMS-defined fields",
+      "type": "array",
+      "items": {
+        "$ref": "common-definitions.json#/definitions/userDefinedField"
+      }
+    },
+    "propertyDefinedFields": {
+      "description": "Property-defined fields",
+      "type": "array",
+      "items": {
+        "$ref": "common-definitions.json#/definitions/userDefinedField"
+      }
     }
   },
   "additionalProperties": false,

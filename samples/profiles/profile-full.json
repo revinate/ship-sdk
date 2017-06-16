@@ -107,5 +107,25 @@
       "type": "General Notes",
       "time": "2013-05-02T16:55:57.000-07:00"
     }
+  ],
+  "pmsDefinedFields": [
+    {
+      "name": "UDF01",
+      "value": "A"
+    },
+    {
+      "name": "UDF02",
+      "value": "1"
+    }
+  ],
+  "propertyDefinedFields": [
+    {
+      "name": "PUDF01",
+      "value": "A1"
+    },
+    {
+      "name": "PUDF02",
+      "value": "1.3"
+    }
   ]
 }

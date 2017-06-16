@@ -147,6 +147,19 @@ A profile object represents a person or organization that may be associated with
 |`SUGGESTED`
 |Notes attached to the profile
 |
+
+
+|pmsDefinedFields
+|array of <<userDefinedField object,userDefinedField objects>>
+|`OPTIONAL`
+|PMS-defined fields
+|
+
+|propertyDefinedFields
+|array of <<userDefinedField object,userDefinedField objects>>
+|`OPTIONAL`
+|Property-defined fields
+|
 |===
 
 == emailAddress object

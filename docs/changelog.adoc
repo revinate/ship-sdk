@@ -37,4 +37,6 @@ Add *guestStays* to *guestStayListResult* object and deprecate *errors* and *war
 |Add *profileResult* object.
 
 Add *profileListResult* object.
+
+Add *PMS Defined Fields* and *Property Defined Fields* to the *Profile* object.
 |===
