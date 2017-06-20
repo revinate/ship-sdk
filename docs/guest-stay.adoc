@@ -216,20 +216,20 @@ A guestStay object represents a past, current, or upcoming stay by a guest or gu
 
 |totalFoodAndBeverageRevenue
 |<<monetaryAmount object>>
-|`SUGGESTED`
-|Food and beverage revenue amount of the stay
+|`DEPRECATED`
+|Food and beverage revenue amount of the stay. Add a <<service object>> with *category* of `"FOOD"` instead.
 |
 
 |totalLuggageRevenue
 |<<monetaryAmount object>>
-|`SUGGESTED`
-|Luggage revenue amount of the stay
+|`DEPRECATED`
+|Luggage revenue amount of the stay. Add a <<service object>> with *category* of `"LUGGAGE"` instead.
 |
 
 |totalOtherRevenue
 |<<monetaryAmount object>>
-|`SUGGESTED`
-|Total of all revenue amounts excluding room, food, beverage, and luggage, of the stay
+|`DEPRECATED`
+|Total of all revenue amounts excluding room, food, beverage, and luggage, of the stay. Add a <<service object>> with *category* of `"OTHER"` instead.
 |
 
 |totalTaxes
@@ -396,9 +396,15 @@ A service rendered during a stay
 
 |rateCode
 |string
-|`REQUIRED`
+|`RECOMMENDED`
 |Rate plan name or rate code of the service
 |`"SPA_DLX"`
+
+|category
+|string enum: `FOOD`, `SPA`, `LUGGAGE`, `PARKING`, `FEE`, `TAX`, `OTHER`
+|`RECOMMENDED`
+|Category of the service
+|`"SPA"`
 
 |timeSpan
 |<<timeSpan object>>

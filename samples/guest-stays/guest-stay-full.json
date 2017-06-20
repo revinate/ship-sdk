@@ -135,6 +135,7 @@
     {
       "inventoryCode": "SPA",
       "rateCode": "STD_SPA",
+      "category": "SPA",
       "timeSpan": {
         "startTime": "2007-07-19T23:00:00.000-07:00",
         "timeUnits": 1,
@@ -151,6 +152,69 @@
         }
       },
       "numberOfUnits": 2
+    },
+    {
+      "inventoryCode": "DINNER",
+      "rateCode": "MAIN_REST",
+      "category": "FOOD",
+      "timeSpan": {
+        "startTime": "2007-07-19T19:00:00.000-07:00",
+        "timeUnits": 1,
+        "timeUnitType": "HOUR"
+      },
+      "pricePerUnit": {
+        "amountBeforeTax": {
+          "value": 4.99,
+          "currency": "USD"
+        },
+        "taxAmount": {
+          "value": 0.43,
+          "currency": "USD"
+        }
+      },
+      "numberOfUnits": 1
+    },
+    {
+      "inventoryCode": "BELL",
+      "rateCode": "STD_BELL",
+      "category": "LUGGAGE",
+      "timeSpan": {
+        "startTime": "2007-07-19T08:00:00.000-07:00",
+        "timeUnits": 1,
+        "timeUnitType": "HOUR"
+      },
+      "pricePerUnit": {
+        "amountBeforeTax": {
+          "value": 49.99,
+          "currency": "USD"
+        },
+        "taxAmount": {
+          "value": 4.37,
+          "currency": "USD"
+        }
+      },
+      "numberOfUnits": 1
+    },
+    {
+      "inventoryCode": "RESORT",
+      "rateCode": "STD_RESORT",
+      "category": "OTHER",
+      "timeSpan": {
+        "startTime": "2007-07-19T12:00:00.000-07:00",
+        "timeUnits": 1,
+        "timeUnitType": "HOUR"
+      },
+      "pricePerUnit": {
+        "amountBeforeTax": {
+          "value": 11.25,
+          "currency": "USD"
+        },
+        "taxAmount": {
+          "value": 0.98,
+          "currency": "USD"
+        }
+      },
+      "numberOfUnits": 1
     }
   ],
   "profiles": [

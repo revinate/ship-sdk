@@ -309,7 +309,6 @@
       "type": "object",
       "required": [
         "inventoryCode",
-        "rateCode",
         "pricePerUnit",
         "numberOfUnits"
       ],
@@ -321,6 +320,11 @@
         "rateCode": {
           "description": "Rate plan name or rate code of the service",
           "type": "string"
+        },
+        "category": {
+          "description": "Category of the service",
+          "type": "string",
+          "enum": ["FOOD", "SPA", "LUGGAGE", "PARKING", "FEE", "TAX", "OTHER"]
         },
         "timeSpan": {
           "description": "Time period over which the service was rendered",

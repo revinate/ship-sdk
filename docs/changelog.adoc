@@ -38,5 +38,11 @@ Add *guestStays* to *guestStayListResult* object and deprecate *errors* and *war
 
 Add *profileListResult* object.
 
-Add *PMS Defined Fields* and *Property Defined Fields* to the *Profile* object.
+Add *pmsDefinedFields* and *propertyDefinedFields* to the *profile* object.
+
+Change *rateCode* in the *service* object from required to recommended.
+
+Add *category* to the *service* object.
+
+Deprecate *totalFoodAndBeverageRevenue*, *totalLuggageRevenue*, and *totalOtherRevenue* from *guestStay* object.
 |===
