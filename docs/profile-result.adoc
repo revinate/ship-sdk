@@ -7,11 +7,10 @@ A profile result message contains a single <<profileResult object>>.
 A profileResult object is a <<result object>> with additionnal fields to indicate the result of processing a profile message.
 
 .Field of the `profileResult` object
-
 |===
 |Name |Type |Usage |Description |Example
 
-status
+|status
 |string enum: `NEW`, `SUCCESS`, `WARNING`, `FAILED`, `MISSING`, `DELETE`
 |`RECOMMENDED`
 |Status code of the result
