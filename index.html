@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.4">
-<meta name="author" content="v1.3, 2016-12-19">
+<meta name="author" content="v1.4, 2017-06-26">
 <title>Simple Hospitality Interchange Protocol</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -514,7 +514,7 @@ table.CodeRay td.code>pre{padding:0}
 <div id="header">
 <h1>Simple Hospitality Interchange Protocol</h1>
 <div class="details">
-<span id="author" class="author">v1.3, 2016-12-19</span><br>
+<span id="author" class="author">v1.4, 2017-06-26</span><br>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -557,6 +557,7 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_companyinfo_object">1.6.4. companyInfo object</a></li>
 <li><a href="#_guestnote_object">1.6.5. guestNote object</a></li>
 <li><a href="#_userdefinedfield_object">1.6.6. userDefinedField object</a></li>
+<li><a href="#_summary_object">1.6.7. summary object</a></li>
 </ul>
 </li>
 <li><a href="#_result_message">1.7. Result message</a>
@@ -572,7 +573,16 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_guest_stay_list_result_message">1.9. Guest-stay list result message</a>
 <ul class="sectlevel3">
 <li><a href="#_gueststaylistresult_object">1.9.1. guestStayListResult object</a></li>
-<li><a href="#_summary_object">1.9.2. summary object</a></li>
+</ul>
+</li>
+<li><a href="#_profile_result_message">1.10. Profile result message</a>
+<ul class="sectlevel3">
+<li><a href="#_profileresult_object">1.10.1. profileResult object</a></li>
+</ul>
+</li>
+<li><a href="#_profile_list_result_message">1.11. Profile list result message</a>
+<ul class="sectlevel3">
+<li><a href="#_profilelistresult_object">1.11.1. profileListResult object</a></li>
 </ul>
 </li>
 </ul>
@@ -612,6 +622,12 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_guest_stay_list_result_message_with_success_result">2.6.1. Guest-stay list result message with success result</a></li>
 <li><a href="#_guest_stay_list_result_message_with_status_errors_and_warnings_only">2.6.2. Guest-stay list result message with status, errors, and warnings only</a></li>
 <li><a href="#_guest_stay_list_result_message_with_all_possible_fields">2.6.3. Guest-stay list result message with all possible fields</a></li>
+</ul>
+</li>
+<li><a href="#_sample_profile_list_result_messages">2.7. Sample profile list result messages</a>
+<ul class="sectlevel3">
+<li><a href="#_profile_list_result_message_with_success_result">2.7.1. Profile list result message with success result</a></li>
+<li><a href="#_profile_list_result_message_with_all_possible_fields">2.7.2. Profile list result message with all possible fields</a></li>
 </ul>
 </li>
 </ul>
@@ -969,22 +985,22 @@ The <strong>Types</strong> of some of the fields below are listed as <code>strin
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">totalFoodAndBeverageRevenue</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_monetaryamount_object">monetaryAmount object</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUGGESTED</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Food and beverage revenue amount of the stay</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DEPRECATED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Food and beverage revenue amount of the stay. Add a <a href="#_service_object">service object</a> with <strong>category</strong> of <code>"FOOD"</code> instead.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">totalLuggageRevenue</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_monetaryamount_object">monetaryAmount object</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUGGESTED</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Luggage revenue amount of the stay</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DEPRECATED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Luggage revenue amount of the stay. Add a <a href="#_service_object">service object</a> with <strong>category</strong> of <code>"LUGGAGE"</code> instead.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">totalOtherRevenue</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_monetaryamount_object">monetaryAmount object</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUGGESTED</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Total of all revenue amounts excluding room, food, beverage, and luggage, of the stay</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DEPRECATED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total of all revenue amounts excluding room, food, beverage, and luggage, of the stay. Add a <a href="#_service_object">service object</a> with <strong>category</strong> of <code>"OTHER"</code> instead.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
@@ -1245,9 +1261,16 @@ The <strong>Types</strong> of some of the fields below are listed as <code>strin
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">rateCode</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>REQUIRED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>RECOMMENDED</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Rate plan name or rate code of the service</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>"SPA_DLX"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">category</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string enum: <code>FOOD</code>, <code>SPA</code>, <code>LUGGAGE</code>, <code>PARKING</code>, <code>FEE</code>, <code>TAX</code>, <code>OTHER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>RECOMMENDED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Category of the service</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"SPA"</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">timeSpan</p></td>
@@ -1583,6 +1606,20 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 <td class="tableblock halign-left valign-top"><p class="tableblock">array of <a href="#_guestnote_object">guestNote objects</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUGGESTED</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Notes attached to the profile</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pmsDefinedFields</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">array of <a href="#_userdefinedfield_object">userDefinedField objects</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OPTIONAL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PMS-defined fields</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">propertyDefinedFields</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">array of <a href="#_userdefinedfield_object">userDefinedField objects</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OPTIONAL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Property-defined fields</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
@@ -2425,6 +2462,54 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 </tbody>
 </table>
 </div>
+<div class="sect3">
+<h4 id="_summary_object">1.6.7. summary object</h4>
+<div class="paragraph">
+<p>A Summary of the SHIP objects list result.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 22. Fields of the <code>summary</code> object</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Usage</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">successCount</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>REQUIRED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of SHIP objects successfully processed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">errorCount</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>REQUIRED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of SHIP objects that failed to process</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">totalCount</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>REQUIRED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total number of SHIP objects processed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">13</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_result_message">1.7. Result message</h3>
@@ -2437,7 +2522,7 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 <p>A result object contains the result of processing a message or part of a message.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 22. Fields of the <code>result</code> object</caption>
+<caption class="title">Table 23. Fields of the <code>result</code> object</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -2505,7 +2590,7 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 <p>A guestStayResult object is a <a href="#_result_object">result object</a> with additional fields to indicate the result of processing a guest-stay message.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 23. Fields of the <code>guestStayResult</code> object</caption>
+<caption class="title">Table 24. Fields of the <code>guestStayResult</code> object</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -2594,7 +2679,7 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 <p>A guestStayListResult object is a <a href="#_result_object">result object</a> with additional fields to indicate the result of processing a guest-stay list message.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 24. Fields of the <code>guestStayListResult</code> object</caption>
+<caption class="title">Table 25. Fields of the <code>guestStayListResult</code> object</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -2678,13 +2763,19 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 </tbody>
 </table>
 </div>
-<div class="sect3">
-<h4 id="_summary_object">1.9.2. summary object</h4>
+</div>
+<div class="sect2">
+<h3 id="_profile_result_message">1.10. Profile result message</h3>
 <div class="paragraph">
-<p>Summary of the guest-stay list result</p>
+<p>A profile result message contains a single <a href="#_profileresult_object">profileResult object</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="_profileresult_object">1.10.1. profileResult object</h4>
+<div class="paragraph">
+<p>A profileResult object is a <a href="#_result_object">result object</a> with additionnal fields to indicate the result of processing a profile message.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 25. Fields of the <code>summary</code> object</caption>
+<caption class="title">Table 26. Field of the <code>profileResult</code> object</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -2703,25 +2794,156 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">successCount</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">integral number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>REQUIRED</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number of guestStays successfully processed</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string enum: <code>NEW</code>, <code>SUCCESS</code>, <code>WARNING</code>, <code>FAILED</code>, <code>MISSING</code>, <code>DELETE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>RECOMMENDED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status code of the result</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"SUCCESS"</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">errorCount</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">integral number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>REQUIRED</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number of guestStays that failed to process</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUGGESTED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description of the result</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"Transformation to profile failed with multiple causes"</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">totalCount</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">integral number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>REQUIRED</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Total number of guestStays processed</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sourceField</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OPTIONAL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If the incoming message was transformed, this identifies the field of the incoming message to which the result pertains</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"row 0"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sourceValue</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OPTIONAL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If the incoming message was transformed, the original value in the incoming message to which the result pertains</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"CODE123"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">field</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUGGESTED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JSON pointer identifying the SHIP field to which the result pertains</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"profile#"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">profile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_profile_object">profile object</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OPTIONAL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The profile object produced by processing the incoming message. May be invalid, check errors first.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">errors</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">array of <a href="#_result_object">result objects</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUGGESTED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Errors generated by the processing of the guest-stay</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">warnings</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">array of <a href="#_result_object">result objects</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUGGESTED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Warnings generated by the processing of the guest-stay</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_profile_list_result_message">1.11. Profile list result message</h3>
+<div class="paragraph">
+<p>A profile list result message contains a single <a href="#_profilelistresult_object">profileListResult object</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="_profilelistresult_object">1.11.1. profileListResult object</h4>
+<div class="paragraph">
+<p>A profileListResult object is a <a href="#_result_object">result object</a> with additional fields to indicate the result of processing a profile list message.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 27. Fields of the <code>profileListResult</code> object</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Usage</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string enum: <code>NEW</code>, <code>SUCCESS</code>, <code>WARNING</code>, <code>FAILED</code>, <code>MISSING</code>, <code>DELETE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>RECOMMENDED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status code of the result</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"SUCCESS"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUGGESTED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description of the result</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"Some profile transformations failed"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sourceField</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OPTIONAL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If the incoming message was transformed, this identifies the field of the incoming message to which the result pertains</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"table"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sourceValue</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OPTIONAL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If the incoming message was transformed, the original value in the incoming message to which the result pertains</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"CODE123"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">field</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUGGESTED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JSON pointer identifying the SHIP field to which the result pertains</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"profileList#"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">summary</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_summary_object">summary object</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUGGESTED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Summary of the profile list result</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">profiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">array of <a href="#_profileresult_object">profileResult objects</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUGGESTED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Profile results produced by processing the incoming message</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">errors</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">array of <a href="#_result_object">result objects</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DEPRECATED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Errors generated by the processing of the profile list. Deprecated, use <strong>profiles</strong> instead.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">warnings</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">array of <a href="#_result_object">result objects</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DEPRECATED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Warnings generated by the processing of the profile list. Deprecated, use <strong>profiles</strong> instead.</p></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
 </table>
@@ -2956,6 +3178,7 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
     {
       <span class="key"><span class="delimiter">&quot;</span><span class="content">inventoryCode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">SPA</span><span class="delimiter">&quot;</span></span>,
       <span class="key"><span class="delimiter">&quot;</span><span class="content">rateCode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">STD_SPA</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">category</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">SPA</span><span class="delimiter">&quot;</span></span>,
       <span class="key"><span class="delimiter">&quot;</span><span class="content">timeSpan</span><span class="delimiter">&quot;</span></span>: {
         <span class="key"><span class="delimiter">&quot;</span><span class="content">startTime</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2007-07-19T23:00:00.000-07:00</span><span class="delimiter">&quot;</span></span>,
         <span class="key"><span class="delimiter">&quot;</span><span class="content">timeUnits</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>,
@@ -2972,6 +3195,69 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
         }
       },
       <span class="key"><span class="delimiter">&quot;</span><span class="content">numberOfUnits</span><span class="delimiter">&quot;</span></span>: <span class="integer">2</span>
+    },
+    {
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">inventoryCode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">DINNER</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">rateCode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">MAIN_REST</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">category</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">FOOD</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">timeSpan</span><span class="delimiter">&quot;</span></span>: {
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">startTime</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2007-07-19T19:00:00.000-07:00</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">timeUnits</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">timeUnitType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">HOUR</span><span class="delimiter">&quot;</span></span>
+      },
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">pricePerUnit</span><span class="delimiter">&quot;</span></span>: {
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">amountBeforeTax</span><span class="delimiter">&quot;</span></span>: {
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>: <span class="float">4.99</span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">currency</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">USD</span><span class="delimiter">&quot;</span></span>
+        },
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">taxAmount</span><span class="delimiter">&quot;</span></span>: {
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>: <span class="float">0.43</span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">currency</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">USD</span><span class="delimiter">&quot;</span></span>
+        }
+      },
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">numberOfUnits</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>
+    },
+    {
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">inventoryCode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">BELL</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">rateCode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">STD_BELL</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">category</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">LUGGAGE</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">timeSpan</span><span class="delimiter">&quot;</span></span>: {
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">startTime</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2007-07-19T08:00:00.000-07:00</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">timeUnits</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">timeUnitType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">HOUR</span><span class="delimiter">&quot;</span></span>
+      },
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">pricePerUnit</span><span class="delimiter">&quot;</span></span>: {
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">amountBeforeTax</span><span class="delimiter">&quot;</span></span>: {
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>: <span class="float">49.99</span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">currency</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">USD</span><span class="delimiter">&quot;</span></span>
+        },
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">taxAmount</span><span class="delimiter">&quot;</span></span>: {
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>: <span class="float">4.37</span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">currency</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">USD</span><span class="delimiter">&quot;</span></span>
+        }
+      },
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">numberOfUnits</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>
+    },
+    {
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">inventoryCode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">RESORT</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">rateCode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">STD_RESORT</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">category</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">OTHER</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">timeSpan</span><span class="delimiter">&quot;</span></span>: {
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">startTime</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2007-07-19T12:00:00.000-07:00</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">timeUnits</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">timeUnitType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">HOUR</span><span class="delimiter">&quot;</span></span>
+      },
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">pricePerUnit</span><span class="delimiter">&quot;</span></span>: {
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">amountBeforeTax</span><span class="delimiter">&quot;</span></span>: {
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>: <span class="float">11.25</span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">currency</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">USD</span><span class="delimiter">&quot;</span></span>
+        },
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">taxAmount</span><span class="delimiter">&quot;</span></span>: {
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>: <span class="float">0.98</span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">currency</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">USD</span><span class="delimiter">&quot;</span></span>
+        }
+      },
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">numberOfUnits</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>
     }
   ],
   <span class="key"><span class="delimiter">&quot;</span><span class="content">profiles</span><span class="delimiter">&quot;</span></span>: [
@@ -3484,6 +3770,26 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
       <span class="key"><span class="delimiter">&quot;</span><span class="content">type</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">General Notes</span><span class="delimiter">&quot;</span></span>,
       <span class="key"><span class="delimiter">&quot;</span><span class="content">time</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2013-05-02T16:55:57.000-07:00</span><span class="delimiter">&quot;</span></span>
     }
+  ],
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">pmsDefinedFields</span><span class="delimiter">&quot;</span></span>: [
+    {
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">UDF01</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">A</span><span class="delimiter">&quot;</span></span>
+    },
+    {
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">UDF02</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">1</span><span class="delimiter">&quot;</span></span>
+    }
+  ],
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">propertyDefinedFields</span><span class="delimiter">&quot;</span></span>: [
+    {
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">PUDF01</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">A1</span><span class="delimiter">&quot;</span></span>
+    },
+    {
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">PUDF02</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">1.3</span><span class="delimiter">&quot;</span></span>
+    }
   ]
 }</code></pre>
 </div>
@@ -3865,6 +4171,105 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_sample_profile_list_result_messages">2.7. Sample profile list result messages</h3>
+<div class="sect3">
+<h4 id="_profile_list_result_message_with_success_result">2.7.1. Profile list result message with success result</h4>
+<div class="listingblock">
+<div class="title">Listing 12. Profile list result message with success result</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">status</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">SUCCESS</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceField</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">table</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">field</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">profileList#</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">summary</span><span class="delimiter">&quot;</span></span>: {
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">successCount</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">errorCount</span><span class="delimiter">&quot;</span></span>: <span class="integer">0</span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">totalCount</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>
+  },
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">profiles</span><span class="delimiter">&quot;</span></span>: [
+    {
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">status</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">SUCCESS</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceField</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">row 0</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">field</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">profile#</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">profile</span><span class="delimiter">&quot;</span></span>: {
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">action</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">ADD</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">property</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">d5e974f4-41e9-4a33-9290-eed5a6086597</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">interfaceType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">FILE</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">remoteSystemName</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">b30b3a97-5b6d-4199-a35c-fcece539504f</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">profileType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">GUEST</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">firstName</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Mango000001</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">lastName</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Tango000001</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">emailAddresses</span><span class="delimiter">&quot;</span></span>: [
+          {
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">emailAddress</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Mango000001@mailbox.revinate.net</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">primary</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>
+          }
+        ]
+      }
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_profile_list_result_message_with_all_possible_fields">2.7.2. Profile list result message with all possible fields</h4>
+<div class="listingblock">
+<div class="title">Listing 13. Profile list result message with all possible fields</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">status</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">FAILED</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">All profile transformations failed</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceField</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">table</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">field</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">profileList#</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">summary</span><span class="delimiter">&quot;</span></span>: {
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">successCount</span><span class="delimiter">&quot;</span></span>: <span class="integer">0</span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">errorCount</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">totalCount</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>
+  },
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">profiles</span><span class="delimiter">&quot;</span></span>: [
+    {
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">status</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">FAILED</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Transformation to profile failed with multiple causes:</span><span class="char">\n</span><span class="content">    profile#/emailAddresses/0/primary Transformation failed: Could not parse </span><span class="char">\&quot;</span><span class="content">not_a_boolean</span><span class="char">\&quot;</span><span class="char">\n</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceField</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">row 0</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceValue</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="char">\&quot;</span><span class="content">Mango000001</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">Tango000001</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">Mango000001@mailbox.revinate.net</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">not_a_boolean</span><span class="char">\&quot;</span><span class="content">,</span><span class="char">\&quot;</span><span class="content">not_a_gender</span><span class="char">\&quot;</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">field</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">profile#</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">profile</span><span class="delimiter">&quot;</span></span>: {
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">action</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">ADD</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">property</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">d5e974f4-41e9-4a33-9290-eed5a6086597</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">interfaceType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">FILE</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">remoteSystemName</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">b30b3a97-5b6d-4199-a35c-fcece539504f</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">profileType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">GUEST</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">firstName</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Mango000001</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">lastName</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Tango000001</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">emailAddresses</span><span class="delimiter">&quot;</span></span>: []
+      },
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">errors</span><span class="delimiter">&quot;</span></span>: [
+        {
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">status</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">FAILED</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Transformation failed: Could not parse </span><span class="char">\&quot;</span><span class="content">not_a_boolean</span><span class="char">\&quot;</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceField</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">cell 3</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceValue</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">not_a_boolean</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">field</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">profile#/emailAddresses/0/primary</span><span class="delimiter">&quot;</span></span>
+        }
+      ],
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">warnings</span><span class="delimiter">&quot;</span></span>: [
+        {
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">status</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">FAILED</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Transformation failed: </span><span class="char">\&quot;</span><span class="content">not_a_gender</span><span class="char">\&quot;</span><span class="content"> is not a valid Gender</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceField</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">cell 4</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">sourceValue</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">not_a_gender</span><span class="delimiter">&quot;</span></span>,
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">field</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">profile#/gender</span><span class="delimiter">&quot;</span></span>
+        }
+      ]
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -3910,6 +4315,16 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 </p><p class="tableblock">Switch <strong>field</strong> in <strong>result</strong> object from JSON path to JSON pointer.
 </p><p class="tableblock">Add <strong>guestStays</strong> to <strong>guestStayListResult</strong> object and deprecate <strong>errors</strong> and <strong>warnings</strong> from same.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2017-06-26</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add <strong>profileResult</strong> object.
+</p><p class="tableblock">Add <strong>profileListResult</strong> object.
+</p><p class="tableblock">Add <strong>pmsDefinedFields</strong> and <strong>propertyDefinedFields</strong> to the <strong>profile</strong> object.
+</p><p class="tableblock">Change <strong>rateCode</strong> in the <strong>service</strong> object from required to recommended.
+</p><p class="tableblock">Add <strong>category</strong> to the <strong>service</strong> object.
+</p><p class="tableblock">Deprecate <strong>totalFoodAndBeverageRevenue</strong>, <strong>totalLuggageRevenue</strong>, and <strong>totalOtherRevenue</strong> from <strong>guestStay</strong> object.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -3917,7 +4332,7 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-12-18 19:36:00 PST
+Last updated 2017-06-26 09:53:09 PDT
 </div>
 </div>
 </body>
