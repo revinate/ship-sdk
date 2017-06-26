@@ -33,7 +33,7 @@ Switch *field* in *result* object from JSON path to JSON pointer.
 Add *guestStays* to *guestStayListResult* object and deprecate *errors* and *warnings* from same.
 
 |1.4
-|2017-06-13
+|2017-06-26
 |Add *profileResult* object.
 
 Add *profileListResult* object.
