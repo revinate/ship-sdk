@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.4">
-<meta name="author" content="v1.4, 2017-06-26">
+<meta name="author" content="v1.5, 2017-07-21">
 <title>Simple Hospitality Interchange Protocol</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -514,7 +514,7 @@ table.CodeRay td.code>pre{padding:0}
 <div id="header">
 <h1>Simple Hospitality Interchange Protocol</h1>
 <div class="details">
-<span id="author" class="author">v1.4, 2017-06-26</span><br>
+<span id="author" class="author">v1.5, 2017-07-21</span><br>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -767,6 +767,13 @@ The <strong>Types</strong> of some of the fields below are listed as <code>strin
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">remoteSystemName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INTERNAL</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">accountId</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>INTERNAL</code></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -1470,6 +1477,13 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">remoteSystemName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INTERNAL</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">accountId</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>INTERNAL</code></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -3046,6 +3060,7 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
   <span class="key"><span class="delimiter">&quot;</span><span class="content">property</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">AVERTINE</span><span class="delimiter">&quot;</span></span>,
   <span class="key"><span class="delimiter">&quot;</span><span class="content">interfaceType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">SHIP</span><span class="delimiter">&quot;</span></span>,
   <span class="key"><span class="delimiter">&quot;</span><span class="content">remoteSystemName</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">avertine_ship</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">accountId</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">11348172</span><span class="delimiter">&quot;</span></span>,
   <span class="key"><span class="delimiter">&quot;</span><span class="content">confirmationCode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">38001</span><span class="delimiter">&quot;</span></span>,
   <span class="key"><span class="delimiter">&quot;</span><span class="content">statusCode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">RESERVED</span><span class="delimiter">&quot;</span></span>,
   <span class="key"><span class="delimiter">&quot;</span><span class="content">guaranteeCode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">CC</span><span class="delimiter">&quot;</span></span>,
@@ -3266,6 +3281,7 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
       <span class="key"><span class="delimiter">&quot;</span><span class="content">property</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">AVERTINE</span><span class="delimiter">&quot;</span></span>,
       <span class="key"><span class="delimiter">&quot;</span><span class="content">interfaceType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">SHIP</span><span class="delimiter">&quot;</span></span>,
       <span class="key"><span class="delimiter">&quot;</span><span class="content">remoteSystemName</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">avertine_ship</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">accountId</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">11348172</span><span class="delimiter">&quot;</span></span>,
       <span class="key"><span class="delimiter">&quot;</span><span class="content">profileId</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">28002</span><span class="delimiter">&quot;</span></span>,
       <span class="key"><span class="delimiter">&quot;</span><span class="content">profileType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">GUEST</span><span class="delimiter">&quot;</span></span>,
       <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Dr</span><span class="delimiter">&quot;</span></span>,
@@ -3666,6 +3682,7 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
   <span class="key"><span class="delimiter">&quot;</span><span class="content">property</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">AVERTINE</span><span class="delimiter">&quot;</span></span>,
   <span class="key"><span class="delimiter">&quot;</span><span class="content">interfaceType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">SHIP</span><span class="delimiter">&quot;</span></span>,
   <span class="key"><span class="delimiter">&quot;</span><span class="content">remoteSystemName</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">avertine_ship</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">accountId</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">11348172</span><span class="delimiter">&quot;</span></span>,
   <span class="key"><span class="delimiter">&quot;</span><span class="content">profileId</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">28001</span><span class="delimiter">&quot;</span></span>,
   <span class="key"><span class="delimiter">&quot;</span><span class="content">profileType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">GUEST</span><span class="delimiter">&quot;</span></span>,
   <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Mr.</span><span class="delimiter">&quot;</span></span>,
@@ -4325,6 +4342,11 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 </p><p class="tableblock">Add <strong>category</strong> to the <strong>service</strong> object.
 </p><p class="tableblock">Deprecate <strong>totalFoodAndBeverageRevenue</strong>, <strong>totalLuggageRevenue</strong>, and <strong>totalOtherRevenue</strong> from <strong>guestStay</strong> object.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2017-07-21</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add <strong>accountId</strong> to the <strong>guestStay</strong> and <strong>profile</strong> objects.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -4332,7 +4354,7 @@ The <strong>statusCode</strong> after the action should be transmitted in the gu
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-06-26 09:53:09 PDT
+Last updated 2017-07-21 10:49:43 PDT
 </div>
 </div>
 </body>
