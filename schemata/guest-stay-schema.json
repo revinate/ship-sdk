@@ -28,6 +28,9 @@
     "remoteSystemName": {
       "type": "string"
     },
+    "accountId": {
+      "type": "string"
+    },
     "confirmationCode": {
       "description": "ID of the stay",
       "type": "string"

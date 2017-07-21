@@ -34,6 +34,12 @@ A guestStay object represents a past, current, or upcoming stay by a guest or gu
 |
 |
 
+|accountId
+|string
+|`INTERNAL`
+|
+|
+
 |confirmationCode
 |string
 |`REQUIRED`

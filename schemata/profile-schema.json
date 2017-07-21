@@ -25,6 +25,9 @@
     "remoteSystemName": {
       "type": "string"
     },
+    "accountId": {
+      "type": "string"
+    },
     "profileId": {
       "description": "ID of the profile",
       "type": "string"
