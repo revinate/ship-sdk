@@ -49,4 +49,8 @@ Deprecate *totalFoodAndBeverageRevenue*, *totalLuggageRevenue*, and *totalOtherR
 |1.5
 |2017-07-21
 |Add *accountId* to the *guestStay* and *profile* objects.
+
+|1.6
+|2018-06-04
+|Change *lastName* from required to recommended.
 |===

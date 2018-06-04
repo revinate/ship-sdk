@@ -1,5 +1,5 @@
 = Simple Hospitality Interchange Protocol
-v1.5, 2017-07-21
+v1.6, 2018-06-04
 :source-highlighter: coderay
 :sectnums:
 :toc: left

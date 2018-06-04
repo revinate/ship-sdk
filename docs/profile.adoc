@@ -72,7 +72,7 @@ A profile object represents a person or organization that may be associated with
 
 |lastName
 |string
-|`REQUIRED`
+|`RECOMMENDED`
 |Last name of the guest, or name of a non-guest entity
 |`"Smith"`
 

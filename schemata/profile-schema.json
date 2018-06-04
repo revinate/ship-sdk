@@ -6,8 +6,7 @@
   "required": [
     "action",
     "property",
-    "profileType",
-    "lastName"
+    "profileType"
   ],
   "properties": {
     "action": {
